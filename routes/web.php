@@ -37,3 +37,4 @@ Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us
 Route::get('/Cart', [CartController::class, 'index'])->name('Cart');
 Route::get('/checkout', [CartController::class, 'getCartItemsForCheckout'])->name('checkout');
 
+/*------------------ End Website Routes ------------------ */
