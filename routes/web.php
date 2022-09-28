@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ElementsController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +28,13 @@ Route::group([], function () {    //group function for "home" route (same route 
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
+
+/*------------------ Website Routes ------------------ */
+
+Route::get('/elements', [ElementsController::class, 'index'])->name('elements');
+Route::get('/aboute', [AboutController::class, 'index'])->name('about');
+Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us');
+Route::get('/Cart', [CartController::class, 'index'])->name('Cart');
+Route::get('/checkout', [CartController::class, 'getCartItemsForCheckout'])->name('checkout');
+
+/*------------------ End Website Routes ------------------ */
