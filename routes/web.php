@@ -6,6 +6,7 @@ use App\Http\Controllers\ElementsController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,10 @@ Route::group([], function () {    //group function for "home" route (same route 
 /*------------------ Website Routes ------------------ */
 
 Route::get('/elements', [ElementsController::class, 'index'])->name('elements');
-Route::get('/aboute', [AboutController::class, 'index'])->name('about');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us');
 Route::get('/Cart', [CartController::class, 'index'])->name('Cart');
 Route::get('/checkout', [CartController::class, 'getCartItemsForCheckout'])->name('checkout');
+Route::get('/Products', [ProductController::class, 'index'])->name('product');
 
 /*------------------ End Website Routes ------------------ */

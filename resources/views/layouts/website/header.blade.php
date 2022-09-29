@@ -35,12 +35,11 @@
                 <a href="index.html" class="logo menu-absolute m-0">UntreeStore<span class="text-primary">.</span></a>
 
                 <ul class="js-clone-nav pl-0 d-none d-lg-inline-block site-menu">
-                    <li class="active"><a href="shop.html">Home</a></li>
+                    <li class="active"><a href="{{ route('home') }}">Home</a></li>
                     <li class="has-children">
-                        <a href="shop.html">Shop <i class="fa-solid fa-chevron-down"></i></a>
+                        <a href="{{ route('product') }}">Shop <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="#">T-Shirt</a></li>
-                            <li><a href="#">Underware</a></li>
                             <li><a href="#">Clothing</a></li>
                             <li><a href="#">Watches</a></li>
                             <li><a href="#">Shoes</a></li>
