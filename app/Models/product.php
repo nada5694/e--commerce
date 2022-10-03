@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Sanctum\HasApiTokens;
 
-class product extends Model
+class Product extends Model
 {
     use HasFactory , HasApiTokens , SoftDeletes;
 
@@ -20,6 +20,7 @@ class product extends Model
         'sale_price',
         'clothing_type',
         'product_category',
+        'is_accessory'
     ];
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo

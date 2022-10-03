@@ -21,9 +21,10 @@ return new class extends Migration
             $table->string('customer_address')->nullable();
             $table->string('product_name')->nullable();
             $table->string('product_image')->nullable();
-            $table->string('is_accessory')->nullable();
+            $table->strin('is_accessory')->nullable();
             $table->string('clothing_type')->nullable(); //relationship with categories (clothing types of products) table
             $table->enum('product_category',['men','women','kids'])->nullable();
+            $table->enum('clothing_type',['formal','casual','sports wear'])->nullable();
             $table->float('price')->nullable();
             $table->integer('quantity')->nullable();
             // $table->integer('create_user_id');

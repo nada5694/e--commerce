@@ -26,8 +26,19 @@ return new class extends Migration
             $table->date('dob')->nullable();
             $table->enum('user_type',['customer' , 'admin' , 'moderator'])->default('customer'); //NOT NULL
             $table->string('address')->nullable();
+            $table->integer('country_id')->nullable();
+            $table->integer('governorate_id')->nullable();
+            $table->integer('city_id')->nullable();
+            $table->string('whatsapp')->unique()->nullable(); // unique key
+            $table->string('facebook')->unique()->nullable(); // unique key
+            $table->string('instagram')->unique()->nullable(); // unique key
+            // $table->unsignedBigInteger('product_id');
+            // $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('create_user_id')->nullable();
+            $table->integer('update_user_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -39,5 +50,10 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+    }
+
+    public function scopeType($query,$arg)
+    {
+        return $query->where('user_type',$arg);
     }
 };

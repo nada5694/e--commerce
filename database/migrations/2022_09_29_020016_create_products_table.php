@@ -21,8 +21,7 @@ return new class extends Migration
             $table->integer('available_quantity')->nullable();
             $table->decimal('price');
             $table->decimal('sale_price')->nullable(); // temporary nullable!
-            $table->integer('clothing_type')->unsigned()->nullable(); //added clothing_type recently
-            $table->foreign('clothing_type')->references('id')->on('categories'); //added clothing_type recently
+            $table->enum('clothing_type',['formal','casual','sports wear'])->nullable();
             $table->enum('is_accessory',['yes','no']); //this column is only for accessories so it has a null option too!
             // $table->boolean('is_accessory')->default(1)->nullable();
             $table->enum('product_category',['men','women','kids']);
