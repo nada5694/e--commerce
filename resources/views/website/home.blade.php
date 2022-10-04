@@ -137,7 +137,7 @@
                 </div>
             </div> <!-- /.item -->
             @empty
-                noooo dataaa!!!!
+                <div class="btn btn-danger"> No products found! </div>
             @endforelse
 
         </div>
