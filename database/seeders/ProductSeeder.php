@@ -14,7 +14,7 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $product = \App\models\product::create([
+        $product = \App\models\Product::create([
             'name'             => "Dark Jacket",
             'description'      => 'xxxxxxxxxxxxx',
             'image_name'       => 'assets/website/images/products/jacket-1-min.jpg',
@@ -25,7 +25,7 @@ class ProductSeeder extends Seeder
             'is_accessory'     => 'no',
         ]);
 
-        $product = \App\models\product::create([
+        $product = \App\models\Product::create([
             'name'             => "Chino Bottoms",
             'description'      => 'xxxxxxxxxxxxx',
             'image_name'       => 'assets/website/images/products/bottoms-1-min.jpg',
@@ -36,7 +36,7 @@ class ProductSeeder extends Seeder
             'is_accessory'     => 'no',
         ]);
 
-        $product = \App\models\product::create([
+        $product = \App\models\Product::create([
             'name'             => "Brown Shoe",
             'description'      => 'xxxxxxxxxxxxx',
             'image_name'       => 'assets/website/images/products/shoe-1-min.jpg',
