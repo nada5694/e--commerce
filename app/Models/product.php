@@ -20,7 +20,9 @@ class Product extends Model
         'sale_price',
         'clothing_type',
         'product_category',
-        'is_accessory'
+        'is_accessory',
+        'created_at',
+        'is_sale'
     ];
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -23,6 +23,6 @@ class Category extends Model
 
     public function product(): \Illuminate\Database\Eloquent\Relations\hasMeny
     {
-        return $this->hasMeny(product::class);
+        return $this->hasMeny(Product::class);
     }
 }

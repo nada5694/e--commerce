@@ -23,6 +23,7 @@ class ProductSeeder extends Seeder
             // 'clothing_type'    => '2',
             'product_category' => 'men',
             'is_accessory'     => 'no',
+            'is_sale'          => 'yes'
         ]);
 
         $product = \App\models\Product::create([
@@ -41,6 +42,39 @@ class ProductSeeder extends Seeder
             'description'      => 'xxxxxxxxxxxxx',
             'image_name'       => 'assets/website/images/products/shoe-1-min.jpg',
             'price'            => 350,
+            // 'sale_price'       => 300,
+            // 'clothing_type'    => '2',
+            'product_category' => 'men',
+            'is_accessory'     => 'no',
+        ]);
+
+        $product = \App\models\Product::create([
+            'name'             => "Double Knit Sweater",
+            'description'      => 'xxxxxxxxxxxxx',
+            'image_name'       => 'assets/website/images/products/sweater-2-min.jpg',
+            'price'            => 250,
+            // 'sale_price'       => 300,
+            // 'clothing_type'    => '2',
+            'product_category' => 'men',
+            'is_accessory'     => 'no',
+        ]);
+
+        $product = \App\models\Product::create([
+            'name'             => "The Murray",
+            'description'      => 'xxxxxxxxxxxxx',
+            'image_name'       => 'assets/website/images/products/watch-1-min.jpg',
+            'price'            => 550,
+            // 'sale_price'       => 300,
+            // 'clothing_type'    => '2',
+
+            'is_accessory'     => 'yes',
+        ]);
+
+        $product = \App\models\Product::create([
+            'name'             => "The Modern Sock",
+            'description'      => 'xxxxxxxxxxxxx',
+            'image_name'       => 'assets/website/images/products/sock-1-min.jpg',
+            'price'            => 75,
             // 'sale_price'       => 300,
             // 'clothing_type'    => '2',
             'product_category' => 'men',
