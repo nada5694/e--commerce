@@ -23,7 +23,6 @@ class ProductSeeder extends Seeder
             // 'clothing_type'    => '2',
             'product_category' => 'men',
             'is_accessory'     => 'no',
-            'is_sale'          => 'yes'
         ]);
 
         $product = \App\models\Product::create([

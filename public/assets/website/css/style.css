@@ -244,7 +244,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     .menu-icons .three-dots {
       font-size: 20px;
       color: #000000;
-      margin-left: 15px; }
+      margin-right: 15px; }
     /******** End three dots (for large devices) ********/
     @media (max-width: 991.98px) {
       .menu-icons .user-profile {

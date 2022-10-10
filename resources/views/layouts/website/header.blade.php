@@ -32,7 +32,7 @@
 
         <div class="container position-relative">
             <div class="site-navigation text-center dark">
-                <a href="index.html" class="logo menu-absolute m-0">UntreeStore<span class="text-primary">.</span></a>
+                <a href="{{ route('home') }}" class="logo menu-absolute m-0">UntreeStore<span class="text-primary">.</span></a>
 
                 <ul class="js-clone-nav pl-0 d-none d-lg-inline-block site-menu">
                     <li class="active"><a href="{{ route('home') }}">Home</a></li>
@@ -79,6 +79,12 @@
 
                 <div class="menu-icons">
 
+                    @auth
+                        <span class="mr-4" style="color: rgb(114, 111, 111);">{{ auth()->user()->name }}</span>
+                        <span class="mr-4" style="color: rgb(47, 47, 47);">({{ auth()->user()->user_type }})</span>
+                    @endauth
+                    
+
                     <a href="#" class="btn-custom-search" id="btn-search">
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
@@ -92,17 +98,48 @@
                         </svg>
                     </a>
 
-                    <a href="{{ route('Cart') }}" class="cart">
+                    <a href="{{ route('Cart') }}" class="cart mt-5">
                         <span class="item-in-cart">2</span>
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
                         </svg>
                     </a>
 
-                    <a href="javascript:void(0);" class="three-dots">
+                    {{-- <a href="javascript:void(0);" class="three-dots">
                         <svg class="bi bi-Setting" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                             <path d="M64 360c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zm0-160c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zM120 96c0 30.9-25.1 56-56 56S8 126.9 8 96S33.1 40 64 40s56 25.1 56 56z"/></svg>
-                    </a>
+                    </a> --}}
+
+                    <div class="dropdown show" style="display: inline;">
+                        <a class="btn three-dots" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <svg class="bi bi-Setting" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path d="M64 360c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zm0-160c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zM120 96c0 30.9-25.1 56-56 56S8 126.9 8 96S33.1 40 64 40s56 25.1 56 56z"/></svg>
+
+                        </a>
+                      
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        @if(!auth()->user())
+                          <a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                          <a class="dropdown-item" href="{{ route('register') }}">Register</a>
+                        @elseif(auth()->user())
+                            <a class="ml-2" href="{{ route('logout') }}" onclick="event.preventDefault(); document.querySelector('#logout-form').submit();"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        @endif
+                        </div>
+                      </div>
+
+                    {{-- <li class="has-children">
+                        <a href="{{ route('product') }}">Shop <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#">T-Shirt</a></li>
+                            <li><a href="#">Clothing</a></li>
+                            <li><a href="#">Watches</a></li>
+                            <li><a href="#">Shoes</a></li>
+                        </ul>
+                    </li> --}}
+
                     {{-- <ul class="dropdown">
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>
