@@ -240,6 +240,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     font-size: 20px;
     color: #000000;
     margin-right: 20px; }
+
+    /******** Start three dots (settings) ********/
+    .menu-icons .three-dots {
+      font-size: 20px;
+      color: #000000;
+      margin-left: 15px; }
+      /******** End three dots (settings) ********/
+
     @media (max-width: 991.98px) {
       .menu-icons .user-profile {
         margin-right: 100px; } }
@@ -249,9 +257,9 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     @media (max-width: 991.98px) {
       .menu-icons .cart {
         right: 80px; }
-        /* .menu-icons .Setting{
-            margin-left: 22px;
-        } */
+      .menu-icons .three-dots{
+          right: 75px;
+      }
     }
     .menu-icons .cart .item-in-cart {
       position: absolute;
