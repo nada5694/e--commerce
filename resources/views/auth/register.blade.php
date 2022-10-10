@@ -65,6 +65,18 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="user_type" class="col-md-4 col-form-label text-md-end">{{ __('user_type') }}</label>
+                            <div class="col-md-6">
+                                <select name="user_type" class="form-control" required>
+                                    <option value="">Please choose a user type</option>
+                                    <option value="supplier">Customer</option>
+                                    <option value="customer">Supplier</option>
+                                    <option value="customer">Moderator</option>
+                                </select>
+                            </div>
+                        </div>
+
                         {{-- <div class="row mb-3" style="margin-bottom:1%; width: 100%; margin-left:auto; margin-right: auto;">
                             <label>User Type</label>
                             <div class="col-lg-6" style="margin-left: 21.4%;">

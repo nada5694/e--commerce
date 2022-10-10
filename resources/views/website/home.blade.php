@@ -76,11 +76,20 @@
                                     <div class="label new top-right">
                                         <div class='content'>New</div>
                                     </div>
+                                    @if($product->sale_price > 0)
+                                        <div class="label sale top-right second">
+                                            <div class='content'>Sale</div>
+                                        </div>
+                                    @endif
                                     <img src="{{ $product->image_name }}" alt="Image" class="img-fluid">
                                 </a>
                                 <h3 class="title"><a href="javascript:void(0);">{{ $product->name }}</a></h3>
                                 <div class="price">
-                                    <del>{{ $product->price }} EGP</del> &mdash; <span>{{ $product->price - ($product->price * 0.10) }} EGP</span>
+                                    @if($product->sale_price > 0)
+                                        <span ><del >{{ $product->price }} EGP</del> &dash; {{ $product->price - ($product->price * $product->sale_price) }} EGP</span>
+                                    @elseif($product->sale_price <= 0 || $product->sale_price == null || $product->sale_price == "")
+                                        <span >{{ $product->price }} EGP</span>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -145,15 +154,20 @@
                                 <div class='content'>New</div>
                             </div>
                         @endif
-
-                        <div class="label sale top-right second">
-                            <div class='content'>Sale</div>
-                        </div>
+                        @if($product->sale_price > 0)
+                            <div class="label sale top-right second">
+                                <div class='content'>Sale</div>
+                            </div>
+                        @endif
                         <img src="{{ $product->image_name}}" alt="Image" class="img-fluid">
                     </a>
                     <h3 class="title"><a href="javascript:void(0);">{{ $product->name }}</a></h3>
                     <div class="price">
-                        <del>{{ $product->price }} EGP</del> &mdash; <span>{{ $product->price - ($product->price * 0.10) }} EGP</span>
+                        @if($product->sale_price > 0)
+                            <span ><del >{{ $product->price }} EGP</del> &dash; {{ $product->price - ($product->price * $product->sale_price) }} EGP</span>
+                        @elseif($product->sale_price <= 0 || $product->sale_price == null || $product->sale_price == "")
+                            <span >{{ $product->price }} EGP</span>
+                        @endif
                     </div>
                 </div>
             </div> <!-- /.item -->

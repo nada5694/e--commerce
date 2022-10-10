@@ -68,7 +68,7 @@ a.text-primary {
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   font-family: "Playfair Display", serif;
-  color: #black; }
+  color: #000000; }
 
 .btn {
   padding-top: 15px;
@@ -248,20 +248,27 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     font-size: 20px; }
     @media (max-width: 991.98px) {
       .menu-icons .cart {
-        right: 80px; } }
+        right: 80px; }
+        /* .menu-icons .Setting{
+            margin-left: 22px;
+        } */
+    }
     .menu-icons .cart .item-in-cart {
       position: absolute;
       font-size: 10px;
       line-height: 20px;
       width: 20px;
       height: 20px;
-      right: -18px;
+      right: -12px;
       top: -2px;
       border-radius: 50%;
       background: #000000; }
     .menu-icons .cart:hover {
       color: #ffffff; }
 
+.menu-icons .Setting{
+    margin-left: 22px;
+}
 .btn-custom-search {
   color: #000000; }
 
@@ -827,6 +834,24 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 .position-relative {
   position: relative; }
 
+  /* Login Page */
+
+.card-body form .login button{
+    padding: 3%;
+}
+.card-body form .Social .btn-facebook{
+    background-color: #2A426F;
+    color: snow; width:
+    65%; margin-right: auto;
+    border-radius:6px
+}
+.card-body form .Social a{
+    background-color: #DC4A38;
+    color: snow;
+    width: 65%;
+    margin-right: auto;
+    border-radius:6px
+}
 .feature {
   text-align: center;
   background: #ffffff;
@@ -872,13 +897,20 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
       -webkit-transform: scale(1.05);
       -ms-transform: scale(1.05);
       transform: scale(1.05); }
-  .product-item h3 {
+    .product-item h3 {
     font-size: 15px;
     margin-bottom: 0; }
     .product-item h3 a {
-      color: #000000; }
-  .product-item .price {
+      color: #000000;
+      font-size: 19px; }
+    .product-item .price {
     font-size: 13px; }
+    .product-item .price del {
+        color: rgb(104, 103, 103);
+        font-size: 12px; }
+    .product-item .price span{
+        font-size: 18px;
+    }
 
 .deal-hero {
   background-size: cover;

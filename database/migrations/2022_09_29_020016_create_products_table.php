@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('image_name');
             $table->integer('available_quantity')->nullable();
             $table->decimal('price');
-            $table->decimal('sale_price')->nullable(); // temporary nullable!
+            $table->decimal('sale_price')->default(0)->nullable(); // temporary nullable!
             $table->enum('clothing_type',['formal','casual','sports wear'])->nullable();
             $table->enum('is_accessory',['yes','no']); //this column is only for accessories so it has a null option too!
             $table->enum('is_sale',['yes','no']);

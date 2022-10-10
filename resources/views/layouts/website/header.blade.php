@@ -99,7 +99,21 @@
                         </svg>
                     </a>
 
+                    <a href="javascript:void(0);">
+                        <svg class="Setting" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path d="M64 360c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zm0-160c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zM120 96c0 30.9-25.1 56-56 56S8 126.9 8 96S33.1 40 64 40s56 25.1 56 56z"/></svg>
+                    </a>
+                    {{-- <ul class="dropdown">
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li><a href="{{ route('register') }}">Register</a></li>
+                    </ul> --}}
+
+                        {{-- <a href="{{ route('register') }}"><i class="fa-regular fa-address-card" style="font-size: 70%; "></i>&nbsp;&nbsp;Register</span></a>
+                        <a href="{{ route('login') }}"><i class="fa-solid fa-right-to-bracket" style="font-size: 70%; "></i>&nbsp;&nbsp;&nbsp;Login</a> --}}
+
+
                 </div>
+
 
                 <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
                     <span></span>
