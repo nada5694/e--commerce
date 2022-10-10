@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('password'); //NOT NULL
             $table->enum('gender', ['male' , 'female' , 'undetermined'])->nullable();
             $table->date('dob')->nullable();
-            $table->enum('user_type',['customer' , 'admin' , 'moderator'])->default('customer'); //NOT NULL
+            $table->enum('user_type',['customer' , 'vendor' , 'moderator' , 'admin'])->default('customer'); //NOT NULL
             $table->string('address')->nullable();
             $table->integer('country_id')->nullable();
             $table->integer('governorate_id')->nullable();

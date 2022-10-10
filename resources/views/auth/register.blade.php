@@ -70,9 +70,8 @@
                             <div class="col-md-6">
                                 <select name="user_type" class="form-control" required>
                                     <option value="">Please choose a user type</option>
-                                    <option value="supplier">Customer</option>
-                                    <option value="customer">Supplier</option>
-                                    <option value="customer">Moderator</option>
+                                    <option value="customer">Customer</option>
+                                    <option value="vendor">Vendor</option>
                                 </select>
                             </div>
                         </div>
