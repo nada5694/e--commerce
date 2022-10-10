@@ -132,7 +132,7 @@
                     </a>
                     <h3 class="title"><a href="javascript:void(0);">{{ $product->name }}</a></h3>
                     <div class="price">
-                        <del>{{ $product->price }} EGP</del> &mdash; <span>{{ $product->price - ($product->price * 0.10) }} EGP</span>
+                        <del>{{ $product->price }} EGP</del> &mdash; <span>{{ $product->price - ($product->price * 0.10); }} EGP</span>
                     </div>
                 </div>
             </div> <!-- /.item -->
