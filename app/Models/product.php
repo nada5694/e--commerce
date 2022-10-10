@@ -22,7 +22,7 @@ class Product extends Model
         'product_category',
         'is_accessory',
         'created_at',
-        'is_sale'
+        // 'is_sale',
     ];
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
