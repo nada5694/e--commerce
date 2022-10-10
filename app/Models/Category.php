@@ -21,8 +21,8 @@ class Category extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function product(): \Illuminate\Database\Eloquent\Relations\hasMeny
+    public function product(): \Illuminate\Database\Eloquent\Relations\hasMany
     {
-        return $this->hasMeny(Product::class);
+        return $this->hasMany(Product::class);
     }
 }
