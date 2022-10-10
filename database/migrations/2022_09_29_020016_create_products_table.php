@@ -23,6 +23,7 @@ return new class extends Migration
             $table->decimal('sale_price')->nullable(); // temporary nullable!
             $table->enum('clothing_type',['formal','casual','sports wear'])->nullable();
             $table->enum('is_accessory',['yes','no']); //this column is only for accessories so it has a null option too!
+            $table->enum('is_sale',['yes','no']);
             // $table->boolean('is_accessory')->default(1)->nullable();
             $table->enum('product_category',['men','women','kids']);
             // $table->unsignedBigInteger('cart_id');

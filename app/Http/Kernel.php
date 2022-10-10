@@ -63,5 +63,44 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        /*----------------------start laravel permissions middleware -------------------*/
+
+        'role'               => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'permission'         => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+        'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+
+        /*----------------------end laravel permissions middleware -------------------*/
+
+
+        /*----------------------start admin, moderator & supplier user types middleware for dashboard -------------------*/
+
+        'dashboard' => \App\Http\Middleware\Dashboard::class,
+
+        /*----------------------end admin, moderator & supplier user types middleware for dashboard -------------------*/
+
+
+        /*----------------------start guest cart page - already logged in as a customer middleware -------------------*/
+
+        'Cart_already_logged_in_as_a_customer' => \App\Http\Middleware\CartAlreadyLoggedIn::class,
+
+        /*----------------------end guest cart page - already logged in as a customer middleware -------------------*/
+
+
+        /*----------------------**************************************************************** -------------------*/
+
+        'Unregistered_users' => \App\Http\Middleware\UnregisteredUsers::class,
+
+        /*----------------------**************************************************************** -------------------*/
+        
+
+        /*----------------------**************************************************************** -------------------*/
+
+        'Only_customers' => \App\Http\Middleware\OnlyCustomers::class,
+
+        /*----------------------**************************************************************** -------------------*/
+
+
+
     ];
 }
