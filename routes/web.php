@@ -41,7 +41,14 @@ Route::get('/shop', [ProductController::class, 'index'])->name('product');
 
 /*------------------ End Website Routes ------------------ */
 
-/*------------------  products Routes ------------------ */
+/*------------------ Forgot Password Route ------------------ */
+Route::get('/Forget-Password', [ForgotPasswordController::class, 'index'])->name('forget-password');
+/*------------------ End Forgot Password Route ------------------ */
+
+/*------------------ Verification Route ------------------ */
+Route::get('/Verification', [VerificationController::class, 'index'])->name('verification');
+
+/*------------------ Carts Route ------------------ */
+Route::get('/addCart/{id}', [CartController::class, 'addCart']);
 
 
-/*------------------ End Website Routes ------------------ */

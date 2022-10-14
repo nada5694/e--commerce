@@ -230,21 +230,24 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 
 .menu-icons {
   position: absolute;
-  right: 0;
+  right: 5%;
   top: 0; }
   .menu-icons .btn-custom-search {
     font-size: 16px;
     color: #000000;
-    margin-right: 20px; }
+    /* margin-right: 13px; */
+    }
   .menu-icons .user-profile {
     font-size: 20px;
     color: #000000;
-    margin-right: 20px; }
+    /* margin-right: 13px; */
+    }
     /******** Start three dots (for large devices) ********/
     .menu-icons .three-dots {
-      font-size: 20px;
+      font-size: 18px;
       color: #000000;
-      margin-right: 15px; }
+      /* margin-right: 10px; */
+    }
     /******** End three dots (for large devices) ********/
     @media (max-width: 991.98px) {
       .menu-icons .user-profile {
@@ -263,20 +266,17 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     }
     .menu-icons .cart .item-in-cart {
       position: absolute;
-      font-size: 10px;
+      font-size: 15px;
       line-height: 20px;
       width: 20px;
       height: 20px;
-      right: -12px;
-      top: -2px;
+      right: -1px;
+      /* top: -2px; */
       border-radius: 50%;
       background: #000000; }
     .menu-icons .cart:hover {
       color: #ffffff; }
 
-.menu-icons .Setting{
-    /* margin-left: 22px; */
-}
 .btn-custom-search {
   color: #000000; }
 
@@ -329,7 +329,27 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     padding: 0;
     font-size: 24px; }
   .site-nav .site-navigation {
-    position: relative; }
+    position: relative;
+    margin-bottom: 0;}
+
+.site-nav .site-navigation .right-menu{
+    text-align: right !important;
+    /* font-size: 16px; */
+    margin-bottom: 0;
+    position: absolute;
+    right: 1%;
+
+}
+.site-nav .site-navigation .right-menu > li {
+    display: inline-block;
+}
+.site-nav .site-navigation .right-menu > li > a {
+    text-decoration: none !important;
+    display: inline-block;
+    padding: 10px 15px;
+}
+
+
     .site-nav .site-navigation .site-menu {
       margin-bottom: 0; }
       .site-nav .site-navigation .site-menu > li {
@@ -841,6 +861,21 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 
 .position-relative {
   position: relative; }
+
+    /* addToCart_Form */
+.input-group .form_control{
+    position: relative;
+    width: 20%;
+    min-width: 0;
+    margin-bottom: 0;
+    padding-left: 10px;
+
+}
+.input-group .form-control{
+    padding-top: 11px;
+}
+
+    /* End-addToCart_Form */
 
   /* Login Page */
 

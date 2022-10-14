@@ -50,7 +50,7 @@ Products
                             <div class="product-item">
                                 <a href="shop-single.html" class="product-img">
                                     @php $data = Carbon\Carbon::parse($product->created_at)->diffInDays(Carbon\Carbon::now()); @endphp
-                                    @if($data <= 10) <!---------- in weeks ---------->
+                                    @if($data <= 1) <!---------- in weeks ---------->
                                         <div class="label new top-right">
                                             <div class='content'>New</div>
                                         </div>
@@ -70,6 +70,7 @@ Products
                                         <span >{{ $product->price }} EGP</span>
                                     @endif
                                 </div>
+                                @include('layouts.website.add_to_cart_form')
                             </div>
                         </div>
                     </div> <!-- /.item -->

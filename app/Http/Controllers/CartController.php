@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Cart;
 
 class CartController extends Controller
 {
@@ -14,6 +17,16 @@ class CartController extends Controller
     public function index()
     {
         return view('website.website.cart.cart');
+    }
+
+    public function cart_register()
+    {
+        $cartItems                  = Cart::where('customer_id',auth()->user()->id)->get();
+        $cartItems_count            = Cart::where('customer_id',auth()->user()->id)->count();
+        $cartItems_discounts_true   = Cart::where('customer_id',auth()->user()->id)->where('discount','>','0');
+        $cartItems_discounts_false  = Cart::where('customer_id',auth()->user()->id)
+        ->where('discount','<=','0')
+        ->orWhere('discount','=',null);
     }
 
     /**

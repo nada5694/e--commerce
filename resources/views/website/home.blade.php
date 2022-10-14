@@ -91,6 +91,7 @@
                                         <span >{{ $product->price }} EGP</span>
                                     @endif
                                 </div>
+                                @include('layouts.website.add_to_cart_form')
                             </div>
                         </div>
                     </div>
@@ -169,6 +170,7 @@
                             <span >{{ $product->price }} EGP</span>
                         @endif
                     </div>
+                    @include('layouts.website.add_to_cart_form')
                 </div>
             </div> <!-- /.item -->
             @empty
