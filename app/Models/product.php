@@ -17,7 +17,7 @@ class Product extends Model
         'image_name',
         'available_quantity',
         'price',
-        'sale_price',
+        'discount',
         'clothing_type',
         'product_category',
         'is_accessory',

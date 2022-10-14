@@ -31,24 +31,24 @@ Route::group([], function () {    //group function for "home" route (same route 
 });
 
 /*------------------ Website Routes ------------------ */
-
 Route::get('/elements', [ElementsController::class, 'index'])->name('elements');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us');
 Route::get('/Cart', [CartController::class, 'index'])->name('Cart');
 Route::get('/checkout', [CartController::class, 'getCartItemsForCheckout'])->name('checkout');
 Route::get('/shop', [ProductController::class, 'index'])->name('product');
-
 /*------------------ End Website Routes ------------------ */
 
-/*------------------ Forgot Password Route ------------------ */
+/*------------------ Start Forgot Password Route ------------------ */
 Route::get('/Forget-Password', [ForgotPasswordController::class, 'index'])->name('forget-password');
 /*------------------ End Forgot Password Route ------------------ */
 
-/*------------------ Verification Route ------------------ */
+/*------------------ Start Verification Route ------------------ */
 Route::get('/Verification', [VerificationController::class, 'index'])->name('verification');
+/*------------------ End Verification Route ------------------ */
 
-/*------------------ Carts Route ------------------ */
-Route::get('/addCart/{id}', [CartController::class, 'addCart']);
+/*------------------ Start Carts Route ------------------ */
+Route::post('/add-to-cart/{id}', [CartController::class, 'addCart']);
+/*------------------ End Carts Route ------------------ */
 
 

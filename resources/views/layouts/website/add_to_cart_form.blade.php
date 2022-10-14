@@ -1,4 +1,4 @@
-<form action="{{ url('addCart' , $product->id) }}" method="post" style="margin-top: 2%; margin-bottom: 3%;">
+<form action="{{ url('add-to-cart' , $product->id) }}" method="post" style="margin-top: 2%; margin-bottom: 3%;">
     @csrf
     <div class="input-group">
         <!-- declaration for first field -->
