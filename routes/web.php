@@ -48,7 +48,7 @@ Route::get('/Verification', [VerificationController::class, 'index'])->name('ver
 /*------------------ End Verification Route ------------------ */
 
 /*------------------ Start Carts Route ------------------ */
-Route::post('/add-to-cart/{id}', [CartController::class, 'addCart']);
+Route::post('/add_to_cart/{id}', [CartController::class, 'add_to_cart']);
 /*------------------ End Carts Route ------------------ */
 
 
