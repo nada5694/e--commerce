@@ -31,7 +31,7 @@ class CartController extends Controller
 
     public function add_to_cart(Request $request , $id)
     {
-        if (Auth::id()) {
+        if(Auth::id()){
             $user                   = auth()->user();
             $product                = Product::fine($id);
             $cart                   = new Cart;
@@ -46,8 +46,11 @@ class CartController extends Controller
             $cart->product_category = $product->product_category;
             $cart->price            = $product->price;
             $cart->discount         = $product->discount;
+    
+                // return redirect()->back()->with('addCart_message' , '"'.$product->name.'" [Quantity: '.$cart->quantity.'] - added successfully to your cart!');
 
-        };
+        }
+
 
         if ($request->quantity > 0){
             $cart->quantity      = $request->quantity;
@@ -65,6 +68,7 @@ class CartController extends Controller
             $cart->save();
 
             return redirect()->back()->with('addCart_message' , '"'.$product->name.'" [Quantity: '.$cart->quantity.'] - added successfully to your cart!');
+
     }
     /**
      * Show the form for creating a new resource.
