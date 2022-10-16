@@ -14,12 +14,12 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('website.website.cart.cart');
-    }
+    // public function index()
+    // {
+    //     return view('website.website.cart.cart');
+    // }
 
-    public function cart_register()
+    public function index()
     {
         $cartItems                  = Cart::where('customer_id',auth()->user()->id)->get();
         $cartItems_count            = Cart::where('customer_id',auth()->user()->id)->count();
@@ -27,13 +27,15 @@ class CartController extends Controller
         $cartItems_discounts_false  = Cart::where('customer_id',auth()->user()->id)
         ->where('discount','<=','0')
         ->orWhere('discount','=',null);
+
+        return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count'));
     }
 
     public function add_to_cart(Request $request , $id)
     {
         if(Auth::id()){
             $user                   = auth()->user();
-            $product                = Product::fine($id);
+            $product                = Product::find($id);
             $cart                   = new Cart;
             $cart->customer_name    = $user->name;
             $cart->customer_phone   = $user->phone;
@@ -46,28 +48,26 @@ class CartController extends Controller
             $cart->product_category = $product->product_category;
             $cart->price            = $product->price;
             $cart->discount         = $product->discount;
-    
-                // return redirect()->back()->with('addCart_message' , '"'.$product->name.'" [Quantity: '.$cart->quantity.'] - added successfully to your cart!');
-
-        }
 
 
-        if ($request->quantity > 0){
-            $cart->quantity      = $request->quantity;
-        }
-        elseif ($request->quantity == null || $request->quantity == "") {
-            return redirect()->back()->with('quantity_is_null_message' , 'The quantity value is empty! Please enter a quantity for the "'.$cart->product_name.'" product!');
-        }
-        elseif($request->quantity == 0){ // wrong condition (2): quantity is equals to "zero" value
-            return redirect()->back()->with('quantity_is_zero_message' , 'You entered ['.$request->quantity.'] value for the quantity for "'.$cart->product_name.'" product. You can not enter [zero] value for the quantity for any product!');
-        }
-        elseif($request->quantity < 0){ // wrong condition (3): quantity is equals to "negative" value
-            return redirect()->back()->with('quantity_is_negative_message' , 'You entered ['.$request->quantity.'] value for the quantity. The entered value for the quantity for "'.$cart->product_name.'" product is in negative!');
-        }
-        $cart->customer_id      = $user->id;
+            if ($request->quantity > 0){
+                $cart->quantity      = $request->quantity;
+            }
+            elseif ($request->quantity == null || $request->quantity == "") {
+                return redirect()->back()->with('quantity_is_null_message' , 'The quantity value is empty! Please enter a quantity for the "'.$cart->product_name.'" product!');
+            }
+            elseif($request->quantity == 0){ // wrong condition (2): quantity is equals to "zero" value
+                return redirect()->back()->with('quantity_is_zero_message' , 'You entered ['.$request->quantity.'] value for the quantity for "'.$cart->product_name.'" product. You can not enter [zero] value for the quantity for any product!');
+            }
+            elseif($request->quantity < 0){ // wrong condition (3): quantity is equals to "negative" value
+                return redirect()->back()->with('quantity_is_negative_message' , 'You entered ['.$request->quantity.'] value for the quantity. The entered value for the quantity for "'.$cart->product_name.'" product is in negative!');
+            }
+            $cart->customer_id      = $user->id;
             $cart->save();
 
-            return redirect()->back()->with('addCart_message' , '"'.$product->name.'" [Quantity: '.$cart->quantity.'] - added successfully to your cart!');
+            return redirect()->back()->with('add_to_cart_message' , '"'.$product->name.'" [Quantity: '.$cart->quantity.'] - added successfully to your cart!');
+
+        }
 
     }
     /**
