@@ -92,13 +92,24 @@ class Kernel extends HttpKernel
         'Unregistered_users' => \App\Http\Middleware\UnregisteredUsers::class,
 
         /*----------------------**************************************************************** -------------------*/
-        
+
+        'only_guests' => \App\Http\Middleware\onlyGuests::class,
 
         /*----------------------**************************************************************** -------------------*/
 
         'Only_customers' => \App\Http\Middleware\OnlyCustomers::class,
 
         /*----------------------**************************************************************** -------------------*/
+
+        'only_customers_and_suppliers' => \App\Http\Middleware\onlyCustomersAndSuppliers::class,
+
+        /*----------------------**************************************************************** -------------------*/
+
+        'only_admins_and_moderators' => \App\Http\Middleware\onlyAdminsAndModerators::class,
+
+        /*----------------------**************************************************************** -------------------*/
+
+
 
 
 

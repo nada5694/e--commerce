@@ -16,8 +16,8 @@
                         <tr>
                         <th class="product-thumbnail">Image</th>
                         <th class="product-name">Product</th>
-                        <th class="product-price">Price</th>
                         <th class="product-quantity">Quantity</th>
+                        <th class="product-price">Price</th>
                         <th class="product-total">Total</th>
                         <th class="product-remove">
                             @if($cartItems_count == 1 )
@@ -32,38 +32,40 @@
                     <tbody>
                         <tr>
 
-                            <td class="product-thumbnail">
+                            <td class="product-thumbnail" style="width: 16%;">
                                 <img src="{{$cartItem->product_image}}" alt="{{$cartItem->product_name}}" class="img-fluid"></td>
-                        <td class="product-name">{{ $cartItem->product_name ?? 'Not Found' }}</td>
-                        @if($cartItem->discount > 0)
-                            <td style="width: 9%;">
-                                <del style="color: red;">{{ $cartItem->price }} EGP</del><br>
-                                <span style="color: green;">{{ $cartItem->price - ($cartItem->price * $cartItem->discount) }} EGP</span>
-                            </td>
-                        @elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItem->discount == "")
-                            <td style="width: 18%;">{{ $cartItem->price }} EGP</td>
-                        @endif
-                        <td>
+                        <td class="product-name" style="width: 16%;">{{ $cartItem->product_name ?? 'Not Found' }}</td>
+                        <td style="width: 16%;">
                             <form action="{{ url('update-cart-items-quantity' , $cartItem->id) }}" method="POST" id="alert-form">
                                 @csrf
                                     <input type="number" class="quantity_value" name="quantity_value" value="{{ $cartItem->quantity }}" style="width: 30%;">
                             </form>
                         </td>
                         @if($cartItem->discount > 0)
-                            <td class="total_price_cell" style="width: 9%;">
+                            <td style="width: 16%;">
+                                <del style="color: red;">{{ $cartItem->price }} EGP</del><br>
+                                <span style="color: green;">{{ $cartItem->price - ($cartItem->price * $cartItem->discount) }} EGP</span>
+                            </td>
+                        @elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItem->discount == "")
+                            <td style="width: 16%;">{{ $cartItem->price }} EGP</td>
+                        @endif
+
+                        @if($cartItem->discount > 0)
+                            <td class="total_price_cell" style="width: 16%;">
                                 <del style="color: red;">{{ $cartItem->quantity * $cartItem->price }} EGP</del><br>
                                 <span style="color: green;">{{ ($cartItem->quantity) * ($cartItem->price - ($cartItem->price * $cartItem->discount)) }} EGP</span>
                             </td>
                         @elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItem->discount == "")
-                            <td class="total_price_cell" style="width: 18%;">{{ $cartItem->quantity * $cartItem->price }} EGP</td>
+                            <td class="total_price_cell" style="width: 16%;">{{ $cartItem->quantity * $cartItem->price }} EGP</td>
                         @endif
+
                         <td>
-                            {{-- {!! Form::open([
-                                'route'  => ['carts.destroy',$cartItem->id],
+                            {!! Form::open([
+                                'route' => ['carts.destroy',$cartItem->id],
                                 'method' => 'delete'
-                            ]) !!} --}}
+                            ])!!}
                             <button class="btn btn-danger btn-sm" onclick="return confirm('{{__('Are you sure that you want to remove the ['.$cartItem->product_name.'] item(s) from your cart?')}}');" type="submit" title="{{__('Remove all')." [$cartItem->product_name] item(s)"}}"><i class="fa-solid fa-trash"></i>&nbsp;&nbsp;Remove</button>
-                            {{-- {!! Form::close() !!} --}}
+                            {!! Form::close() !!}
                         </td>
                         </tr>
 

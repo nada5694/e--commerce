@@ -31,6 +31,11 @@ class CartController extends Controller
         return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count'));
     }
 
+    public function cart_unregistered()
+    {
+        return view('website.website.cart.cart_unregistered');
+    }
+
     public function add_to_cart(Request $request , $id)
     {
         if(Auth::id()){
@@ -131,9 +136,14 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy_for_cart($id)
     {
-        //
+        $cartItem = Cart::findOrFail($id);
+        $cartItem->forceDelete();
+
+        return redirect()->route('Cart')
+            ->with(['cart_item_deleted_message' => '"'.$cartItem->product_name.'" product is successfully deleted from your cart!']);
+
     }
 
     public function getCartItemsForCheckout()

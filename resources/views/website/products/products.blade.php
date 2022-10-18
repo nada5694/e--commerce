@@ -55,7 +55,7 @@ Products
                                             <div class='content'>New</div>
                                         </div>
                                     @endif
-                                    @if($product->sale_price > 0)
+                                    @if($product->discount > 0)
                                         <div class="label sale top-right second">
                                             <div class='content'>Sale</div>
                                         </div>
@@ -64,9 +64,9 @@ Products
                                 </a>
                                 <h3 class="title"><a href="javascript:void(0);">{{ $product->name }}</a></h3>
                                 <div class="price">
-                                    @if($product->sale_price > 0)
-                                        <span ><del >{{ $product->price }} EGP</del> &dash; {{ $product->price - ($product->price * $product->sale_price) }} EGP</span>
-                                    @elseif($product->sale_price <= 0 || $product->sale_price == null || $product->sale_price == "")
+                                    @if($product->discount > 0)
+                                        <span ><del >{{ $product->price }} EGP</del> &dash; {{ $product->price - ($product->price * $product->discount) }} EGP</span>
+                                    @elseif($product->discount <= 0 || $product->discount == null || $product->discount == "")
                                         <span >{{ $product->price }} EGP</span>
                                     @endif
                                 </div>
@@ -149,7 +149,7 @@ Products
                                             <div class='content'>New</div>
                                         </div>
                                     @endif
-                                    @if($product->sale_price > 0)
+                                    @if($product->discount > 0)
                                         <div class="label sale top-right second">
                                             <div class='content'>Sale</div>
                                         </div>
@@ -158,9 +158,9 @@ Products
                                 </a>
                                 <h3 class="title"><a href="javascript:void(0);">{{ $product->name }}</a></h3>
                                 <div class="price">
-                                    @if($product->sale_price > 0)
-                                        <span ><del >{{ $product->price }} EGP</del> &dash; {{ $product->price - ($product->price * $product->sale_price) }} EGP</span>
-                                    @elseif($product->sale_price <= 0 || $product->sale_price == null || $product->sale_price == "")
+                                    @if($product->discount > 0)
+                                        <span ><del >{{ $product->price }} EGP</del> &dash; {{ $product->price - ($product->price * $product->discount) }} EGP</span>
+                                    @elseif($product->discount <= 0 || $product->discount == null || $product->discount == "")
                                         <span >{{ $product->price }} EGP</span>
                                     @endif
                                 </div>

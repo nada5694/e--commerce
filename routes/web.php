@@ -34,7 +34,6 @@ Route::group([], function () {    //group function for "home" route (same route 
 Route::get('/elements', [ElementsController::class, 'index'])->name('elements');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us');
-Route::get('/Cart', [CartController::class, 'index'])->name('Cart');
 Route::get('/checkout', [CartController::class, 'getCartItemsForCheckout'])->name('checkout');
 Route::get('/shop', [ProductController::class, 'index'])->name('product');
 /*------------------ End Website Routes ------------------ */
@@ -48,7 +47,18 @@ Route::get('/Verification', [VerificationController::class, 'index'])->name('ver
 /*------------------ End Verification Route ------------------ */
 
 /*------------------ Start Carts Route ------------------ */
+Route::middleware(['auth', 'Only_customers'])->group(function () {
+    Route::get('/Cart', [CartController::class, 'index'])->name('Cart');
+    Route::delete('/cart/{id}', [CartController::class, 'destroy_for_cart'])->name('carts.destroy');
+});
+Route::group([
+    'middleware' => ['only_customers_and_suppliers', 'Cart_already_logged_in_as_a_customer'] // more than one middleware for the one or more route
+], function () {
+    Route::get('/cart-guest', [CartController::class , 'cart_unregistered'])->name('cart-unregistered'); //will open a page that tells the guests to login for accessing the cart page (from the URL)
+});
 Route::post('/add_to_cart/{id}', [CartController::class, 'add_to_cart'])->name('add-to-cart');
+Route::post('/update-cart-items-quantity/{id}', [CartController::class, 'update_cart_items_quantity']);
 /*------------------ End Carts Route ------------------ */
 
 
+Route::get('/search' , [ProductController::class, 'search'])->name('search');
