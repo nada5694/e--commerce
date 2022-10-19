@@ -73,11 +73,11 @@ class Kernel extends HttpKernel
         /*----------------------end laravel permissions middleware -------------------*/
 
 
-        /*----------------------start admin, moderator & supplier user types middleware for dashboard -------------------*/
+        /*----------------------start admin, moderator & vendor user types middleware for dashboard -------------------*/
 
         'Dashboard' => \App\Http\Middleware\Dashboard::class,
 
-        /*----------------------end admin, moderator & supplier user types middleware for dashboard -------------------*/
+        /*----------------------end admin, moderator & vendor user types middleware for dashboard -------------------*/
 
 
         /*----------------------start guest cart page - already logged in as a customer middleware -------------------*/

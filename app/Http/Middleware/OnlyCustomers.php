@@ -17,7 +17,7 @@ class OnlyCustomers
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Auth()->user() || Auth()->user()->user_type == "admin" || Auth()->user()->user_type == "moderator" || auth()->user()->user_type == "supplier")
+        if(!Auth()->user() || Auth()->user()->user_type == "admin" || Auth()->user()->user_type == "moderator" || auth()->user()->user_type == "vendor")
         {
             return redirect()->route('home');
         }
