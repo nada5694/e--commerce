@@ -1,5 +1,6 @@
 <?php
 
+/*----------------------------- Start Website Controllers usage -----------------------------*/
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ElementsController;
@@ -7,6 +8,14 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+
+/*----------------------------- Start Dashboard Controllers usage -----------------------------*/
+use App\Http\Controllers\Admin\DashboardHomeController;
+use App\Http\Controllers\Admin\DashboardProductController;
+use App\Http\Controllers\Admin\DashboardCategoryController;
+use App\Http\Controllers\Admin\DashboardCartController;
+use App\Http\Controllers\Admin\DashboardProfileController;
+/*----------------------------- End Dashboard Controllers usage -----------------------------*/
 
 /*
 |--------------------------------------------------------------------------
@@ -60,5 +69,16 @@ Route::post('/add_to_cart/{id}', [CartController::class, 'add_to_cart'])->name('
 Route::post('/update-cart-items-quantity/{id}', [CartController::class, 'update_cart_items_quantity']);
 /*------------------ End Carts Route ------------------ */
 
-
+/*------------------- Search Route -------------------- */
 Route::get('/search' , [ProductController::class, 'search'])->name('search');
+/*------------------ End Search Route ------------------ */
+
+// --------------------- start dashboard routes --------------------- //
+
+Route::group(['middleware'=>['auth', 'Dashboard']
+],function () {
+    Route::prefix('/dashboard')->group(function () {
+        Route::get('/', [DashboardHomeController::class, 'index'])->name('dashboard');
+    });
+});
+

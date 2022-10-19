@@ -75,7 +75,7 @@ class Kernel extends HttpKernel
 
         /*----------------------start admin, moderator & supplier user types middleware for dashboard -------------------*/
 
-        'dashboard' => \App\Http\Middleware\Dashboard::class,
+        'Dashboard' => \App\Http\Middleware\Dashboard::class,
 
         /*----------------------end admin, moderator & supplier user types middleware for dashboard -------------------*/
 
