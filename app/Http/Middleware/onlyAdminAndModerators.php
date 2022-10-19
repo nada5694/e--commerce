@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class cartAlreadyLoggedIn
+class onlyAdminAndModerators
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,6 @@ class cartAlreadyLoggedIn
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()){
-            return redirect()->route('Cart');
-        }
         return $next($request);
     }
 }

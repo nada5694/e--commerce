@@ -28,6 +28,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function search(Request $request)
+    {
+        $search_text_input     = $request->search_query;
+        $products_result       = Product::where('name','LIKE',"%{$search_text_input}%")
+                                        ->orWhere('discount','LIKE',"%{$search_text_input}%")->get();
+        $products_result_count = $products_result->count();
+
+        return view('website.products.search', compact('products_result' , 'search_text_input' , 'products_result_count'))
+            ->with('i' , ($request->input('page', 1) - 1) * 5);
+    }
+
     public function create()
     {
         //
