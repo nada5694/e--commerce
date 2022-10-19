@@ -23,7 +23,7 @@ class Dashboard
 
         if (auth()->user()->user_type != "admin" &&
             auth()->user()->user_type != "moderator" &&
-            auth()->user()->user_type != "supplier")
+            auth()->user()->user_type != "vendor")
         {
             return redirect('/');
         }

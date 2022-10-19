@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id(); //NOT NULL becaise it is the PK already!
+            $table->id(); //NOT NULL because it is the PK already!
             $table->string('name'); //NOT NULL
             $table->string('username')->nullable();
             $table->string('phone')->nullable();
