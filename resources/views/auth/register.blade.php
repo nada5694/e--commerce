@@ -66,7 +66,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="user_type" class="col-md-4 col-form-label text-md-end">{{ __('user_type') }}</label>
+                            <label for="user_type" class="col-md-4 col-form-label text-md-end">{{ ('user_type') }}</label>
                             <div class="col-md-6">
                                 <select name="user_type" class="form-control" required>
                                     <option value="">Please choose a user type</option>
