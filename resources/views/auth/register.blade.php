@@ -66,11 +66,7 @@
                         </div>
 
                         <div class="row mb-3">
-<<<<<<< HEAD
-                            <label for="user_type" class="col-md-4 col-form-label text-md-end">{{ ('user_type') }}</label>
-=======
                             <label for="" class="col-md-4 col-form-label text-md-end">{{ __('User Type') }}</label>
->>>>>>> 4bea548a39cfa83ca6fa18b4b91cc4264a7c3e76
                             <div class="col-md-6">
                                 <select name="user_type" class="form-control" required>
                                     <option value="" selected disabled>Please choose a user type</option>

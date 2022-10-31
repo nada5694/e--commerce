@@ -25,4 +25,19 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function  create_user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongTo(User::class);
+    }
+
+    public function  update_user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongTo(User::class);
+    }
+
+    public function  delete_user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongTo(User::class);
+    }
 }

@@ -992,6 +992,39 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     .product-item .price span{
         font-size: 18px;
     }
+/* ------------------- Search result ------------------- */
+.section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.section .section-content {
+    margin-right:3%;
+    line-height: 1.8;
+}
+.curriculum-event-thumb a img {
+    width: 180px; height: 200px;
+    border: 0.5px solid ;
+}
+.curriculum-event-content .c-red a{
+    font-size: 25px;
+    font-family: 'icomoon';
+}
+.curriculum-event-content .c-red del{
+    color: rgb(104, 103, 103);
+    font-size: 12px;
+}
+.curriculum-event-content .c-red .percentage{
+    color: #b84592;
+    font-weight: bold;
+}
+.section-content .Add-to {
+    margin-top: 5%;
+
+}
+
+/* ------------------- End Search result ------------------- */
 
 .deal-hero {
   background-size: cover;
