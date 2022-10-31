@@ -63,7 +63,7 @@ class ProductSeeder extends Seeder
             'description'      => 'xxxxxxxxxxxxx',
             'image_name'       => 'assets/website/images/products/watch-1-min.jpg',
             'price'            => 550,
-            'discount'       => 0.15,
+            'discount'         => 0.15,
             // 'clothing_type'    => '2',
 
             'is_accessory'     => 'yes',
