@@ -58,7 +58,7 @@
                 <span class="subtitle">Limited Offers 20% OFF</span>
                 <h2 class="title mb-4"><a href="#">Summer Promo</a></h2>
                 <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.</p>
-                <a href="#" class="btn btn-black">Shop Now</a>
+                <a href="#" class="btn btn-black black-button">Shop Now</a>
             </div>
         </div> <!-- /.deal-hero -->
 
@@ -114,7 +114,7 @@
             <span class="subtitle">Limited Offers 20% OFF</span>
             <h2 class="title mb-4"><a href="javascript:void(0);">Summer Promo</a></h2>
             <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.</p>
-            <a href="javascript:void(0);" class="btn btn-black">Shop Now</a>
+            <a href="javascript:void(0);" class="btn btn-black black-button">Shop Now</a>
         </div>
     </div> <!-- /.deal-hero -->
 

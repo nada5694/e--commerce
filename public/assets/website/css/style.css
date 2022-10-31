@@ -228,6 +228,19 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   right: 0;
   top: 0px; }
 
+/* start black-button */
+.black-button:hover{
+  background-color: black;
+  color: snow;
+  /* border: 1px solid black; */
+}
+.black-button:not(:hover){
+  /* border: 1px solid snow; */
+  background-color: snow;
+  color: black;
+}
+/* end black-button */
+
 .menu-icons {
   position: absolute;
   right: 5%;
