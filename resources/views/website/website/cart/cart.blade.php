@@ -44,7 +44,7 @@
                         @if($cartItem->discount > 0)
                             <td style="width: 16%;">
                                 <del style="color: red;">{{ $cartItem->price }} EGP</del><br>
-                                <span style="color: green;">{{ $cartItem->price - ($cartItem->price * $cartItem->discount) }} EGP</span>
+                                <span style="color: black;">{{ $cartItem->price - ($cartItem->price * $cartItem->discount) }} EGP</span>
                             </td>
                         @elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItem->discount == "")
                             <td style="width: 16%;">{{ $cartItem->price }} EGP</td>
@@ -53,7 +53,7 @@
                         @if($cartItem->discount > 0)
                             <td class="total_price_cell" style="width: 16%;">
                                 <del style="color: red;">{{ $cartItem->quantity * $cartItem->price }} EGP</del><br>
-                                <span style="color: green;">{{ ($cartItem->quantity) * ($cartItem->price - ($cartItem->price * $cartItem->discount)) }} EGP</span>
+                                <span style="color: black;">{{ ($cartItem->quantity) * ($cartItem->price - ($cartItem->price * $cartItem->discount)) }} EGP</span>
                             </td>
                         @elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItem->discount == "")
                             <td class="total_price_cell" style="width: 16%;">{{ $cartItem->quantity * $cartItem->price }} EGP</td>
