@@ -28,10 +28,6 @@
     /* .table-search-results{margin-left: auto; margin-right: auto;} */
 </style>
 
-<!-- ***** Search bar Start ***** -->
-@include('layouts.website.search-bar')
-<!-- ***** Search bar End ***** -->
-
 <div id="search-blade" class="search-blade mt-5">
     <?php /********************************** Start Dashboard Table for Product (for dashboard!) **********************************/ ?>
     {{-- <table border="1" cellpadding="10" class="table-search-results">
@@ -74,7 +70,7 @@
     </table> --}}
     <?php /********************************** End Dashboard Table for Product (for dashboard!) **********************************/ ?>
 
-    <section class="product-results-section" style="padding: 0% 2%;">
+    <section class="product-results-section" style="padding: 0% 2%; margin-top: 8%;">
             @if($search_text_input == "")
                 <div class="alert alert-danger" role="alert" style="text-align: center; margin-left: auto; margin-right: auto;  width: 40%;">
                     <span style="font-size: 110%; font-weight: bold;">The search box is empty. You didn't enter anything in it!</span>
