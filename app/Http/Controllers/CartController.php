@@ -78,7 +78,7 @@ class CartController extends Controller
         $request->quantity_value  = $cartItem->quantity ;
         $cartItem->save();
 
-        return redirect()->back() ;
+        return redirect()->back();
     }
     /**
      * Show the form for creating a new resource.
