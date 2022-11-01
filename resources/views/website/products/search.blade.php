@@ -142,7 +142,7 @@
                                     <a href="#">
                                         @php $data = Carbon\Carbon::parse($product->created_at)->diffInDays(Carbon\Carbon::now()); @endphp
                                         @if($data <= 7) <!---------- in days ---------->
-                                            <span class="mt-2" style="position: absolute; background: rgba(0, 69, 175, 0.65); width: 180px; height: 35px; font-weight: bold; text-align: center; color: snow; opacity: 0.70;">
+                                            <span class="mt-2" style="position: absolute; background: rgba(156, 19, 108, 0.65); width: 180px; height: 35px; font-weight: bold; text-align: center; color: snow; opacity: 0.70;">
                                                 <h3 style="font-weight: bolder;">NEW</h3>
                                             </span>
                                         @endif

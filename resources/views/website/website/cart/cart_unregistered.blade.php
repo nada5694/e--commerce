@@ -16,8 +16,8 @@
                 {{-- <img src="assets/website/images/cart-empty(3).gif" width="130" style="border-radius: 20px;"/> --}}
                 {{-- <img src="assets/website/images/cart-empty(4).gif" width="130" style="border-radius: 20px;"/> --}}
                 <img src="assets/website/images/cart-empty(5).gif"/>
-                <h5 class="pt-4">Your are not logged in. Go ahead and <a href="{{ route('login') }}">log in</a> and add some cool stuff to it!</h5>
-                <h6 class="pt-3">Or <a href="{{ route('register') }}">register</a> if you don't have an account already!</h6>
+                <h5 class="pt-4">Your are not logged in. Go ahead and <a href="{{ route('login') }}" style="color: rgba(156, 19, 108, 0.65);">log in</a> and add some cool stuff to it!</h5>
+                <h6 class="pt-3">Or <a href="{{ route('register') }}" style="color: rgba(156, 19, 108, 0.65);">register</a> if you don't have an account already!</h6>
                 <br><br>
                 <a href="{{ route('product') }}" class="browse-products-link">Browse Products</a>
             </div>
