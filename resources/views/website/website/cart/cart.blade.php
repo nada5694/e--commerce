@@ -58,7 +58,7 @@
                                     <form action="{{ url('update-cart-items-quantity' , $cartItem->id) }}" method="POST" id="alert-form">
                                         @csrf
                                         {{ method_field('patch') }}
-                                            <input type="number" class="quantity_value" name="quantity_value" value="{{ $cartItem->quantity }}" style="width: 30%;">
+                                            <input type="number" class="quantity_value" name="quantity_value" value="{{ $cartItem->quantity }}" style="width: 50%;">
                                     </form>
                                 </td>
                                 @if($cartItem->discount > 0)
