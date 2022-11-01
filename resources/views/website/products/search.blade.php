@@ -74,7 +74,7 @@
     </table> --}}
     <?php /********************************** End Dashboard Table for Product (for dashboard!) **********************************/ ?>
 
-    <section class="product-results-section" style="padding: 0% 2%;">
+    <section class="product-results-section" style="padding: 0% 2%; margin-top: 7%;">
             @if($search_text_input == "")
                 <div class="alert alert-danger" role="alert" style="text-align: center; margin-left: auto; margin-right: auto;  width: 40%;">
                     <span style="font-size: 110%; font-weight: bold;">The search box is empty. You didn't enter anything in it!</span>

@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+
+@include('layouts.website.Errors')
+
 <div class="owl-carousel owl-single home-slider">
     <div class="item">
         <div class="untree_co-hero" style="background-image: url('assets/website/images/hero-slider-1-min.jpg');">

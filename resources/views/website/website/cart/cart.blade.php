@@ -6,83 +6,100 @@
 
 @section('content')
 
+@if($cartItems_count < 1) <!---- when the cart is empty for each user (customers ONLY!) then
+    hide the table's heading because it is out of the loop already ---->
+<style>
+    table{display: none;}
+    .proceed-to-checkout-div{display: none;}
+</style>
+@endif
+
+@include('layouts.website.Errors')
+
+
+
+@if(session()->has('cart_checkout_item_deleted_message'))
+    <div class="alert alert-success text-center session-message">
+    <button type="button" class="close" data-dismiss="alert" style="color: rgb(173, 6, 6)">x</button>
+    {{ session()->get('cart_checkout_item_deleted_message') }}
+    </div>
+@endif
+
 <div class="untree_co-section">
     <div class="container">
         <div class="row mb-5">
             <form class="col-md-12" method="post">
                 <div class="site-blocks-table">
                     <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                        <th class="product-thumbnail">Image</th>
-                        <th class="product-name">Product</th>
-                        <th class="product-quantity">Quantity</th>
-                        <th class="product-price">Price</th>
-                        <th class="product-total">Total</th>
-                        <th class="product-remove">
-                            @if($cartItems_count == 1 )
-                                Remove Item
-                            @elseif($cartItems_count > 1)
-                                Remove Items
-                            @endif
-                        </th>
-                        </tr>
-                    </thead>
-                @forelse ($cartItems as $cartItem)
-                    <tbody>
-                        <tr>
+                        <thead>
+                            <tr>
+                            <th class="product-thumbnail">Image</th>
+                            <th class="product-name">Product</th>
+                            <th class="product-quantity">Quantity</th>
+                            <th class="product-price">Price</th>
+                            <th class="product-total">Total</th>
+                            <th class="product-remove">
+                                @if($cartItems_count == 1 )
+                                    Remove Item
+                                @elseif($cartItems_count > 1)
+                                    Remove Items
+                                @endif
+                            </th>
+                            </tr>
+                        </thead>
+                        @forelse ($cartItems as $cartItem)
+                            <tbody>
+                                <tr>
 
-                            <td class="product-thumbnail" style="width: 16%;">
-                                <img src="{{$cartItem->product_image}}" alt="{{$cartItem->product_name}}" class="img-fluid"></td>
-                        <td class="product-name" style="width: 16%;">{{ $cartItem->product_name ?? 'Not Found' }}</td>
-                        <td style="width: 16%;">
-                            <form action="{{ url('update-cart-items-quantity' , $cartItem->id) }}" method="POST" id="alert-form">
-                                @csrf
-                                    <input type="number" class="quantity_value" name="quantity_value" value="{{ $cartItem->quantity }}" style="width: 30%;">
-                            </form>
-                        </td>
-                        @if($cartItem->discount > 0)
-                            <td style="width: 16%;">
-                                <del style="color: red;">{{ $cartItem->price }} EGP</del><br>
-                                <span style="color: black;">{{ $cartItem->price - ($cartItem->price * $cartItem->discount) }} EGP</span>
-                            </td>
-                        @elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItem->discount == "")
-                            <td style="width: 16%;">{{ $cartItem->price }} EGP</td>
-                        @endif
+                                    <td class="product-thumbnail" style="width: 16%;">
+                                        <img src="{{$cartItem->product_image}}" alt="{{$cartItem->product_name}}" class="img-fluid"></td>
+                                <td class="product-name" style="width: 16%;">{{ $cartItem->product_name ?? 'Not Found' }}</td>
+                                <td style="width: 16%;">
+                                    <form action="{{ url('update-cart-items-quantity' , $cartItem->id) }}" method="POST" id="alert-form">
+                                        @csrf
+                                            <input type="number" class="quantity_value" name="quantity_value" value="{{ $cartItem->quantity }}" style="width: 30%;">
+                                    </form>
+                                </td>
+                                @if($cartItem->discount > 0)
+                                    <td class="cart-regester-price">
+                                        <del>{{ $cartItem->price }} EGP</del><br>
+                                        <span>{{ $cartItem->price - ($cartItem->price * $cartItem->discount) }} EGP</span>
+                                    </td>
+                                @elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItem->discount == "")
+                                    <td style="width: 16%;">{{ $cartItem->price }} EGP</td>
+                                @endif
 
-                        @if($cartItem->discount > 0)
-                            <td class="total_price_cell" style="width: 16%;">
-                                <del style="color: red;">{{ $cartItem->quantity * $cartItem->price }} EGP</del><br>
-                                <span style="color: black;">{{ ($cartItem->quantity) * ($cartItem->price - ($cartItem->price * $cartItem->discount)) }} EGP</span>
-                            </td>
-                        @elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItem->discount == "")
-                            <td class="total_price_cell" style="width: 16%;">{{ $cartItem->quantity * $cartItem->price }} EGP</td>
-                        @endif
+                                @if($cartItem->discount > 0)
+                                    <td class="total_price_cell" >
+                                        <del>{{ $cartItem->quantity * $cartItem->price }} EGP</del><br>
+                                        <span>{{ ($cartItem->quantity) * ($cartItem->price - ($cartItem->price * $cartItem->discount)) }} EGP</span>
+                                    </td>
+                                @elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItem->discount == "")
+                                    <td class="total_price_cell" style="width: 16%;">{{ $cartItem->quantity * $cartItem->price }} EGP</td>
+                                @endif
 
-                        <td>
-                            {!! Form::open([
-                                'route' => ['carts.destroy',$cartItem->id],
-                                'method' => 'delete'
-                            ])!!}
-                            <button class="btn btn-danger btn-sm" onclick="return confirm('{{__('Are you sure that you want to remove the ['.$cartItem->product_name.'] item(s) from your cart?')}}');" type="submit" title="{{__('Remove all')." [$cartItem->product_name] item(s)"}}"><i class="fa-solid fa-trash"></i>&nbsp;&nbsp;Remove</button>
-                            {!! Form::close() !!}
-                        </td>
-                        </tr>
-
-                    </tbody>
-                @empty
-                <div class="container cart-unregistered text-center">
-                    <div class="row cart-unregistered-content" style="justify-content: center;">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <img src="assets/images/cart-empty.gif" width="130" style="border-radius: 20px;"/>
-                            <h5 class="pt-4">There are no items in your cart yet! Go ahead and add some cool stuff to it!</h5>
-                            <br>
-                            <a href="{{ route('product') }}" class="browse-products-link">Browse Products</a>
-                        </div>
-                    </div>
-                </div>
-                @endforelse
-
+                                <td>
+                                    {!! Form::open([
+                                        'route' => ['carts.destroy',$cartItem->id],
+                                        'method' => 'delete'
+                                    ])!!}
+                                    <button class="btn btn-danger btn-sm" onclick="return confirm('{{__('Are you sure that you want to remove the ['.$cartItem->product_name.'] item(s) from your cart?')}}');" type="submit" title="{{__('Remove all')." [$cartItem->product_name] item(s)"}}"><i class="fa-solid fa-trash"></i>&nbsp;&nbsp;Remove</button>
+                                    {!! Form::close() !!}
+                                </td>
+                                </tr>
+                            </tbody>
+                        @empty
+                            <div class="container cart-unregistered text-center">
+                                <div class="row cart-unregistered-content" style="justify-content: center;">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <img src="assets/website/images/cart-empty(2).gif" width="130" style="border-radius: 20px;"/>
+                                        <h5 class="pt-4">There are no items in your cart yet! Go ahead and add some cool stuff to it!</h5>
+                                        <br>
+                                        <a href="{{ route('product') }}" class="browse-products-link">Browse Products</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforelse
                     </table>
                 </div>
             </form>

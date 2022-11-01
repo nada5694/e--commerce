@@ -37,13 +37,13 @@
 		line-height: 1.4;
 		@include media-breakpoint-down(md) {
 			font-size: 30px;
-		}		
+		}
 	}
 	.link-highlight {
 		color: $white;
 		position: relative;
 		display: inline;
-		box-shadow: 0 5px 0 0 rgba($primary, 1);		
+		box-shadow: 0 5px 0 0 rgba($primary, 1);
 	}
 	.desc {
 		font-size: 18px;
@@ -75,7 +75,7 @@
 		}
 		@include media-breakpoint-down(md) {
 			font-size: 20px;
-		}		
+		}
 		strong {
 			font-weight: 700;
 		}
@@ -122,14 +122,14 @@
 			font-size: 10px;
 			font-weight: 700;
 			letter-spacing: .2rem;
-			
+
 			color: $white;
 			z-index: 2;
 			&.new {
 				background: $primary;
 			}
 			&.sale {
-				background: $warning;	
+				background: $warning;
 			}
 		}
 
@@ -144,7 +144,7 @@
 			}
 		}
 	}
-	
+
 	h3 {
 		font-size: 15px;
 		margin-bottom: 0;
@@ -225,7 +225,7 @@
 .owl-single {
 	.owl-dots {
 		position: absolute;
-	}	
+	}
 	&.home-slider {
 		.owl-dots {
 			position: absolute;
@@ -240,7 +240,7 @@
 	.owl-dots {
 		position: absolute;
 		bottom: -70px;
-	}	
+	}
 }
 .carousel-nav {
 	a {
@@ -254,9 +254,7 @@
 	}
 }
 
-.btn-custom-search {
 
-}
 .search-form {
 	background: $white;
 	width: 100%;
@@ -405,7 +403,7 @@
 				}
 			}
 		}
-	}	
+	}
 }
 
 .untree_co-section {
@@ -416,7 +414,7 @@
 .page-heading {
 	&, & > .container > .row {
 		height: 40vh;
-		min-height: 200px;		
+		min-height: 200px;
 	}
 	h1 {
 		font-size: 40px;
@@ -529,7 +527,7 @@
 		border-radius: 50px;
 		transition: all 0.3s;
 		color: $white;
-	}	
+	}
 	h4 {
 		font-size: 18px;
 		padding: 0 0 0 60px;
@@ -558,7 +556,7 @@
 		background: #84bd00;
 	}
 	&.sale {
-		background: $warning;	
+		background: $warning;
 	}
 
 }
@@ -586,7 +584,7 @@
 		content: "";
 		width: 50px;
 		height: 50px;
-		
+
 		border-radius: 50%;
 		background:rgba($primary, .2);
 	}

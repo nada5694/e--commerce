@@ -893,9 +893,24 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 .input-group .form-control{
     padding-top: 11px;
 }
-
     /*----------------------------- End-addToCart_Form ------------------------------------- */
-    /*----------------------------- cart unregistered ---------------------------------------*/
+    /*------------------------------ cart registered ----------l------------------------------*/
+.cart-regester-price {
+    width: 16%;
+}
+.cart-regester-price del {
+    color: rgb(104, 103, 103);
+    font-size: 14px;
+}
+.total_price_cell {
+    width: 16%;
+}
+.total_price_cell del {
+    color: rgb(104, 103, 103);
+    font-size: 14px;
+}
+    /*----------------------------- End cart registered ---------------------------------------*/
+    /*------------------------------ cart unregistered ----------------------------------------*/
 
 .cart-unregistered{
     text-align: center;
@@ -904,10 +919,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     justify-content: center;
 }
 .cart-unregistered .cart-unregistered-content div {
-    padding-top: 5%;
+    /* padding-top: 5%; */
+    height: 500px;
+
 }
 .cart-unregistered .cart-unregistered-content div img {
     width: 25%;
+    /* width: 130px; */
 }
 .cart-unregistered .cart-unregistered-content div h6 a {
     color: #0e74d4;

@@ -5,6 +5,8 @@ Products
 @endsection
 
 @section('content')
+
+@include('layouts.website.Errors')
     <div class="untree_co-section pt-3">
         <div class="container">
 
