@@ -5,6 +5,6 @@
         <span class="input-group-btn" style="width: 5px;"></span>
 
         <!-- declaration for second field -->
-        <input class="btn btn-primary form-control input-xs" type="submit" value="Add to favorites" name="">
+        <input class="btn btn-primary form-control input-xs add-to-favorite-btn" type="submit" value="Add to favorites" name="">
     </div>
 </form>
