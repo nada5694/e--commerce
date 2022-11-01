@@ -23,10 +23,6 @@ class CartController extends Controller
     {
         $cartItems                  = Cart::where('customer_id',auth()->user()->id)->get();
         $cartItems_count            = Cart::where('customer_id',auth()->user()->id)->count();
-        $cartItems_discounts_true   = Cart::where('customer_id',auth()->user()->id)->where('discount','>','0');
-        $cartItems_discounts_false  = Cart::where('customer_id',auth()->user()->id)
-        ->where('discount','<=','0')
-        ->orWhere('discount','=',null);
 
         return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count'));
     }
@@ -74,6 +70,15 @@ class CartController extends Controller
 
         }
 
+    }
+
+    public function update_cart_items_quantity(Request $request , $id)
+    {
+        $cartItem                 = Cart::where('customer_id',auth()->user()->id)->find($id);
+        $request->quantity_value  = $cartItem->quantity ;
+        $cartItem->save();
+
+        return redirect()->back() ;
     }
     /**
      * Show the form for creating a new resource.

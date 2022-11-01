@@ -66,7 +66,7 @@ Route::group([
     Route::get('/cart-guest', [CartController::class , 'cart_unregistered'])->name('cart-unregistered'); //will open a page that tells the guests to login for accessing the cart page (from the URL)
 });
 Route::post('/add_to_cart/{id}', [CartController::class, 'add_to_cart'])->name('add-to-cart');
-Route::post('/update-cart-items-quantity/{id}', [CartController::class, 'update_cart_items_quantity']);
+Route::patch('/update-cart-items-quantity/{id}', [CartController::class, 'update_cart_items_quantity']);
 /*------------------ End Carts Route ------------------ */
 
 /*------------------- Search Route -------------------- */
