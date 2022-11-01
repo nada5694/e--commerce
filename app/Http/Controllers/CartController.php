@@ -74,8 +74,8 @@ class CartController extends Controller
 
     public function update_cart_items_quantity(Request $request , $id)
     {
-        $cartItem                 = Cart::where('customer_id',auth()->user()->id)->find($id);
-        $request->quantity_value  = $cartItem->quantity ;
+        $cartItem = Cart::where('customer_id',auth()->user()->id)->find($id);
+        $cartItem->quantity = $request->quantity_value;
         $cartItem->save();
 
         return redirect()->back();
