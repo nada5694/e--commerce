@@ -142,7 +142,11 @@
                     <span class="text-black">Subtotal</span>
                     </div>
                     <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black">
+                        @foreach($finalData as $finalData_result)
+                            {{ $finalData_result ?? '???'}} EGP
+                        @endforeach
+                    </strong>
                     </div>
                 </div>
                 <div class="row mb-5">
@@ -150,7 +154,11 @@
                     <span class="text-black">Total</span>
                     </div>
                     <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black">
+                        @foreach($finalData as $finalData_result)
+                            <span>{{ $finalData_result ?? '???'}} EGP</span>
+                        @endforeach
+                    </strong>
                     </div>
                 </div>
 
@@ -211,4 +219,7 @@
         </div>
         </div>
     </div> <!-- /.untree_co-section -->
+@endsection
+
+@section('scripts')
 @endsection

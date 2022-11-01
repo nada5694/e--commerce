@@ -85,6 +85,60 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function destroy_for_cart_and_checkout($id)
+    {
+        $cartItem = Cart::findOrFail($id);
+        $cartItem->forceDelete();
+
+        if ($cartItem->count() == 0) {
+            return redirect()->route('cart-registered');
+        } else {
+            return redirect()->back()
+                ->with(['cart_checkout_item_deleted_message' => '"'.$cartItem->product_name.'" product is successfully deleted from your cart!']);
+        }
+
+    }
+
+public function cartCheckOutView()
+    {
+        $cartItem        = Cart::where('customer_id',auth()->user()->id)->get($id);
+        $cartItems_count = $cartItem->count();
+        $amount          = 0;
+        
+
+        if ($cartItems_count == 0) {
+            return redirect()->route('Cart');
+        }
+        else{
+            $finalData = [];
+            $amount    = 0;
+
+            if(isset($cartItems))
+            {
+                foreach($cartItems as $cartItem)
+                {
+                    if($cartItem->discount > 0){
+                        $amount                    += $cartItem->quantity * ($cartItem->price - ($cartItem->price * $cartItem->discount));
+                        $finalData['Total_Amount']  = $amount; // total amount of all items' price (after discount which is the sale price)
+                    }
+                    elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItem->discount == ""){
+                        $amount                    += $cartItem->quantity * $cartItem->price;
+                        $finalData['Total_Amount']  = $amount; // total amount of all items' price (with no sale which is the original price)
+                    }
+                }
+            }
+
+            if($finalData <= 0 || $finalData == null || $finalData == ""){ // the wrong condition (which means that there is no items already in the cart to be calculated [total amount])
+                return view('website.website.cart.car_unregistered');
+            }
+            else{ // the correct condition! elseif($finalData > 0) => which means that there is total quantity calculated or in an another meaning there is +1 product in the cart
+                return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count' , 'finalData'));
+            }
+            // return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count' , 'finalData'));
+        }
+    }
+
     public function create()
     {
         //

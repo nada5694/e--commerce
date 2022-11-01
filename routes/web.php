@@ -58,6 +58,7 @@ Route::get('/Verification', [VerificationController::class, 'index'])->name('ver
 /*------------------ Start Carts Route ------------------ */
 Route::middleware(['auth', 'Only_customers'])->group(function () {
     Route::get('/Cart', [CartController::class, 'index'])->name('Cart');
+    Route::get('/checkout-items-details', [CartController::class, 'cartCheckOutView'])->name('checkout_details');
     Route::delete('/cart/{id}', [CartController::class, 'destroy_for_cart'])->name('carts.destroy');
 });
 Route::group([
