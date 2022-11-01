@@ -28,10 +28,6 @@
     /* .table-search-results{margin-left: auto; margin-right: auto;} */
 </style>
 
-<!-- ***** Search bar Start ***** -->
-@include('layouts.website.search-bar')
-<!-- ***** Search bar End ***** -->
-
 <div id="search-blade" class="search-blade mt-5">
     <?php /********************************** Start Dashboard Table for Product (for dashboard!) **********************************/ ?>
     {{-- <table border="1" cellpadding="10" class="table-search-results">
@@ -74,7 +70,7 @@
     </table> --}}
     <?php /********************************** End Dashboard Table for Product (for dashboard!) **********************************/ ?>
 
-    <section class="product-results-section" style="padding: 0% 2%; margin-top: 7%;">
+    <section class="product-results-section" style="padding: 0% 2%; margin-top: 8%;">
             @if($search_text_input == "")
                 <div class="alert alert-danger" role="alert" style="text-align: center; margin-left: auto; margin-right: auto;  width: 40%;">
                     <span style="font-size: 110%; font-weight: bold;">The search box is empty. You didn't enter anything in it!</span>
@@ -146,7 +142,7 @@
                                     <a href="#">
                                         @php $data = Carbon\Carbon::parse($product->created_at)->diffInDays(Carbon\Carbon::now()); @endphp
                                         @if($data <= 7) <!---------- in days ---------->
-                                            <span class="mt-2" style="position: absolute; background: rgba(0, 69, 175, 0.65); width: 180px; height: 35px; font-weight: bold; text-align: center; color: snow; opacity: 0.70;">
+                                            <span class="mt-2" style="position: absolute; background: rgba(156, 19, 108, 0.65); width: 180px; height: 35px; font-weight: bold; text-align: center; color: snow; opacity: 0.70;">
                                                 <h3 style="font-weight: bolder;">NEW</h3>
                                             </span>
                                         @endif

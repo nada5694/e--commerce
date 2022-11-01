@@ -59,7 +59,9 @@
                         <li><span class="guest" >{{ 'guest_'.substr(uniqid(),8,13) }}</span></li>
                     @endif
 
-                    @include('layouts.website.search-bar')
+                    <li>
+                        @include('layouts.website.search-bar')
+                    </li>
 
                     @auth
 

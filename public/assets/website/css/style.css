@@ -931,7 +931,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     color: #0e74d4;
 }
 .browse-products-link{
-    background-color: #2F82FB;
+    background-color: rgba(156, 19, 108, 0.65);
     color: snow;
     font-size: 80%;
     font-weight: bold;
@@ -941,7 +941,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     border-radius: 3px;
 }
 .browse-products-link:hover{
-    background-color: #0868F3;
+    background-color: rgba(187, 53, 140, 0.65);
     color: snow;
 }
 /*----------------------------- end cart unregistered ---------------------------------------*/
