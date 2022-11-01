@@ -1,4 +1,10 @@
-<form action="{{ url('add_to_cart' , $product->id) }}" method="post" style="margin-top: 2%; margin-bottom: 3%;">
+<form
+    @if(auth()->user())
+        action="{{ url('add_to_cart' , $product->id) }}" method="post"
+    @elseif (! auth()->user())
+        action="{{ url('cart-guest') }}" method="get"
+    @endif
+    style="margin-top: 2%; margin-bottom: 3%;">
     @csrf
     <div class="input-group">
         <!-- declaration for first field -->

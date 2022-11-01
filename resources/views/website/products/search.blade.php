@@ -184,12 +184,17 @@
                                     </div>
                                 </div>
 
-
-                                @if(Auth::guest() || auth()->user()->user_type == "customer")
-                                    <div class="Add-to">
-                                        @include('layouts.website.add_to_cart_form')
-                                        @include('layouts.website.add_to_favorites')
-                                    </div>
+                                @auth
+                                    @if(auth()->user()->user_type == "customer")
+                                        <div class="Add-to">
+                                            @include('layouts.website.add_to_cart_form')
+                                            @include('layouts.website.add_to_favorites')
+                                        </div>
+                                    @endif
+                                @endauth
+                                @if (auth()->guest())
+                                    @include('layouts.website.add_to_cart_form')
+                                    @include('layouts.website.add_to_favorites')
                                 @endif
                         </div>
                         @empty
