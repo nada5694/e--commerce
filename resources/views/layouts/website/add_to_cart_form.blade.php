@@ -8,7 +8,7 @@
         <span class="input-group-btn" style="width: 5px;"></span>
 
         <!-- declaration for second field -->
-        <input class="btn btn-primary form-control input-xs" type="submit" value="Add to cart" name="">
+        <input class="btn btn-primary form-control input-xs add-to-cart-btn" type="submit" value="Add to cart" name="">
     </div>
 </form>
 

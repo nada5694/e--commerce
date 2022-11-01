@@ -893,24 +893,20 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 .input-group .form-control{
     padding-top: 11px;
 }
+
+.add-to-cart-btn{
+  color: snow;
+}
+
     /*----------------------------- End-addToCart_Form ------------------------------------- */
-    /*------------------------------ cart registered ----------l------------------------------*/
-.cart-regester-price {
-    width: 16%;
-}
-.cart-regester-price del {
-    color: rgb(104, 103, 103);
-    font-size: 14px;
-}
-.total_price_cell {
-    width: 16%;
-}
-.total_price_cell del {
-    color: rgb(104, 103, 103);
-    font-size: 14px;
-}
-    /*----------------------------- End cart registered ---------------------------------------*/
-    /*------------------------------ cart unregistered ----------------------------------------*/
+
+  /*----------------------------- Start-addToFavorite_Form ------------------------------------- */
+  .add-to-favorite-btn{
+    color: snow;
+  }
+  /*----------------------------- End-addToFavorite_Form ------------------------------------- */
+
+    /*----------------------------- cart unregistered ---------------------------------------*/
 
 .cart-unregistered{
     text-align: center;
