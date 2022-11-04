@@ -75,8 +75,8 @@ class CartController extends Controller
     public function update_cart_items_quantity(Request $request , $id)
     {
         $cartItem = Cart::where('customer_id',auth()->user()->id)->find($id);
-        $cartItem->quantity = $request->quantity_value;
-        $cartItem->save();
+        $cartItems->quantity = $request->quantity_value;
+        $cartItems->save();
 
         return redirect()->back();
     }
@@ -86,35 +86,29 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy_for_cart_and_checkout($id)
-    {
-        $cartItem = Cart::findOrFail($id);
-        $cartItem->forceDelete();
+    // public function destroy_for_cart_and_checkout($id)
+    // {
+    //     $cartItem = Cart::findOrFail($id);
+    //     $cartItems->forceDelete();
 
-        if ($cartItem->count() == 0) {
-            return redirect()->route('cart-registered');
-        } else {
-            return redirect()->back()
-                ->with(['cart_checkout_item_deleted_message' => '"'.$cartItem->product_name.'" product is successfully deleted from your cart!']);
-        }
+    //     if ($cartItems->count() == 0) {
+    //         return redirect()->route('cart-registered');
+    //     } else {
+    //         return redirect()->back()
+    //             ->with(['cart_checkout_item_deleted_message' => '"'.$cartItems->product_name.'" product is successfully deleted from your cart!']);
+    //     }
 
-    }
+    // }
 
 public function index()
     {
-        $cartItems                  = Cart::where('customer_id',auth()->user()->id)->get();
-        $cartItems_count            = Cart::where('customer_id',auth()->user()->id)->count();
-        // $cartItems_count = $cartItem->count();
-        $amount          = 0;
+        $cartItems       = Cart::where('customer_id',auth()->user()->id)->get();
+        $cartItems_count = $cartItems->count();
 
-        // $cartItems                  = Cart::where('customer_id',auth()->user()->id)->get();
-        // $cartItems_count            = Cart::where('customer_id',auth()->user()->id)->count();
-
-
-        if ($cartItems_count == 0) {
-            return redirect()->route('Cart');
-        }
-        else{
+        // if ($cartItems_count == 0) {
+        //     return redirect('/Cart');
+        // }
+        // else{
             $finalData = [];
             $amount    = 0;
 
@@ -126,7 +120,7 @@ public function index()
                         $amount                    += $cartItem->quantity * ($cartItem->price - ($cartItem->price * $cartItem->discount));
                         $finalData['Total_Amount']  = $amount; // total amount of all items' price (after discount which is the sale price)
                     }
-                    elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItem->discount == ""){
+                    elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItems->discount == ""){
                         $amount                    += $cartItem->quantity * $cartItem->price;
                         $finalData['Total_Amount']  = $amount; // total amount of all items' price (with no sale which is the original price)
                     }
@@ -134,13 +128,13 @@ public function index()
             }
 
             if($finalData <= 0 || $finalData == null || $finalData == ""){ // the wrong condition (which means that there is no items already in the cart to be calculated [total amount])
-                return view('website.website.cart.car_unregistered');
+                return view('website.website.cart.cart_unregistered');
             }
             else{ // the correct condition! elseif($finalData > 0) => which means that there is total quantity calculated or in an another meaning there is +1 product in the cart
                 return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count' , 'finalData'));
             }
             // return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count' , 'finalData'));
-        }
+        //}
     }
 
     public function create()
@@ -204,8 +198,8 @@ public function index()
         $cartItem = Cart::findOrFail($id);
         $cartItem->forceDelete();
 
-        return redirect()->route('Cart')
-            ->with(['cart_item_deleted_message' => '"'.$cartItem->product_name.'" product is successfully deleted from your cart!']);
+        return redirect()->back()
+                ->with(['cart_checkout_item_deleted_message' => '"'.$cartItem->product_name.'" product is successfully deleted from your cart!']);
 
     }
 
