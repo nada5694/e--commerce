@@ -19,13 +19,13 @@ class CartController extends Controller
     //     return view('website.website.cart.cart');
     // }
 
-    public function index()
-    {
-        $cartItems                  = Cart::where('customer_id',auth()->user()->id)->get();
-        $cartItems_count            = Cart::where('customer_id',auth()->user()->id)->count();
+    // public function index()
+    // {
+    //     $cartItems                  = Cart::where('customer_id',auth()->user()->id)->get();
+    //     $cartItems_count            = Cart::where('customer_id',auth()->user()->id)->count();
 
-        return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count'));
-    }
+    //     return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count'));
+    // }
 
     public function cart_unregistered()
     {
@@ -100,12 +100,17 @@ class CartController extends Controller
 
     }
 
-public function cartCheckOutView()
+public function index()
     {
-        $cartItem        = Cart::where('customer_id',auth()->user()->id)->get($id);
-        $cartItems_count = $cartItem->count();
+        $cartItem        = Cart::where('customer_id',auth()->user()->id)->get();
+        $cartItems                  = Cart::where('customer_id',auth()->user()->id)->get();
+        $cartItems_count            = Cart::where('customer_id',auth()->user()->id)->count();
+        // $cartItems_count = $cartItem->count();
         $amount          = 0;
-        
+
+        // $cartItems                  = Cart::where('customer_id',auth()->user()->id)->get();
+        // $cartItems_count            = Cart::where('customer_id',auth()->user()->id)->count();
+
 
         if ($cartItems_count == 0) {
             return redirect()->route('Cart');
@@ -133,7 +138,7 @@ public function cartCheckOutView()
                 return view('website.website.cart.car_unregistered');
             }
             else{ // the correct condition! elseif($finalData > 0) => which means that there is total quantity calculated or in an another meaning there is +1 product in the cart
-                return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count' , 'finalData'));
+                return view('website.website.cart.cart' , compact('cartItem' , 'cartItems' , 'cartItems_count' , 'finalData'));
             }
             // return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count' , 'finalData'));
         }
