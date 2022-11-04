@@ -19,13 +19,13 @@ class CartController extends Controller
     //     return view('website.website.cart.cart');
     // }
 
-    public function index()
-    {
-        $cartItems                  = Cart::where('customer_id',auth()->user()->id)->get();
-        $cartItems_count            = Cart::where('customer_id',auth()->user()->id)->count();
+    // public function index()
+    // {
+    //     $cartItems                  = Cart::where('customer_id',auth()->user()->id)->get();
+    //     $cartItems_count            = Cart::where('customer_id',auth()->user()->id)->count();
 
-        return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count'));
-    }
+    //     return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count'));
+    // }
 
     public function cart_unregistered()
     {
@@ -100,12 +100,16 @@ class CartController extends Controller
 
     }
 
-public function cartCheckOutView()
+public function index()
     {
-        $cartItem        = Cart::where('customer_id',auth()->user()->id)->get();
-        $cartItems_count = $cartItem->count();
+        $cartItems                  = Cart::where('customer_id',auth()->user()->id)->get();
+        $cartItems_count            = Cart::where('customer_id',auth()->user()->id)->count();
+        // $cartItems_count = $cartItem->count();
         $amount          = 0;
-        
+
+        // $cartItems                  = Cart::where('customer_id',auth()->user()->id)->get();
+        // $cartItems_count            = Cart::where('customer_id',auth()->user()->id)->count();
+
 
         if ($cartItems_count == 0) {
             return redirect()->route('Cart');
