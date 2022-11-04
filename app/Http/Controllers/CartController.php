@@ -102,7 +102,7 @@ class CartController extends Controller
 
 public function cartCheckOutView()
     {
-        $cartItem        = Cart::where('customer_id',auth()->user()->id)->get($id);
+        $cartItem        = Cart::where('customer_id',auth()->user()->id)->get();
         $cartItems_count = $cartItem->count();
         $amount          = 0;
         
