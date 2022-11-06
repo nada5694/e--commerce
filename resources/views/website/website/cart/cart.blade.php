@@ -27,7 +27,7 @@
 
 <div class="untree_co-section">
     <div class="container">
-        <div class="row mb-5">
+        <div class="row mb-5 cart_page" >
             {{-- <form class="col-md-12" method="post"> --}}
                 <div class="site-blocks-table">
                     <table class="table table-bordered">
@@ -90,10 +90,10 @@
                                 </tr>
                             </tbody>
                         @empty
-                            <div class="container cart-unregistered text-center">
-                                <div class="row cart-unregistered-content" style="justify-content: center;">
+                            <div class="container cart_empty ">
+                                <div class="row cart_empty_content" >
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <img src="assets/website/images/cart-empty(2).gif" width="130" style="border-radius: 20px;"/>
+                                        <img src="assets/website/images/cart-empty(2).gif" />
                                         <h5 class="pt-4">There are no items in your cart yet! Go ahead and add some cool stuff to it!</h5>
                                         <br>
                                         <a href="{{ route('product') }}" class="browse-products-link">Browse Products</a>

@@ -10,6 +10,8 @@
     <!-- Nucleo Icons -->
     <link href="./assets/Admin/css/nucleo-icons.css" rel="stylesheet" />
     <link href="./assets/Admin/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Bootstrap File -->
+    <link rel="stylesheet" href="assets/website/css/bootstrap.min.css">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="./assets/Admin/css/nucleo-svg.css" rel="stylesheet" />

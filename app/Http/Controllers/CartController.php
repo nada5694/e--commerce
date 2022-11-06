@@ -104,13 +104,8 @@ public function index()
     {
         $cartItems       = Cart::where('customer_id',auth()->user()->id)->get();
         $cartItems_count = $cartItems->count();
-
-        // if ($cartItems_count == 0) {
-        //     return redirect('/Cart');
-        // }
-        // else{
-            $finalData = [];
-            $amount    = 0;
+        $finalData       = [];
+        $amount          = 0;
 
             if(isset($cartItems))
             {
@@ -127,14 +122,7 @@ public function index()
                 }
             }
 
-            if($finalData <= 0 || $finalData == null || $finalData == ""){ // the wrong condition (which means that there is no items already in the cart to be calculated [total amount])
-                return view('website.website.cart.cart_unregistered');
-            }
-            else{ // the correct condition! elseif($finalData > 0) => which means that there is total quantity calculated or in an another meaning there is +1 product in the cart
-                return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count' , 'finalData'));
-            }
-            // return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count' , 'finalData'));
-        //}
+            return view('website.website.cart.cart' , compact('cartItems' , 'cartItems_count' , 'finalData'));
     }
 
     public function create()

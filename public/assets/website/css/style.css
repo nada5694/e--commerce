@@ -901,29 +901,29 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     /*----------------------------- End-addToCart_Form ------------------------------------- */
 
   /*----------------------------- Start-addToFavorite_Form ------------------------------------- */
-  .add-to-favorite-btn{
+.add-to-favorite-btn{
     color: snow;
-  }
-  /*----------------------------- End-addToFavorite_Form ------------------------------------- */
-
-    /*----------------------------- cart unregistered ---------------------------------------*/
-
-.cart-unregistered{
-    text-align: center;
 }
-.cart-unregistered .cart-unregistered-content{
+  /*----------------------------- End-addToFavorite_Form ------------------------------------- */
+    /*----------------------------- cart page ---------------------------------------*/
+.cart_page {
     justify-content: center;
 }
-.cart-unregistered .cart-unregistered-content div {
-    /* padding-top: 5%; */
-    height: 500px;
+    /*------------------------------ cart page ---------------------------------------*/
+    /*----------------------------- cart empty ---------------------------------------*/
 
+.cart_empty {
+    text-align: center;
 }
-.cart-unregistered .cart-unregistered-content div img {
+.cart_empty .cart_empty_content div {
+    height: 450px;
+}
+.cart_empty .cart_empty_content div img {
     width: 25%;
     /* width: 130px; */
+    border-radius: 20px;
 }
-.cart-unregistered .cart-unregistered-content div h6 a {
+.cart_empty .cart_empty_content div h6 a {
     color: #0e74d4;
 }
 .browse-products-link{
@@ -940,8 +940,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     background-color: rgba(187, 53, 140, 0.65);
     color: snow;
 }
-/*----------------------------- end cart unregistered ---------------------------------------*/
-
+/*----------------------------- end cart empty ---------------------------------------*/
 /*---------------------------------- Login Page ---------------------------------------*/
 
 .card-body form .login button{
