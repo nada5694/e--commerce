@@ -76,16 +76,21 @@ Route::get('/search' , [ProductController::class, 'search'])->name('search');
 
 // --------------------- start dashboard routes. --------------------- //
 
-Route::group(['middleware'=>['auth', 'Dashboard']
-],function () {
-    Route::prefix('/dashboard')->group(function () {
-        Route::get('/', [DashboardHomeController::class, 'index'])->name('dashboard');
+Route::group([
+    'middleware' => ['auth', 'dashboard']
+], function () {
+
+    Route::prefix('dashboard')->group(function () {
+        Route::group([], function () {   
+            Route::get('/home', [DashboardHomeController::class, 'index'])->name('dashboard');
+            Route::get('/', [DashboardHomeController::class, 'index'])->name('dashboard');
+        });
+        /********************** Start products route. **********************/
+        Route::resource('/products', DashboardProductController::class);
+        Route::get('/product/delete', [DashboardProductController::class, 'delete'])->name('products.delete');
+        Route::get('/product/restore/{id}/', [DashboardProductController::class, 'restore'])->name('products.restore');
+        Route::delete('/product/forceDelete/{id}/', [DashboardProductController::class, 'forceDelete'])->name('products.forceDelete');
+        /********************** End products route. **********************/
     });
-    /********************** Start products route. **********************/
-    Route::resource('/products', DashboardProductController::class);
-    Route::get('/product/delete', [DashboardProductController::class, 'delete'])->name('products.delete');
-    Route::get('/product/restore/{id}/', [DashboardProductController::class, 'restore'])->name('products.restore');
-    Route::delete('/product/forceDelete/{id}/', [DashboardProductController::class, 'forceDelete'])->name('products.forceDelete');
-    /********************** End products route. **********************/
 });
 

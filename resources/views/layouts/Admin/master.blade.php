@@ -14,9 +14,12 @@
     <link rel="stylesheet" href="assets/website/css/bootstrap.min.css">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css"/>
     <link href="./assets/Admin/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="./assets/Admin/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/Admin/css/argon-dashboard.css')}}">
     <title>@yield('title')</title>
 </head>
 <body class="g-sidenav-show   bg-gray-100">
