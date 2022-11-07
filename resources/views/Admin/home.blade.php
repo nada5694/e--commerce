@@ -3,9 +3,9 @@
     Home
 @endsection
 
-@push('css')
+{{-- @push('css')
 <link rel="stylesheet" type="text/css" href="{{asset('admin/css/argon-dashboard.css')}}">
-@endpush
+@endpush --}}
 
 @section('content')
 

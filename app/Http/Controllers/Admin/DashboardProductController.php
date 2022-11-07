@@ -15,7 +15,9 @@ class DashboardProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::orderBy('created_at','asc')->paginate(30);
+
+        return view('Admin.products.index',compact('products'));
     }
 
     /**
