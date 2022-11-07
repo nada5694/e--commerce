@@ -50,6 +50,11 @@
                                 </svg>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    @auth
+                                        @if(auth()->user()->user_type == "admin" || auth()->user()->user_type == "moderator" || auth()->user()->user_type == "vendor")
+                                            <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
+                                        @endif
+                                    @endauth
                                     <a class="dropdown-item name" href="javascript:void(0);" style="color: #b84592;">{{auth()->user()->name}}</a>
                                     <a class="dropdown-item" href="javascript:void(0);">{{ ucfirst(auth()->user()->user_type) }}</a>
                                     <a class="dropdown-item" href="javascript:void(0);">Profile Management</a>
