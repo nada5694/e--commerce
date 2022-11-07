@@ -17,11 +17,13 @@
     <link href="./assets/Admin/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="./assets/Admin/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
-    <title>@yield('title')</title>
+    <title>
+        @yield('title')
+    </title>
 </head>
-<body class="g-sidenav-show   bg-gray-100">
+<body class="g-sidenav-show bg-gray-100">
     <!-- Container-fluid starts-->
     @yield('content')
-    <!-- Container-fluid Ends--
+    <!-- Container-fluid Ends-->
 </body>
 </html>
