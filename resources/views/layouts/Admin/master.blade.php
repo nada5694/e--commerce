@@ -31,11 +31,14 @@
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="/assets/Admin/css/nucleo-svg.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- CSS Files -->
   <link id="pagestyle" href="/assets/Admin/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
+
+@include('layouts.Admin.header')
   @yield('content')
   <!--   Core JS Files   -->
   <script src="/assets/Admin/js/core/popper.min.js"></script>

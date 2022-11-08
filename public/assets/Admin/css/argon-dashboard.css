@@ -2487,9 +2487,9 @@ progress {
   vertical-align: bottom;
 }
 
-.table-group-divider {
+/* .table-group-divider {
   border-top: calc(2 * $table-border-width) solid currentColor;
-}
+} */
 
 .caption-top {
   caption-side: top;
@@ -5590,9 +5590,9 @@ fieldset:disabled .btn {
   border-color: var(--bs-pagination-disabled-border-color);
 }
 
-.page-item:not(:first-child) .page-link {
+/* .page-item:not(:first-child) .page-link {
   margin-left: calc($pagination-border-width * -1);
-}
+} */
 
 .page-item:first-child .page-link {
   border-top-left-radius: var(--bs-pagination-border-radius);
@@ -20462,11 +20462,22 @@ fieldset:disabled .btn {
   color: #8392ab;
 }
 
+.edit-button {
+    width: 100%;
+    --bs-link-hover-color: snow ;
+    background-color: #2dce89 !important
+}
+
+.bg-gradient-success i {
+    margin-right: 7%;
+}
+
 .btn-success:hover,
 .btn.bg-gradient-success:hover {
   background-color: #2dce89;
   border-color: #2dce89;
 }
+
 
 .btn-success .btn.bg-outline-success,
 .btn.bg-gradient-success .btn.bg-outline-success {
@@ -20579,15 +20590,25 @@ fieldset:disabled .btn {
   color: #fb6340;
 }
 
+.delete-button{
+    border: none;
+    display: flex;
+    background-color: #fb6340 !important;
+}
+
+.bg-gradient-danger i {
+    margin-right: 6%;
+}
+
 .btn-danger:hover,
 .btn.bg-gradient-danger:hover {
-  background-color: #f5365c;
-  border-color: #f5365c;
+    background-color: #f5365c;
+    border-color: #f5365c;
 }
 
 .btn-danger .btn.bg-outline-danger,
 .btn.bg-gradient-danger .btn.bg-outline-danger {
-  border: 1px solid #f5365c;
+    border: 1px solid #f5365c;
 }
 
 .btn-danger:not(:disabled):not(.disabled).active,
@@ -20596,37 +20617,37 @@ fieldset:disabled .btn {
 .btn.bg-gradient-danger:not(:disabled):not(.disabled).active,
 .btn.bg-gradient-danger:not(:disabled):not(.disabled):active,
 .show>.btn.bg-gradient-danger.dropdown-toggle {
-  color: color-yiq(#f5365c);
-  background-color: #f5365c;
+    color: color-yiq(#f5365c);
+    background-color: #f5365c;
 }
 
 .btn-danger.focus,
 .btn-danger:focus,
 .btn.bg-gradient-danger.focus,
 .btn.bg-gradient-danger:focus {
-  color: #fff;
+    color: #fff;
 }
 
 .btn-outline-danger {
-  box-shadow: none;
+    box-shadow: none;
 }
 
 .btn-outline-danger:hover:not(.active) {
-  background-color: transparent;
-  opacity: .75;
-  box-shadow: none;
-  color: #f5365c;
+    background-color: transparent;
+    opacity: .75;
+    box-shadow: none;
+    color: #f5365c;
 }
 
 .btn-light:hover,
 .btn.bg-gradient-light:hover {
-  background-color: #e9ecef;
-  border-color: #e9ecef;
+    background-color: #e9ecef;
+    border-color: #e9ecef;
 }
 
 .btn-light .btn.bg-outline-light,
 .btn.bg-gradient-light .btn.bg-outline-light {
-  border: 1px solid #e9ecef;
+    border: 1px solid #e9ecef;
 }
 
 .btn-light:not(:disabled):not(.disabled).active,
@@ -20635,19 +20656,19 @@ fieldset:disabled .btn {
 .btn.bg-gradient-light:not(:disabled):not(.disabled).active,
 .btn.bg-gradient-light:not(:disabled):not(.disabled):active,
 .show>.btn.bg-gradient-light.dropdown-toggle {
-  color: color-yiq(#e9ecef);
-  background-color: #e9ecef;
+    color: color-yiq(#e9ecef);
+    background-color: #e9ecef;
 }
 
 .btn-outline-light {
-  box-shadow: none;
+    box-shadow: none;
 }
 
 .btn-outline-light:hover:not(.active) {
-  background-color: transparent;
-  opacity: .75;
-  box-shadow: none;
-  color: #e9ecef;
+    background-color: transparent;
+    opacity: .75;
+    box-shadow: none;
+    color: #e9ecef;
 }
 
 .btn-dark:hover,
@@ -22541,7 +22562,6 @@ hr.horizontal.gray-light {
 .navbar-vertical.navbar-expand-xs .navbar-collapse {
   display: block;
   overflow: auto;
-  height: calc(100vh - 360px);
 }
 
 .navbar-vertical.navbar-expand-xs>[class*="container"] {

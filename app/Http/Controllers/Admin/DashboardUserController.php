@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\User;
 
-class DashboardProductController extends Controller
+class DashboardUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,12 @@ class DashboardProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('created_at','asc')->paginate(30);
+        $users = User::orderBy('created_at','asc')->paginate(30);
+        // $users = User::get();
+        // $users = User::all();
+        // $users                      = new User();
 
-        return view('Admin.products.index',compact('products'));
+        return view('Admin.users.index',compact('users'));
     }
 
     /**
@@ -27,7 +30,7 @@ class DashboardProductController extends Controller
      */
     public function create()
     {
-        return view('Admin.products.create');
+        //
     }
 
     /**
@@ -38,21 +41,23 @@ class DashboardProductController extends Controller
      */
     public function store(Request $request)
     {
-        $products                     = new Product();
-        $products->name               = $request->name;
-        $products->description        = $request->description ;
-        $products->image_name         = $request->image_name;
-        $products->price              = $request->price;
-        $products->discount           = $request->discount;
-        $products->clothing_type      = $request->clothing_type;
-        $products->available_quantity = $request->available_quantity;
-        $products->is_accessory       = $request->is_accessory;
-        $products->product_category   = $request->product_category;
-        $products->create_user_id     = auth()->user()->id;
-        $products->save();
+        // $users = User::get();
+        // $users = User::all();
+        $users                      = new User();
+        $users->name                = $request->name;
+        $users->username            = $request->username ;
+        $users->email               = $request->email;
+        $users->gender              = $request->gender;
+        $users->User_type           = $request->User_type ;
+        $users->phone               = $request->phone;
+        // $users->available_quantity  = $request->available_quantity;
+        // $users->is_accessory        = $request->is_accessory;
+        // $users->product_category    = $request->product_category;
+        // $users->create_user_id      = auth()->user()->id;
+        $users->save();
 
-        return redirect()->route('products.index')
-            ->with(['message' => "($products->name) - Added successfully!"]);
+        return redirect()->route('users.index')
+            ->with(['message' => "($users->name) - Added successfully!"]);
     }
 
     /**

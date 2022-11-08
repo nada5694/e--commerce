@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductController;
 /*----------------------------- Start Dashboard Controllers usage -----------------------------*/
 use App\Http\Controllers\Admin\DashboardHomeController;
 use App\Http\Controllers\Admin\DashboardProductController;
+use App\Http\Controllers\Admin\DashboardUserController;
 use App\Http\Controllers\Admin\DashboardCategoryController;
 use App\Http\Controllers\Admin\DashboardCartController;
 use App\Http\Controllers\Admin\DashboardProfileController;
@@ -85,11 +86,15 @@ Route::group([
             Route::get('/', [DashboardHomeController::class, 'index'])->name('dashboard');
         });
         /********************** Start products route. **********************/
-        // Route::resource('/products', DashboardProductController::class);
-        // Route::get('/product/delete', [DashboardProductController::class, 'delete'])->name('products.delete');
-        // Route::get('/product/restore/{id}/', [DashboardProductController::class, 'restore'])->name('products.restore');
-        // Route::delete('/product/forceDelete/{id}/', [DashboardProductController::class, 'forceDelete'])->name('products.forceDelete');
+        Route::resource('/products', DashboardProductController::class);
+        Route::get('/product/delete', [DashboardProductController::class, 'delete'])->name('products.delete');
+        Route::get('/product/restore/{id}/', [DashboardProductController::class, 'restore'])->name('products.restore');
+        Route::delete('/product/forceDelete/{id}/', [DashboardProductController::class, 'forceDelete'])->name('products.forceDelete');
         /********************** End products route. **********************/
+
+        /********************** Start users route. **********************/
+        Route::resource('/users', DashboardUserController::class);
+        /********************** End users route. **********************/
     });
 });
 
