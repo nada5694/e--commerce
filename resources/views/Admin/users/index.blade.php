@@ -31,7 +31,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @forelse($Users as $user)
+                        @forelse($users as $user)
                             <tr>
                                 <td scope="row" class="text-center text-xs">{{$loop->iteration}}</td>
                                 <td class="text-center font-secondary text-xxs">{{$user->name}}</td>
