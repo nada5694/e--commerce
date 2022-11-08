@@ -37,9 +37,9 @@
                                 <td class="text-center font-secondary text-xxs">{{$user->name}}</td>
                                 <td class="text-center font-secondary text-xxs">{{$user->username}}</td>
                                 <td class="text-center font-secondary text-xxs">{{$user->email}}</td>
-                                <td class="text-center font-secondary text-xxs">{{$user->gender}}</td>
+                                <td class="text-center font-secondary text-xxs">{{$user->gender ?? 'Undetermined'}}</td>
                                 <td class="text-center font-secondary text-xxs">{{$user->user_type}}</td>
-                                <td class="text-center font-secondary text-xxs">{{$user->phone}}</td>
+                                <td class="text-center font-secondary text-xxs">{{$user->phone ?? 'No Phone Number'}}</td>
 
 
                                 {{-- <td class="text-center text-xs">{{$user->created_at->translatedFormat('d/m/Y - h:m A')}}</td>
