@@ -97,6 +97,10 @@ class DashboardProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $products = Product::findOrFail($id);
+        $products->delete();
+
+        return redirect()->route('products.index')
+            ->with(['message' => "($products->name) - Deleted successfully!"]);
     }
 }

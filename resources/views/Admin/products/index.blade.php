@@ -8,6 +8,11 @@
     <div class="container-fluid py-4">
         <div class="row">
           <div class="col-12">
+            <div class="new-product">
+                <ul>
+                    <a href="{{ route('products.create') }}" class="btn">Create New Product</a>
+                </ul>
+            </div>
             <div class="card mb-4">
               <div class="card-header pb-0">
                 <h6><span class="b-b-success">{{App\Models\Product::count()}} - Products</span></h6>

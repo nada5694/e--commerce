@@ -17,46 +17,46 @@
                   <table class="table align-items-center mb-0">
                     <thead>
                       <tr>
-                        <th scope="col" class="text-center text-xxs font-weight-bolder">num</th>
-                        <th scope="col" class="text-center text-xxs font-weight-bolder">Name</th>
-                        <th scope="col" class="text-center text-xxs font-weight-bolder">User name</th>
-                        <th scope="col" class="text-center text-xxs font-weight-bolder">Email</th>
-                        <th scope="col" class="text-center text-xxs font-weight-bolder">Gender</th>
-                        <th scope="col" class="text-center text-xxs font-weight-bolder">User type</th>
-                        <th scope="col" class="text-center text-xxs font-weight-bolder">Phone</th>
-                        {{-- <th scope="col" class="text-center text-xxs font-weight-bolder">Bio</th> --}}
-                        {{-- @if(auth()->user()->user_type == "admin")
-                            <th scope="col" class="text-center text-xxs font-weight-bolder">Action</th>
-                        @endif --}}
+                        <th scope="col" class="text-center text-s font-weight-bolder">num</th>
+                        <th scope="col" class="text-center text-s font-weight-bolder">Name</th>
+                        <th scope="col" class="text-center text-s font-weight-bolder">User name</th>
+                        <th scope="col" class="text-center text-s font-weight-bolder">Email</th>
+                        <th scope="col" class="text-center text-s font-weight-bolder">Gender</th>
+                        <th scope="col" class="text-center text-s font-weight-bolder">User type</th>
+                        <th scope="col" class="text-center text-s font-weight-bolder">Phone</th>
+                        {{-- <th scope="col" class="text-center text-s font-weight-bolder">Bio</th> --}}
+                        @if(auth()->user()->user_type == "admin")
+                            <th scope="col" class="text-center text-s font-weight-bolder">Action</th>
+                        @endif
                       </tr>
                     </thead>
                     <tbody>
                         @forelse($users as $user)
                             <tr>
-                                <td scope="row" class="text-center text-xs">{{$loop->iteration}}</td>
-                                <td class="text-center font-secondary text-xxs">{{$user->name}}</td>
-                                <td class="text-center font-secondary text-xxs">{{$user->username}}</td>
-                                <td class="text-center font-secondary text-xxs">{{$user->email}}</td>
-                                <td class="text-center font-secondary text-xxs">{{$user->gender ?? 'Undetermined'}}</td>
-                                <td class="text-center font-secondary text-xxs">{{$user->user_type}}</td>
-                                <td class="text-center font-secondary text-xxs">{{$user->phone ?? 'No Phone Number'}}</td>
+                                <td scope="row" class="text-center text-s">{{$loop->iteration}}</td>
+                                <td class="text-center font-secondary text-s">{{$user->name}}</td>
+                                <td class="text-center font-secondary text-s">{{$user->username}}</td>
+                                <td class="text-center font-secondary text-s">{{$user->email}}</td>
+                                <td class="text-center font-secondary text-s">{{$user->gender ?? 'Undetermined'}}</td>
+                                <td class="text-center font-secondary text-s">{{$user->user_type}}</td>
+                                <td class="text-center font-secondary text-s">{{$user->phone ?? 'No Phone Number'}}</td>
 
 
-                                {{-- <td class="text-center text-xs">{{$user->created_at->translatedFormat('d/m/Y - h:m A')}}</td>
-                                <td class="text-center text-xs">{{$user->create_user->name ?? '??'}}</td>
-                                <td class="text-center text-xs">{{$user->update_user->name ?? '??'}}</td> --}}
-                                {{-- @if(auth()->user()->user_type == "admin")
-                                    <td class="align-middle text-center text-sm">
+                                {{-- <td class="text-center text-s">{{$user->created_at->translatedFormat('d/m/Y - h:m A')}}</td>
+                                <td class="text-center text-s">{{$user->create_user->name ?? '??'}}</td>
+                                <td class="text-center text-s">{{$user->update_user->name ?? '??'}}</td> --}}
+                                @if(auth()->user()->user_type == "admin")
+                                    <td class="user-button align-middle text-center text-sm">
                                         {!! Form::open([
-                                            'route' => ['products.destroy',$product->id],
+                                            'route' => ['users.destroy',$user->id],
                                             'method' => 'delete'
                                         ])!!}
-                                        <button class="delete-button badge badge-sm " onclick="return confirm('Are you sure that you want to delete - {{ $product->name }}?');" type="submit" title="{{'Delete'." ($product->name)"}}"><i class="fa-solid fa-trash"></i>  Delete </button>
+                                        <button class="delete-button badge badge-sm " onclick="return confirm('Are you sure that you want to delete - {{ $user->name }}?');" type="submit" title="{{'Delete'." ($user->name)"}}"><i class="fa-solid fa-trash"></i>  Delete </button>
 
-                                        <a href="{{route('products.edit',$product->id)}}" class="edit-button badge badge-sm" type="button" title="{{'Edit'." ($product->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
+                                        <a href="{{route('users.edit',$user->id)}}" class="edit-button badge badge-sm" type="button" title="{{'Edit'." ($user->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
                                         {!! Form::close() !!}
                                     </td>
-                                @endif --}}
+                                @endif
                             </tr>
                         @empty
                             <div class="alert alert-secondary">

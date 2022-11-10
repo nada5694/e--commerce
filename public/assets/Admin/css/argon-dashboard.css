@@ -20590,10 +20590,43 @@ fieldset:disabled .btn {
   color: #fb6340;
 }
 
+.new-product {
+    text-align: right;
+}
+
+.new-product ul a{
+    background-color: snow;
+    border-radius: 11px;
+}
+
+.new-product ul a:hover{
+    color: snow;
+    background-color: #67748e;
+}
+
 .delete-button{
     border: none;
     display: flex;
     background-color: #fb6340 !important;
+}
+
+.admin-form {
+    font-size: 16px;
+    margin-left: 3%;
+    margin-top: 0.5%;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #344767;
+}
+
+
+
+.user-button .delete-button {
+    margin-left: 15%;
+}
+
+.user-button .edit-button {
+    width: 66%;
 }
 
 .bg-gradient-danger i {

@@ -24,6 +24,7 @@ class UserSeeder extends Seeder
             'password'  => '$2y$10$zzd0BbVIty8VoydyRxCw4eyhYcxd7osHkIE7sKt/EcwGq1phPa7Ia', // password (is encrypted): 123456789
             'gender'    => 'female',
             'user_type' => 'admin',
+            'phone'     => '0110090440',
         ]);
 
 
@@ -44,6 +45,7 @@ class UserSeeder extends Seeder
             'password'  => '$2y$10$2Z8CF/lDpvDYYDIP28j7he3vHlKpFExarjbU04U7In8bjem9KlKdi', // password (is encrypted): 123456789
             'gender'    => 'female',
             'user_type' => 'customer',
+            'phone'     => '0170090440',
         ]);
 
 
