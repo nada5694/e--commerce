@@ -48,9 +48,9 @@
     </div>
 
     <div class="form-group row">
-        <label class="form-label col-lg-3">Description </label>
+        <label class="admin-form col-lg-2">Description </label>
         <div class="col-lg-9">
-            <input class="form-control @error('description') is-invalid @enderror" value="{{Request::old('description') ? Request::old('description') : $model->description}}" type="text" name="description" placeholder="Enter product description" autocomplete="off">
+            <input class="form-control @error('description') is-invalid @enderror" value="{{Request::old('description') }}" type="text" name="description" placeholder="Enter product description" autocomplete="off">
             @error('description')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
