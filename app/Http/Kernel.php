@@ -105,7 +105,7 @@ class Kernel extends HttpKernel
 
         /*----------------------**************************************************************** -------------------*/
 
-        'only_admins_and_moderators' => \App\Http\Middleware\onlyAdminsAndModerators::class,
+        'only_admins_and_moderators' => \App\Http\Middleware\onlyAdminAndModerators::class,
 
         /*----------------------**************************************************************** -------------------*/
 
