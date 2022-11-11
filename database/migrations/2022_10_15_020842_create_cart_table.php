@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('product_image');
             $table->string('is_accessory')->nullable();
             $table->string('clothing_type')->nullable();
-            $table->enum('product_category',['men','women'.'kids'])->nullable();
+            $table->enum('product_category',['men','women','kids'])->nullable();
             $table->decimal('price');
             $table->decimal('discount')->nullable();
             $table->integer('quantity')->nullable();

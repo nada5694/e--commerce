@@ -58,12 +58,10 @@
                                 <td class="text-center text-xs">{{ucwords($product->product_category)}}</td> <!-- ucwords($variable), capitalizes first letter in each word -->
                                 <td class="text-center text-xs">
                                     <span>
-                                        @if($product->clothing_type == '1')
-                                            Formal
-                                        @elseif($product->clothing_type == '2')
-                                            Casual
+                                        @if ($product->is_accessory == 'no')
+                                            {{$product->clothing_type}}
                                         @else
-                                            Sports Wear
+                                            xxxx
                                         @endif
                                     </span>
                                 </td>

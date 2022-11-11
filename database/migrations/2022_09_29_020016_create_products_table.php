@@ -22,10 +22,10 @@ return new class extends Migration
             $table->decimal('price');
             $table->decimal('discount')->default(0)->nullable(); // temporary nullable!
             $table->enum('clothing_type',['formal','casual','sports wear'])->nullable();
-            $table->enum('is_accessory',['yes','no']); //this column is only for accessories so it has a null option too!
+            $table->enum('is_accessory',['yes','no'])->nullable(); //this column is only for accessories so it has a null option too!
             // $table->enum('is_sale',['yes','no']);
             // $table->boolean('is_accessory')->default(1)->nullable();
-            $table->enum('product_category',['men','women','kids']);
+            $table->enum('product_category',['men','women','kids'])->nullable();
             // $table->unsignedBigInteger('cart_id');
             // $table->unsignedBigInteger('user_id');
             // $table->foreign('cart_id')->references('id')->on('carts');

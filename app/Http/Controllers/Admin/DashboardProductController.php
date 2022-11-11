@@ -103,4 +103,10 @@ class DashboardProductController extends Controller
         return redirect()->route('products.index')
             ->with(['message' => "($products->name) - Deleted successfully!"]);
     }
+
+    public function delete()
+    {
+        $products = Product::orderBy('created_at','asc')->onlyTrashed()->paginate(30);
+        return view('dashboard.products.delete',compact('products'));
+    }
 }

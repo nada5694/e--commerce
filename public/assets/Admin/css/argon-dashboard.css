@@ -645,7 +645,7 @@ progress {
 
 .img-fluid {
   max-width: 100%;
-  height: auto;
+  height: 75px;
 }
 
 .img-thumbnail {
@@ -20619,7 +20619,20 @@ fieldset:disabled .btn {
     color: #344767;
 }
 
+.edit-category {
+    --bs-link-hover-color: snow;
+    background-color: #2dce89 !important;
+    width: 76%;
+    margin-left: 3%;
+}
 
+.delete-category {
+    width: 76%;
+    margin-left: 12%;
+    border: none;
+    display: flex;
+    background-color: #fb6340 !important;
+}
 
 .user-button .delete-button {
     margin-left: 15%;

@@ -92,9 +92,23 @@ Route::group([
         Route::delete('/product/forceDelete/{id}/', [DashboardProductController::class, 'forceDelete'])->name('products.forceDelete');
         /********************** End products route. **********************/
 
+
+        Route::group([
+            'middleware' => ['only_admins_and_moderators'] // more than one middleware for the one or more route
+        ], function () {
+        /********************** Start categories route. **********************/
+        Route::resource('/categories', DashboardCategoryController::class);
+        Route::get('/categories/delete', [DashboardCategoryController::class, 'delete'])->name('categories.delete');
+        Route::get('/categories/restore/{id}/', [DashboardCategoryController::class, 'restore'])->name('categories.restore');
+        Route::delete('/categories/forceDelete/{id}/', [DashboardCategoryController::class, 'forceDelete'])->name('categories.forceDelete');
+        /********************** categories products route. **********************/
+
         /********************** Start users route. **********************/
         Route::resource('/users', DashboardUserController::class);
         /********************** End users route. **********************/
+    });
+
+
     });
 });
 

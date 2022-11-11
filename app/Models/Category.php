@@ -11,9 +11,8 @@ class Category extends Model
 {
     use HasFactory , HasFactory , SoftDeletes;
 
-    protected $fillable = [
-        'name',
-        'description',
+    protected $guarded = [
+
     ];
 
     public function user(): \Illuminate\Database\Eloquent\Relations\belongsTo
@@ -28,16 +27,16 @@ class Category extends Model
 
     public function  create_user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function  update_user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function  delete_user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongTo(User::class);
+        return $this->belongsTo(User::class);
     }
 }

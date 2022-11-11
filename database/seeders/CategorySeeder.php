@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Category;
 
 class CategorySeeder extends Seeder
 {
@@ -16,21 +17,21 @@ class CategorySeeder extends Seeder
     {
         $category = Category::create([
             'name'              => "formal",
-            'description'       =>'xxxxxxxxxxxx',
+            'description'       =>'xxxxxxxxxx',
             'create_user_id'    => null,
         ]);
 
         $category = Category::create([ //ID = 2
             'name'             => "Casual",
-            'description'      => 'xxxxxxxxxxxx',
+            'description'      => 'xxxxxxxxxx',
             'create_user_id'   => null,
         ]);
 
         $category = Category::create([ //ID = 3
             'name'             => "Sports Wear",
-            'description'      => 'xxxxxxxxxxxx',
+            'description'      => 'xxxxxxxxxx',
             'create_user_id'   => null,
         ]);
-        
+
     }
 }
