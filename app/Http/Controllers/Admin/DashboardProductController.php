@@ -41,7 +41,7 @@ class DashboardProductController extends Controller
         $products                     = new Product();
         $products->name               = $request->name;
         $products->description        = $request->description ;
-        $products->image_name         = $request->image_name;
+        $products->image_name         = "assets/website/images/products/".$request->image_name;
         $products->price              = $request->price;
         $products->discount           = $request->discount;
         $products->clothing_type      = $request->clothing_type;
@@ -74,7 +74,9 @@ class DashboardProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $model = Product::findOrFail($id);
+
+        return view('Admin.products.edit',compact('model'));
     }
 
     /**
@@ -86,7 +88,21 @@ class DashboardProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $products                     = Product::findOrFail($id);
+        $products->name               = $request->name;
+        $products->description        = $request->description ;
+        $products->image_name         = "assets/website/images/products/".$request->image_name;
+        $products->price              = $request->price;
+        $products->discount           = $request->discount;
+        $products->clothing_type      = $request->clothing_type;
+        $products->available_quantity = $request->available_quantity;
+        $products->is_accessory       = $request->is_accessory;
+        $products->product_category   = $request->product_category;
+        $products->create_user_id     = auth()->user()->id;
+        $products->save();
+
+        return redirect()->route('products.index')
+            ->with(['message' => "($products->name) - Edited successfully!"]);
     }
 
     /**
@@ -107,6 +123,21 @@ class DashboardProductController extends Controller
     public function delete()
     {
         $products = Product::orderBy('created_at','asc')->onlyTrashed()->paginate(30);
-        return view('dashboard.products.delete',compact('products'));
+        return view('Admin.products.delete',compact('products'));
+    }
+
+    public function forceDelete($id)
+    {
+        Product::where('id', $id)->forceDelete();
+        return redirect()->route('products.delete')
+            ->with(['message' => "Permanently deleted successfully!"]);
+    }
+
+    public function restore($id)
+    {
+        Product::withTrashed()->find($id)->restore();
+        $products = Product::findOrFail($id);
+        return redirect()->route('products.delete')
+            ->with(['message' => "($products->name) - Restored successfully!"]);
     }
 }

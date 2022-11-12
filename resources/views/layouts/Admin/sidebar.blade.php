@@ -17,46 +17,59 @@
             <span class="nav-link-text ms-1">Dashboard</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link {{ route('users.index') }}" href="{{ route('users.index') }}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                {{-- <i class="ni ni-app text-info text-sm opacity-10"></i> --}}
-                <i class="ni ni-single-02 text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Users</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a  class="nav-link {{ route('products.index') }}" href="{{ route('products.index') }}">
+        @if(auth()->user()->user_type == "admin" || auth()->user()->user_type == "moderator")
+            <li class="nav-item">
+                <a class="nav-link {{ route('users.index') }}" href="{{ route('users.index') }}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                    <i class="fa-solid fa-box-open text-warning text-sm opacity-10"></i>
+                    {{-- <i class="ni ni-app text-info text-sm opacity-10"></i> --}}
+                    <i class="ni ni-single-02 text-info text-sm opacity-10"></i>
                 </div>
-                <span class="nav-link-text ms-1">Products</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link {{ route('categories.index') }}" href="{{ route('categories.index') }}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                {{-- <i class="ni ni-credit-card text-success text-sm opacity-10"></i> --}}
-                <i class="fa-solid fa-align-justify text-success text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Categories</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link " href="./pages/profile.html">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link " href="./pages/rtl.html">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">RTL</span>
-            </a>
-        </li>
+                <span class="nav-link-text ms-1">Users</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a  class="nav-link {{ route('products.index') }}" href="{{ route('products.index') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-box-open text-warning text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Products</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ route('categories.index') }}" href="{{ route('categories.index') }}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    {{-- <i class="ni ni-credit-card text-success text-sm opacity-10"></i> --}}
+                    <i class="fa-solid fa-align-justify text-success text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Categories</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="./pages/profile.html">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="./pages/rtl.html">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">RTL</span>
+                </a>
+            </li>
+        @elseif(auth()->user()->user_type == "vendor")
+            <!------------- Start route products ------------->
+            <li class="nav-item">
+                <a  class="nav-link {{ route('products.index') }}" href="{{ route('products.index') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-box-open text-warning text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Products</span>
+                </a>
+            </li>
+            <!------------- End route products ------------->
+        @endif
     </aside>

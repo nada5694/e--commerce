@@ -10,7 +10,9 @@
         <div class="col-12">
             <div class="new-product">
                 <ul>
-                    <a href="{{ route('categories.create') }}" class="btn">Create New Category</a>
+                    <li class="options"><a href="{{ route('categories.index') }}" class="btn">All Category</a></li>
+                    <li class="options"><a href="{{ route('categories.create') }}" class="btn">Create New Category</a></li>
+                    <li class="options"><a href="{{ route('categories.delete') }}" class="btn">Deleted Category</a></li>
                 </ul>
             </div>
         <div class="card mb-4">
@@ -47,12 +49,12 @@
                             @if(auth()->user()->user_type == "admin")
                                 <td class="align-middle text-center text-sm">
                                     {!! Form::open([
-                                        'route' => ['products.destroy',$category->id],
+                                        'route' => ['categories.destroy',$category->id],
                                         'method' => 'delete'
                                     ])!!}
                                     <button class="delete-category badge badge-sm " onclick="return confirm('Are you sure that you want to delete - {{ $category->name }}?');" type="submit" title="{{'Delete'." ($category->name)"}}"><i class="fa-solid fa-trash"></i>  Delete </button>
 
-                                    <a href="{{route('products.edit',$category->id)}}" class="edit-category badge badge-sm" type="button" title="{{'Edit'." ($category->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
+                                    <a href="{{route('categories.edit',$category->id)}}" class="edit-category badge badge-sm" type="button" title="{{'Edit'." ($category->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
                                     {!! Form::close() !!}
                                 </td>
                             @endif

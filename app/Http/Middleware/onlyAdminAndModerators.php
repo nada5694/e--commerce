@@ -16,7 +16,7 @@ class onlyAdminAndModerators
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->user_type != "admin" ||
+        if (auth()->user()->user_type != "admin" &&
             auth()->user()->user_type != "moderator")
         {
             return redirect()->back();

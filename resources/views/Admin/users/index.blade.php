@@ -8,6 +8,13 @@
     <div class="container-fluid py-4">
         <div class="row">
           <div class="col-12">
+            <div class="new-product">
+                <ul>
+                    <li class="options"><a href="{{ route('users.index') }}" class="btn">All Users</a></li>
+                    <li class="options"><a href="{{ route('users.create') }}" class="btn">Create New Users</a></li>
+                    <li class="options"><a href="{{ route('users.delete') }}" class="btn">Deleted Users</a></li>
+                </ul>
+            </div>
             <div class="card mb-4">
               <div class="card-header pb-0">
                 <h6><span class="b-b-success">{{App\Models\User::count()}} - Users</span></h6>
