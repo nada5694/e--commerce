@@ -53,9 +53,8 @@
                                         'method' => 'delete'
                                     ])!!}
                                     <button class="delete-category badge badge-sm " onclick="return confirm('Are you sure that you want to delete - {{ $category->name }}?');" type="submit" title="{{'Delete'." ($category->name)"}}"><i class="fa-solid fa-trash"></i>  Delete </button>
-
-                                    <a href="{{route('categories.edit',$category->id)}}" class="edit-category badge badge-sm" type="button" title="{{'Edit'." ($category->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
                                     {!! Form::close() !!}
+                                    <a href="{{route('categories.edit',$category->id)}}" class="edit-category badge badge-sm" type="button" title="{{'Edit'." ($category->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
                                 </td>
                             @endif
                         </tr>

@@ -8,6 +8,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 
 /*----------------------------- Start Dashboard Controllers usage -----------------------------*/
 use App\Http\Controllers\Admin\DashboardHomeController;
@@ -46,6 +47,10 @@ Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us
 Route::get('/checkout', [CartController::class, 'getCartItemsForCheckout'])->name('checkout');
 Route::get('/shop', [ProductController::class, 'index'])->name('product');
 /*------------------ End Website Routes ------------------ */
+
+/*------------------ Start Profile Route ------------------ */
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+/*------------------- End Profile Route ------------------- */
 
 /*------------------ Start Forgot Password Route ------------------ */
 Route::get('/Forget-Password', [ForgotPasswordController::class, 'index'])->name('forget-password');

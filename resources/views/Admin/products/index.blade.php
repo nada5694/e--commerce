@@ -77,9 +77,8 @@
                                             'method' => 'delete'
                                         ])!!}
                                         <button class="delete-button badge badge-sm" onclick="return confirm('Are you sure that you want to delete - {{ $product->name }}?');" type="submit" title="{{'Delete'." ($product->name)"}}"><i class="fa-solid fa-trash"></i>  Delete </button>
-
-                                        <a href="{{route('products.edit',$product->id)}}" class="edit-button badge badge-sm" type="button" title="{{'Edit'." ($product->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
                                         {!! Form::close() !!}
+                                        <a href="{{route('products.edit',$product->id)}}" class="edit-button badge badge-sm" type="button" title="{{'Edit'." ($product->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
                                     </td>
                                 @endif
                             </tr>

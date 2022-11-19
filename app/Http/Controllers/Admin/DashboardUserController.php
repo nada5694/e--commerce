@@ -88,7 +88,21 @@ class DashboardUserController extends Controller
     {
         $model = User::findOrFail($id);
 
+        if(auth()->user()->user_type == "admin" && $model->id == auth()->user()->id){
             return view('Admin.users.edit',compact('model'));
+        }
+        elseif(auth()->user()->user_type == "admin" && $model->user_type == "admin"){
+            return redirect('/dashboard/users');
+        }
+        elseif(auth()->user()->user_type == "admin" && $model->user_type != "admin"){
+            return view('Admin.users.edit',compact('model'));
+        }
+        elseif(auth()->user()->user_type == "moderator"){
+            return redirect('/dashboard/users');
+        }
+        elseif(auth()->user()->user_type == "supplier"){
+            return redirect('/dashboard');
+        }
 
     }
 
