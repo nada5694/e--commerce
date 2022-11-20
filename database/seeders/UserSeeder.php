@@ -19,14 +19,17 @@ class UserSeeder extends Seeder
 
         $user = User::create([ //ID = 1 (admin)
             'name'      => "nada",
+            'lastname'  => 'ahmed',
             'username'  => 'nada_ahmed',
+            // 'avatar'    => '/assets/website/images/nada.jpg',
             'email'     => 'Nada@info.com',
             'password'  => '$2y$10$zzd0BbVIty8VoydyRxCw4eyhYcxd7osHkIE7sKt/EcwGq1phPa7Ia', // password (is encrypted): 123456789
             'gender'    => 'female',
             'user_type' => 'admin',
             'phone'     => '0110090440',
+            'dob'       => "1999-9-26",
+            'bio'       => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores perspiciatis consectetur earum nemo, nostrum fugit autem tempore suscipit voluptas quo praesentium saepe nulla laborum reiciendis! Velit vel perferendis maxime minima.',
         ]);
-
 
         $user = User::create([ //ID = 2 (moderator)
             'name'      => "User_moderator",

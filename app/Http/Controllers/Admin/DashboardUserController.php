@@ -117,7 +117,9 @@ class DashboardUserController extends Controller
     {
         $users            = User::findOrFail($id);
         $users->name      = $request->name;
+        $users->lastname  = $request->lastname;
         $users->username  = $request->username;
+        // $user->avatar     = $request->avatar;
         $users->user_type = $request->user_type;
         $users->save();
 
