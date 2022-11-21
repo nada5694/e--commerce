@@ -1,8 +1,7 @@
 @extends('layouts.Admin.master')
-@inject('model', 'App\Models\Product')
 
 @section('title')
-    Create New Product
+    Edit Product
 @endsection
 
 @section('content')
@@ -19,10 +18,11 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="tab-content" id="pills-tabContent">
-                            <form action="{{route('products.store')}}" method="post" id="alert-form">
+                            <form action="{{route('products.update',$model->id)}}" method="post" id="alert-form">
                                 @csrf
+                                {{ method_field('put') }}
                                 @include('Admin.products.form')
-                                <button class="btn btn-success mt-4 d-block me-auto" type="submit">Add</button>
+                                <button class="btn btn-success mt-4 d-block me-auto" type="submit">Update</button>
                             </form>
                         </div>
                     </div>
@@ -31,4 +31,3 @@
         </div>
     </div>
 @endsection
-

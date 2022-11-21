@@ -55,9 +55,9 @@
                                             <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                                         @endif
                                     @endauth
-                                    <a class="dropdown-item name" href="javascript:void(0);" style="color: #b84592;">{{auth()->user()->name}}</a>
+                                    <a class="dropdown-item name" href="{{ route('profile') }}" style="color: #b84592;">{{auth()->user()->name}}</a>
                                     <a class="dropdown-item" href="javascript:void(0);">{{ ucfirst(auth()->user()->user_type) }}</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Profile Management</a>
+                                    <a class="dropdown-item" href="{{ route('profile') }}">Profile Management</a>
                             </div>
                         </li>
                     @else

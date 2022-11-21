@@ -10,7 +10,9 @@
           <div class="col-12">
             <div class="new-product">
                 <ul>
-                    <a href="{{ route('products.create') }}" class="btn">Create New Product</a>
+                    <li class="options"><a href="{{ route('products.index') }}" class="btn">All Products</a></li>
+                    <li class="options"><a href="{{ route('products.create') }}" class="btn">Create New Product</a></li>
+                    <li class="options"><a href="{{ route('products.delete') }}" class="btn">Deleted Products</a></li>
                 </ul>
             </div>
             <div class="card mb-4">
@@ -74,10 +76,9 @@
                                             'route' => ['products.destroy',$product->id],
                                             'method' => 'delete'
                                         ])!!}
-                                        <button class="delete-button badge badge-sm " onclick="return confirm('Are you sure that you want to delete - {{ $product->name }}?');" type="submit" title="{{'Delete'." ($product->name)"}}"><i class="fa-solid fa-trash"></i>  Delete </button>
-
-                                        <a href="{{route('products.edit',$product->id)}}" class="edit-button badge badge-sm" type="button" title="{{'Edit'." ($product->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
+                                        <button class="delete-button badge badge-sm" onclick="return confirm('Are you sure that you want to delete - {{ $product->name }}?');" type="submit" title="{{'Delete'." ($product->name)"}}"><i class="fa-solid fa-trash"></i>  Delete </button>
                                         {!! Form::close() !!}
+                                        <a href="{{route('products.edit',$product->id)}}" class="edit-button badge badge-sm" type="button" title="{{'Edit'." ($product->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
                                     </td>
                                 @endif
                             </tr>

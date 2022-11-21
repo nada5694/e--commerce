@@ -8,6 +8,13 @@
     <div class="container-fluid py-4">
         <div class="row">
           <div class="col-12">
+            <div class="new-product">
+                <ul>
+                    <li class="options"><a href="{{ route('users.index') }}" class="btn">All Users</a></li>
+                    <li class="options"><a href="{{ route('users.create') }}" class="btn">Create New Users</a></li>
+                    <li class="options"><a href="{{ route('users.delete') }}" class="btn">Deleted Users</a></li>
+                </ul>
+            </div>
             <div class="card mb-4">
               <div class="card-header pb-0">
                 <h6><span class="b-b-success">{{App\Models\User::count()}} - Users</span></h6>
@@ -51,10 +58,21 @@
                                             'route' => ['users.destroy',$user->id],
                                             'method' => 'delete'
                                         ])!!}
-                                        <button class="delete-button badge badge-sm " onclick="return confirm('Are you sure that you want to delete - {{ $user->name }}?');" type="submit" title="{{'Delete'." ($user->name)"}}"><i class="fa-solid fa-trash"></i>  Delete </button>
 
-                                        <a href="{{route('users.edit',$user->id)}}" class="edit-button badge badge-sm" type="button" title="{{'Edit'." ($user->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
+                                        @if($user->user_type == "admin" && $user->id != auth()->user()->id)
+                                            <button style="display: none;" class="delete-button badge badge-sm " onclick="return confirm('Are you sure that you want to delete - {{ $user->name }}?');" type="submit" title="{{'Delete'." ($user->name)"}}"><i class="fa-solid fa-trash"></i>  Delete </button>
+                                        @else
+                                            <button class="delete-button badge badge-sm " onclick="return confirm('Are you sure that you want to delete - {{ $user->name }}?');" type="submit" title="{{'Delete'." ($user->name)"}}"><i class="fa-solid fa-trash"></i>  Delete </button>
+                                        @endif
+
                                         {!! Form::close() !!}
+                                        
+                                        @if($user->user_type == "admin" && $user->id != auth()->user()->id)
+                                            <a style="display: none;" href="{{route('users.edit',$user->id)}}" class="edit-button badge badge-sm" type="button" title="{{'Edit'." ($user->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
+                                        @else
+                                            <a href="{{route('users.edit',$user->id)}}" class="edit-button badge badge-sm" type="button" title="{{'Edit'." ($user->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
+                                        @endif
+
                                     </td>
                                 @endif
                             </tr>

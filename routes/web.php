@@ -8,6 +8,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 
 /*----------------------------- Start Dashboard Controllers usage -----------------------------*/
 use App\Http\Controllers\Admin\DashboardHomeController;
@@ -46,6 +47,13 @@ Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us
 Route::get('/checkout', [CartController::class, 'getCartItemsForCheckout'])->name('checkout');
 Route::get('/shop', [ProductController::class, 'index'])->name('product');
 /*------------------ End Website Routes ------------------ */
+
+/*------------------ Start Profile Route ------------------ */
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::get('/edit-profile', [ProfileController::class, 'editProfile'])->name('editProfile');
+Route::put('/update-profile/{id}', [ProfileController::class, 'update'])->name('update-profile');
+
+/*------------------- End Profile Route ------------------- */
 
 /*------------------ Start Forgot Password Route ------------------ */
 Route::get('/Forget-Password', [ForgotPasswordController::class, 'index'])->name('forget-password');
@@ -98,13 +106,16 @@ Route::group([
         ], function () {
         /********************** Start categories route. **********************/
         Route::resource('/categories', DashboardCategoryController::class);
-        Route::get('/categories/delete', [DashboardCategoryController::class, 'delete'])->name('categories.delete');
-        Route::get('/categories/restore/{id}/', [DashboardCategoryController::class, 'restore'])->name('categories.restore');
-        Route::delete('/categories/forceDelete/{id}/', [DashboardCategoryController::class, 'forceDelete'])->name('categories.forceDelete');
+        Route::get('/category/delete', [DashboardCategoryController::class, 'delete'])->name('categories.delete');
+        Route::get('/category/restore/{id}/', [DashboardCategoryController::class, 'restore'])->name('categories.restore');
+        Route::delete('/category/forceDelete/{id}/', [DashboardCategoryController::class, 'forceDelete'])->name('categories.forceDelete');
         /********************** categories products route. **********************/
 
         /********************** Start users route. **********************/
         Route::resource('/users', DashboardUserController::class);
+        Route::get('/user/delete', [DashboardUserController::class, 'delete'])->name('users.delete');
+        Route::get('/user/restore/{id}/', [DashboardUserController::class, 'restore'])->name('users.restore');
+        Route::delete('/user/forceDelete/{id}/', [DashboardUserController::class, 'forceDelete'])->name('users.forceDelete');
         /********************** End users route. **********************/
     });
 

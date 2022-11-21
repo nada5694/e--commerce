@@ -20590,6 +20590,10 @@ fieldset:disabled .btn {
   color: #fb6340;
 }
 
+.options {
+    list-style: none;
+}
+
 .new-product {
     text-align: right;
 }
@@ -20597,6 +20601,21 @@ fieldset:disabled .btn {
 .new-product ul a{
     background-color: snow;
     border-radius: 11px;
+    width: 15%;
+    margin-bottom: 0.5rem;
+    padding-top: 0.3%;
+    padding-bottom: 0.3%;
+}
+
+.create-body {
+    background-color: snow;
+    background-color: snow;
+    border-radius: 11px;
+    width: 15%;
+}
+
+.create-body a {
+    font-size: 20px;
 }
 
 .new-product ul a:hover{
