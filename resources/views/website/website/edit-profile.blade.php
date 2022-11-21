@@ -59,7 +59,7 @@
         color: #717171;
     }
 </style>
-<form action="{{route('update-profile',$model->id)}}" method="post" id="alert-form">
+<form action="{{route('update-profile', $model->id)}}" method="post" id="alert-form">
     @csrf
     {{ method_field('put') }}
     <div class="container py-4">
@@ -101,7 +101,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Last name</label>
-                            <input class="form-control @error('lastname') is-invalid @enderror" type="text"  value="{{Request::old('lastname') ? Request::old('lastname') : $model->name ?? "Enter Your Last Name"}}" name="lastname">
+                            <input class="form-control @error('lastname') is-invalid @enderror" type="text"  value="{{Request::old('lastname') ? Request::old('lastname') : $model->lastname}}" placeholder="Enter Your Last Name" name="lastname">
                             </div>
                         </div>
                         <div class="col-md-6" style="display: none;">

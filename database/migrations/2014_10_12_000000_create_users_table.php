@@ -27,10 +27,10 @@ return new class extends Migration
             $table->string('password')->nullable(); //NOT NULL
             $table->enum('gender', ['male' , 'female' , 'undetermined'])->nullable();
             $table->enum('user_type',['customer' , 'vendor' , 'moderator' , 'admin'])->default('customer'); //NOT NULL
-            $table->string('address')->nullable();
-            $table->string('country')->nullable();
+            // $table->string('address')->nullable();
+            // $table->string('country')->nullable();
             // $table->integer('governorate_id')->nullable();
-            $table->string('city')->nullable();
+            // $table->string('city')->nullable();
             // $table->string('instagram')->unique()->nullable();
             // $table->string('whatsapp')->unique()->nullable();
             // $table->string('facebook')->unique()->nullable();

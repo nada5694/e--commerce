@@ -52,7 +52,6 @@ Route::get('/shop', [ProductController::class, 'index'])->name('product');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/edit-profile', [ProfileController::class, 'editProfile'])->name('editProfile');
 Route::put('/update-profile/{id}', [ProfileController::class, 'update'])->name('update-profile');
-
 /*------------------- End Profile Route ------------------- */
 
 /*------------------ Start Forgot Password Route ------------------ */

@@ -67,24 +67,24 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {        
         $users            = User::findOrFail($id);
-        $users->username  = $request->username;
+        // $users->username  = $request->username;
         $users->name      = $request->name;
         $users->lastname  = $request->lastname;
         // $users->avatar    = $request->avatar;
-        $users->email     = $request->email;
+        // $users->email     = $request->email;
         // $users->user_type = $request->user_type;
-        $users->phone     = $request->phone;
-        $users->gender    = $request->gender;
-        $users->address   = $request->address;
-        $users->city      = $request->city;
-        $users->country   = $request->country;
-        $users->dob       = $request->dob;
-        $users->bio       = $request->bio;
+        // $users->phone     = $request->phone;
+        // $users->gender    = $request->gender;
+        // $users->address   = $request->address;
+        // $users->city      = $request->city;
+        // $users->country   = $request->country;
+        // $users->dob       = $request->dob;
+        // $users->bio       = $request->bio;
         $users->save();
 
-        return redirect()->route('update-profile')
+        return redirect()->route('profile')
                         ->with('message','Profile Updated successfully.');
     }
 

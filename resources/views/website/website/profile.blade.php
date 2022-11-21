@@ -120,37 +120,37 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Username</label>
-                                <input class="form-control @error('username') is-invalid @enderror" type="text"  value="{{Request::old('username') ? Request::old('username') : auth()->user()->username}}" name="usernsme">
+                                <input disabled class="form-control @error('username') is-invalid @enderror" type="text"  value="{{Request::old('username') ? Request::old('username') : auth()->user()->username}}" name="usernsme">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Email address</label>
-                                <input class="form-control @error('email') is-invalid @enderror" type="email" value="{{Request::old('email') ? Request::old('email') : auth()->user()->email}}" name="email">
+                                <input disabled class="form-control @error('email') is-invalid @enderror" type="email" value="{{Request::old('email') ? Request::old('email') : auth()->user()->email}}" name="email">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">First name</label>
-                                <input class="form-control @error('name') is-invalid @enderror" type="text"  value="{{Request::old('name') ? Request::old('name') : auth()->user()->name ?? "Enter Your Name"}}" name="name">
+                                <input disabled class="form-control @error('name') is-invalid @enderror" type="text"  value="{{Request::old('name') ? Request::old('name') : auth()->user()->name ?? "Enter Your Name"}}" name="name">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Last name</label>
-                                <input class="form-control @error('lastname') is-invalid @enderror" type="text"  value="{{Request::old('lastname') ? Request::old('lastname') : auth()->user()->lastname ?? "Enter Your Last Name"}}" name="lastnsme">
+                                <input disabled class="form-control @error('lastname') is-invalid @enderror" type="text"  value="{{Request::old('lastname') ? Request::old('lastname') : auth()->user()->lastname ?? "Enter Your Last Name"}}" name="lastnsme">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">User Type</label>
-                                <input class="form-control @error('user_type') is-invalid @enderror" type="text"  value="{{Request::old('user_type') ? Request::old('user_type') : auth()->user()->user_type}}" name="user_type">
+                                <input disabled class="form-control @error('user_type') is-invalid @enderror" type="text"  value="{{Request::old('user_type') ? Request::old('user_type') : auth()->user()->user_type}}" name="user_type">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Gender</label>
-                                <input class="form-control @error('gender') is-invalid @enderror" type="text"  value="{{Request::old('gender') ? Request::old('gender') : auth()->user()->gender ?? "Enter Your Gender"}}" name="gender">
+                                <input disabled class="form-control @error('gender') is-invalid @enderror" type="text"  value="{{Request::old('gender') ? Request::old('gender') : auth()->user()->gender ?? "Enter Your Gender"}}" name="gender">
                                 </div>
                             </div>
                         </div>
@@ -160,31 +160,31 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Address</label>
-                                <input class="form-control @error('address') is-invalid @enderror" type="text"  value="{{Request::old('address') ? Request::old('address') : auth()->user()->address ?? "Enter Your Address"}}" name="address">
+                                <input disabled class="form-control @error('address') is-invalid @enderror" type="text"  value="{{Request::old('address') ? Request::old('address') : auth()->user()->address ?? "Enter Your Address"}}" name="address">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">City</label>
-                                <input class="form-control @error('city') is-invalid @enderror" type="text"  value="{{Request::old('city') ? Request::old('city') : auth()->user()->city ?? "Enter Your City"}}" name="city">
+                                <input disabled class="form-control @error('city') is-invalid @enderror" type="text"  value="{{Request::old('city') ? Request::old('city') : auth()->user()->city ?? "Enter Your City"}}" name="city">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Country</label>
-                                <input class="form-control @error('Country') is-invalid @enderror" type="text"  value="{{Request::old('Country') ? Request::old('Country') : auth()->user()->Country ?? "Enter Your Country"}}" name="country">
+                                <input disabled class="form-control @error('Country') is-invalid @enderror" type="text"  value="{{Request::old('Country') ? Request::old('Country') : auth()->user()->Country ?? "Enter Your Country"}}" name="country">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Date Of Birth</label>
-                                <input class="form-control @error('dob') is-invalid @enderror" type="text"  value="{{Request::old('dob') ? Request::old('dob') : auth()->user()->dob ?? "Enter Your Date Of Birth"}}" name="dob">
+                                <input disabled class="form-control @error('dob') is-invalid @enderror" type="text"  value="{{Request::old('dob') ? Request::old('dob') : auth()->user()->dob ?? "Enter Your Date Of Birth"}}" name="dob">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Phone Number</label>
-                                <input class="form-control @error('phone') is-invalid @enderror" type="text"  value="{{Request::old('phone') ? Request::old('phone') : auth()->user()->phone ?? "Enter Your Phone Number"}}" name="phone">
+                                <input disabled class="form-control @error('phone') is-invalid @enderror" type="text"  value="{{Request::old('phone') ? Request::old('phone') : auth()->user()->phone ?? "Enter Your Phone Number"}}" name="phone">
                                 </div>
                             </div>
                         </div>
@@ -197,7 +197,7 @@
                             <label for="example-text-input" class="form-control-label">Bio</label>
                             <textarea class="form-control" name="bio" placeholder="Enter your bio here..."  rows="5">{{Request::old('bio') ? Request::old('bio') : auth()->user()->bio }}
                             </textarea>
-                            {{-- <input class="form-control @error('bio') is-invalid @enderror" type="text"  value="{{Request::old('bio') ? Request::old('bio') : auth()->user()->bio ?? "Enter Your Bio" }}"> --}}
+                            {{-- <input disabled class="form-control @error('bio') is-invalid @enderror" type="text"  value="{{Request::old('bio') ? Request::old('bio') : auth()->user()->bio ?? "Enter Your Bio" }}"> --}}
                             </div>
                         </div>
                     </div>
