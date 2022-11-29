@@ -9,7 +9,6 @@
 
 <nav class="site-nav mb-5">
     <div class="sticky-nav js-sticky-header">
-
         <div class="container position-relative">
             <div class="site-navigation text-center dark">
                 <a href="{{ route('home') }}" class="logo menu-absolute m-0">UntreeStore<span class="text-primary">.</span></a>
@@ -32,10 +31,8 @@
                             <li><a href="{{ route('about') }}">About</a></li>
                             <li><a href="{{ route('Cart') }}">Cart</a></li>
                             <li><a href="{{ route('checkout') }}">Checkout</a></li>
-
                         </ul>
                     </li>
-
                     <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
                 </ul>
                 <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">

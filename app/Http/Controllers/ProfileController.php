@@ -40,7 +40,6 @@ class ProfileController extends Controller
         $users->username  = $request->username;
         $users->name      = $request->name;
         $users->lastname  = $request->lastname;
-        // $users->avatar    = "/assets/website/images/".$request->avatar;
         $users->email     = $request->email;
         $users->user_type = $request->user_type;
         $users->phone     = $request->phone;
@@ -50,16 +49,8 @@ class ProfileController extends Controller
         $users->country   = $request->country;
         $users->dob       = $request->dob;
         $users->bio       = $request->bio;
-        // $users->save();
-
-
-
-        // if($request->hasFile('avatar')){
-        //     $filename = $request->avatar->getClientOriginalName();
-        //     $request->avatar->storeAs('avatar',$filename,'public');
-        //     Auth()->user()->update(['avatar'=>$filename]);
-        // }
         $users->update();
+
         return redirect()->route('profile')
                         ->with('message','Profile Updated successfully.');
     }
@@ -73,38 +64,6 @@ class ProfileController extends Controller
         return redirect()->back()
                         ->with('message','Avatar Updated successfully.');
     }
-    // public function profileUpdatePassword(Request $request)
-    // {
-    //     $rules = [
-    //         'current_password'   => 'required|min:8|current+password',
-    //         'password'           => 'required|confirmed|min:8',
-    //     ];
-    //     $message = [
-    //         // validation current_password
-    //         'current_password.required'          => 'Please enter your current password!',
-    //         'current_password.min'               => 'Please enter at least 8 characters!',
-    //         'current_password.current_password'  => 'Please enter your current password correctly!',
-    //         //validation password
-    //         'password_required'                  => 'Please enter your new password!',
-    //         'password_confirm'                   => 'Please confirm your new password!',
-    //         'password_min'                       => 'Please enter at least 8 characters!',
-    //     ];
-    //     $this->validate($request, $rules, $message);
-
-    //     $user = $request->user();
-    //     if ($request->password != '') {
-    //         if (Hash::check($request->input('current_password'))) {
-    //             # The Password Match...
-    //             $user->password = bcrypt($request->input('password'));
-    //             $user->save();
-    //         } else {
-    //             return redirect()->route('profile')
-    //                 ->with(['error' => 'the current password is incorrect, try again!']);
-    //         }
-    //     }
-    //     return redirect()->route('update-profile')
-    //         ->with(['user_password_updated_message' => "Your password has been successfully changed!"]);
-    // }
 
     public function profileUpdatePassword(Request $request)
     {
