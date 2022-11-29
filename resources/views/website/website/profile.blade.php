@@ -65,7 +65,7 @@
                 <div class="row gx-4">
                     <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
-                            {{-- <img src="{{ auth()->user()->avatar}}" alt="{{$users->name.'img'}}" width="80" height="80"> --}}
+                            <img src="{{ auth()->user()->avatar}}" alt="{{auth()->user()->name ?? auth()->user()->username}}" width="80" height="80">
                         </div>
                     </div>
                     <div class="col-auto my-auto">

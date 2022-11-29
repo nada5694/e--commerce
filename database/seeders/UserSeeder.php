@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'name'      => "nada",
             'lastname'  => 'ahmed',
             'username'  => 'nada_ahmed',
-            // 'avatar'    => '/assets/website/images/nada.jpg',
+            'avatar'    => '/assets/website/images/nada.jpg',
             'email'     => 'Nada@info.com',
             'password'  => '$2y$10$zzd0BbVIty8VoydyRxCw4eyhYcxd7osHkIE7sKt/EcwGq1phPa7Ia', // password (is encrypted): 123456789
             'gender'    => 'female',

@@ -51,7 +51,9 @@ Route::get('/shop', [ProductController::class, 'index'])->name('product');
 /*------------------ Start Profile Route ------------------ */
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/edit-profile', [ProfileController::class, 'editProfile'])->name('editProfile');
-Route::put('/update-profile/{id}', [ProfileController::class, 'update'])->name('update-profile');
+Route::patch('/update-profile/{id}', [ProfileController::class, 'update'])->name('update-profile');
+Route::post('/update-img/{id}', [ProfileController::class, 'updateImg'])->name('update-img');
+Route::post('/edit-profile-post', [ProfileController::class, 'profileUpdatePassword'])->name('editProfile-post');
 /*------------------- End Profile Route ------------------- */
 
 /*------------------ Start Forgot Password Route ------------------ */
