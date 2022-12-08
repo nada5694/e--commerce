@@ -29,7 +29,7 @@
 <body>
     @include("layouts.website.header") <!-- STATIC only for the header -->
 
-    <div style="margin-top: 5%;">
+    <div>
         @yield('content') <!-- The yield is DYNAMIC with all the pages in the website (in inspect elements its div called "container") -->
     </div>
 

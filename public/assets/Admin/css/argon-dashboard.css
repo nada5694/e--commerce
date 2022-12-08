@@ -20465,9 +20465,16 @@ fieldset:disabled .btn {
 .edit-button {
     width: 100%;
     --bs-link-hover-color: snow ;
-    background-color: #2dce89 !important
+    background-color: #2dce89 !important;
+    margin-bottom: 0.1rem;
 }
 
+.show-button {
+    width: 100%;
+    --bs-link-hover-color: snow ;
+    background-color: #5e72e4 ;
+    margin-bottom: 0.1rem;
+}
 .bg-gradient-success i {
     margin-right: 7%;
 }
@@ -20582,31 +20589,43 @@ fieldset:disabled .btn {
 .btn-outline-warning {
   box-shadow: none;
 }
-
 .btn-outline-warning:hover:not(.active) {
   background-color: transparent;
   opacity: .75;
   box-shadow: none;
   color: #fb6340;
 }
-
 .options {
     list-style: none;
 }
-
 .new-product {
     text-align: right;
 }
-
 .new-product ul a{
     background-color: snow;
     border-radius: 11px;
-    width: 15%;
+    width: 200px;
     margin-bottom: 0.5rem;
     padding-top: 0.3%;
     padding-bottom: 0.3%;
 }
-
+.card ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.img-div img {
+    height: 230px;
+    width: 230px;
+}
+@media (max-width: 767px) {
+    .img-div {
+        text-align: center;
+    }
+}
 .create-body {
     background-color: snow;
     background-color: snow;
@@ -20625,7 +20644,9 @@ fieldset:disabled .btn {
 
 .delete-button{
     border: none;
+    width: 100%;
     display: flex;
+    justify-content: center;
     background-color: #fb6340 !important;
 }
 
@@ -20655,6 +20676,7 @@ fieldset:disabled .btn {
 
 .user-button .delete-button {
     margin-left: 15%;
+    width: 66%;
 }
 
 .user-button .edit-button {

@@ -66,7 +66,7 @@
                                         @endif
 
                                         {!! Form::close() !!}
-                                        
+
                                         @if($user->user_type == "admin" && $user->id != auth()->user()->id)
                                             <a style="display: none;" href="{{route('users.edit',$user->id)}}" class="edit-button badge badge-sm" type="button" title="{{'Edit'." ($user->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
                                         @else

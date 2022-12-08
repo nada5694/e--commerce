@@ -41,7 +41,7 @@ class DashboardProductController extends Controller
         $products                     = new Product();
         $products->name               = $request->name;
         $products->description        = $request->description ;
-        $products->image_name         = "assets/website/images/products/".$request->image_name;
+        $products->image_name         = "/assets/website/images/products/".$request->image_name;
         $products->price              = $request->price;
         $products->discount           = $request->discount;
         $products->clothing_type      = $request->clothing_type;
@@ -63,7 +63,9 @@ class DashboardProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $model = Product::findOrFail($id);
+
+        return view('Admin.products.show',compact('model'));
     }
 
     /**
@@ -91,14 +93,14 @@ class DashboardProductController extends Controller
         $products                     = Product::findOrFail($id);
         $products->name               = $request->name;
         $products->description        = $request->description ;
-        $products->image_name         = "assets/website/images/products/".$request->image_name;
+        $products->image_name         = "/assets/website/images/products/".$request->image_name;
         $products->price              = $request->price;
         $products->discount           = $request->discount;
         $products->clothing_type      = $request->clothing_type;
         $products->available_quantity = $request->available_quantity;
         $products->is_accessory       = $request->is_accessory;
         $products->product_category   = $request->product_category;
-        $products->create_user_id     = auth()->user()->id;
+        $products->update_user_id     = auth()->user()->id;
         $products->save();
 
         return redirect()->route('products.index')

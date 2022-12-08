@@ -20,7 +20,7 @@
 
 @if(session()->has('cart_checkout_item_deleted_message'))
     <div class="alert alert-success text-center session-message">
-    <button type="button" class="close" data-dismiss="alert" style="color: rgb(173, 6, 6)">x</button>
+    <button type="button" class="close" data-dismiss="alert">x</button>
     {{ session()->get('cart_checkout_item_deleted_message') }}
     </div>
 @endif
@@ -50,15 +50,14 @@
                         @forelse ($cartItems as $cartItem)
                             <tbody>
                                 <tr>
-
-                                    <td class="product-thumbnail" style="width: 16%;">
+                                    <td class="product-thumbnail">
                                         <img src="{{$cartItem->product_image}}" alt="{{$cartItem->product_name}}" class="img-fluid"></td>
-                                <td class="product-name" style="width: 16%;">{{ $cartItem->product_name ?? 'Not Found' }}</td>
-                                <td style="width: 16%;">
+                                <td class="product-name">{{ $cartItem->product_name ?? 'Not Found' }}</td>
+                                <td class="quantity">
                                     <form action="{{ url('update-cart-items-quantity' , $cartItem->id) }}" method="POST" id="alert-form">
                                         @csrf
                                         {{ method_field('patch') }}
-                                            <input type="number" class="quantity_value" name="quantity_value" value="{{ $cartItem->quantity }}" style="width: 50%;">
+                                            <input type="number" class="quantity_value" name="quantity_value" value="{{ $cartItem->quantity }}">
                                     </form>
                                 </td>
                                 @if($cartItem->discount > 0)
@@ -67,7 +66,7 @@
                                         <span>{{ $cartItem->price - ($cartItem->price * $cartItem->discount) }} EGP</span>
                                     </td>
                                 @elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItem->discount == "")
-                                    <td style="width: 16%;">{{ $cartItem->price }} EGP</td>
+                                    <td class="price-td">{{ $cartItem->price }} EGP</td>
                                 @endif
 
                                 @if($cartItem->discount > 0)
@@ -76,7 +75,7 @@
                                         <span>{{ ($cartItem->quantity) * ($cartItem->price - ($cartItem->price * $cartItem->discount)) }} EGP</span>
                                     </td>
                                 @elseif($cartItem->discount <= 0 || $cartItem->discount == null || $cartItem->discount == "")
-                                    <td class="total_price_cell" style="width: 16%;">{{ $cartItem->quantity * $cartItem->price }} EGP</td>
+                                    <td class="total_price_cell">{{ $cartItem->quantity * $cartItem->price }} EGP</td>
                                 @endif
 
                                 <td>

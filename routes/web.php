@@ -29,11 +29,7 @@ use App\Http\Controllers\Admin\DashboardProfileController;
 | contains the "web" middleware group. Now create something great!
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Auth::routes();
+Auth::routes(["verify" => true]);
 
 Route::group([], function () {    //group function for "home" route (same route name "home")
     Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -96,12 +92,11 @@ Route::group([
         });
         /********************** Start products route. **********************/
         Route::resource('/products', DashboardProductController::class);
+        Route::get('/product/show/{id}', [DashboardProductController::class, 'show'])->name('products.show');
         Route::get('/product/delete', [DashboardProductController::class, 'delete'])->name('products.delete');
         Route::get('/product/restore/{id}/', [DashboardProductController::class, 'restore'])->name('products.restore');
         Route::delete('/product/forceDelete/{id}/', [DashboardProductController::class, 'forceDelete'])->name('products.forceDelete');
         /********************** End products route. **********************/
-
-
         Route::group([
             'middleware' => ['only_admins_and_moderators'] // more than one middleware for the one or more route
         ], function () {
@@ -118,9 +113,7 @@ Route::group([
         Route::get('/user/restore/{id}/', [DashboardUserController::class, 'restore'])->name('users.restore');
         Route::delete('/user/forceDelete/{id}/', [DashboardUserController::class, 'forceDelete'])->name('users.forceDelete');
         /********************** End users route. **********************/
-    });
-
-
+        });
     });
 });
 

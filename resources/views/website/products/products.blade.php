@@ -7,7 +7,7 @@ Products
 @section('content')
 
 @include('layouts.website.Errors')
-    <div class="untree_co-section pt-3">
+    <div class="untree_co-section pt-10">
         <div class="container">
 
         <div class="row align-items-center mb-5">
@@ -47,7 +47,7 @@ Products
             <div class="col-md-9">
             <div class="row">
                 @forelse($products as $product )
-                    <div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4">
+                    <div class="col-12 col-sm-12 col-md-6 mb-4 col-lg-4">
                         <div class="item">
                             <div class="product-item">
                                 <a href="shop-single.html" class="product-img">
@@ -166,12 +166,12 @@ Products
                                         <span >{{ $product->price }} EGP</span>
                                     @endif
                                 </div>
+                                @include('layouts.website.add_to_cart_form')
                             </div>
                         </div> <!-- /.item -->
                     @empty
                         <div class="btn btn-danger"> No products found! </div>
                     @endforelse
-
                 </div>
             </div> <!-- /.container -->
         </div> <!-- /.untree_co-section -->

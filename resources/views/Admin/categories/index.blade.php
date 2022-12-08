@@ -44,8 +44,8 @@
                             <td class="text-center font-secondary text-s">{{\App\Models\Product::where('clothing_type',$category->name)->count()}}</td>
                             <td class="text-center text-xs">{{($category->description)}}</td> <!-- ucwords($variable), capitalizes first letter in each word -->
                             <td class="text-center text-xs">{{$category->created_at->translatedFormat('d/m/Y - h:m A')}}</td>
-                            <td class="text-center text-xs">{{$category->create_user->name ?? '??'}}</td>
-                            <td class="text-center text-xs">{{$category->update_user->name ?? '??'}}</td>
+                            <td class="text-center text-xs">{{$category->create_user->username ?? '??'}}</td>
+                            <td class="text-center text-xs">{{$category->update_user->username ?? '??'}}</td>
                             @if(auth()->user()->user_type == "admin")
                                 <td class="align-middle text-center text-sm">
                                     {!! Form::open([

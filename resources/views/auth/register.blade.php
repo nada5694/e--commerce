@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container login-container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -22,6 +22,20 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="username" class="col-md-4 col-form-label text-md-end">{{ __('username') }}<span class="text-danger">*</span></label>
+
+                            <div class="col-md-6">
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -68,11 +82,37 @@
                         <div class="row mb-3">
                             <label for="" class="col-md-4 col-form-label text-md-end">{{ __('User Type') }}</label>
                             <div class="col-md-6">
-                                <select name="user_type" class="form-control" required>
+                                <select name="user_type" class="form-control" >
                                     <option value="" selected disabled>Please choose a user type</option>
                                     <option value="customer">Customer</option>
                                     <option value="vendor">Vendor</option>
                                 </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="" class="col-md-4 col-form-label text-md-end">{{ __('gender') }}</label>
+                            <div class="col-md-6">
+                                <select name="gender" class="form-control" nullable>
+                                    <option value="" selected disabled>Please choose your gender</option>
+                                    <option value="customer">male</option>
+                                    <option value="vendor">female</option>
+                                    <option value="vendor">undetermined</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('phone') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" nullable autocomplete="phone" autofocus>
+
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 

@@ -13,23 +13,14 @@ class Product extends Model
 
     protected $guarded = [];
 
-    // protected $fillable = [
-    //     'name',
-    //     'description',
-    //     'image_name',
-    //     'available_quantity',
-    //     'price',
-    //     'discount',
-    //     'clothing_type',
-    //     'product_category',
-    //     'is_accessory',
-    //     'created_at',
-    //     // 'is_sale',
-    // ];
-
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->BelongsTo(user::class);
+    }
+
+    public function cart(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->BelongsTo(Cart::class);
     }
 
     public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -37,20 +28,13 @@ class Product extends Model
         return $this->BelongsTo(Category::class);
     }
 
-    // public function clothes_men_filter()
-    // {
-    //     $clothes_men       = Product::all()->where('is_accessory','no')->where('product_category', '=', 'men');
-    //     $clothes_men_count = $clothes_men->count();
+    public function create_user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 
-    //     return view('website.products.clothes.clothes-filter.clothes_men_filter', compact('clothes_men' , 'clothes_men_count'));
-    // }
-
-    // public function clothes_women_filter()
-    // {
-    //     $clothes_women       = Product::all()->where('is_accessory','no')->where('product_category', '=', 'women');
-    //     $clothes_women_count = $clothes_women->count();
-
-    //     return view('website.products.clothes.clothes-filter.clothes_women_filter', compact('clothes_women' , 'clothes_women_count'));
-    // }
-
+    public function update_user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }
