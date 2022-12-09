@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use lluminate\Contracts\Auth\MustVerifyEmail::hasVerifiedEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail::markEmailAsVerified;
+// use Illuminate\Contracts\Auth\MustVerifyEmail::sendEmailVerificationNotification;
 
 class VerificationController extends Controller implements MustVerifyEmail
 {
