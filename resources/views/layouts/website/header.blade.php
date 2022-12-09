@@ -11,7 +11,7 @@
     <div class="sticky-nav js-sticky-header">
         <div class="container position-relative">
             <div class="site-navigation text-center dark">
-                <a href="{{ route('home') }}" class="logo menu-absolute m-0">UntreeStore<span class="text-primary">.</span></a>
+                <a href="{{ route('home') }}" class="logo menu-absolute m-0">Fashion Gate<span class="text-primary">.</span></a>
 
                 <ul class="js-clone-nav pl-0 d-none d-lg-inline-block site-menu">
                     <li ><a href="{{ route('home') }}">Home</a></li>

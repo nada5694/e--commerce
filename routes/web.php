@@ -1,5 +1,8 @@
 <?php
-
+/*----------------------------- Start Auth Controllers usage -----------------------------*/
+use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 /*----------------------------- Start Website Controllers usage -----------------------------*/
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -9,7 +12,6 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-
 /*----------------------------- Start Dashboard Controllers usage -----------------------------*/
 use App\Http\Controllers\Admin\DashboardHomeController;
 use App\Http\Controllers\Admin\DashboardProductController;
@@ -29,7 +31,7 @@ use App\Http\Controllers\Admin\DashboardProfileController;
 | contains the "web" middleware group. Now create something great!
 */
 
-Auth::routes(["verify" => true]);
+Auth::routes(['verify'=>true]);
 
 Route::group([], function () {    //group function for "home" route (same route name "home")
     Route::get('/', [HomeController::class, 'index'])->name('home');

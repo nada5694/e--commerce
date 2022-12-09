@@ -28,7 +28,7 @@
     /* .table-search-results{margin-left: auto; margin-right: auto;} */
 </style>
 
-<div id="search-blade" class="search-blade mt-5">
+<div id="search-blade" class="search-blade">
     <?php /********************************** Start Dashboard Table for Product (for dashboard!) **********************************/ ?>
     {{-- <table border="1" cellpadding="10" class="table-search-results">
         <thead>
