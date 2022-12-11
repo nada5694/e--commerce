@@ -32,7 +32,7 @@ class TestMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address('UNTREESTORE@company.com', 'UNTREESTORE'),
+            from: new Address('UNTREESTORE@company.com', 'Laravel'),
             subject: 'Test Mail',
         );
     }
