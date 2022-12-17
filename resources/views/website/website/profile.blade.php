@@ -71,13 +71,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                             <label for="example-text-input" class="form-control-label">User Type</label>
-                            <input disabled class="form-control @error('user_type') is-invalid @enderror" type="text"  value="{{Request::old('user_type') ? Request::old('user_type') : auth()->user()->user_type}}" name="user_type">
+                            <input disabled class="form-control @error('user_type') is-invalid @enderror" type="text"  value="{{Request::old('user_type') ? Request::old('user_type') : ucfirst(auth()->user()->user_type)}}" name="user_type">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Gender</label>
-                            <input disabled class="form-control @error('gender') is-invalid @enderror" type="text"  value="{{Request::old('gender') ? Request::old('gender') : auth()->user()->gender ?? "Enter Your Gender"}}" name="gender">
+                            <input disabled class="form-control @error('gender') is-invalid @enderror" type="text"  value="{{Request::old('gender') ? Request::old('gender') : ucfirst(auth()->user()->gender) ?? "Enter Your Gender"}}" name="gender">
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Country</label>
-                            <input disabled class="form-control @error('Country') is-invalid @enderror" type="text"  value="{{Request::old('Country') ? Request::old('Country') : auth()->user()->Country ?? "Enter Your Country"}}" name="country">
+                            <input disabled class="form-control @error('Country') is-invalid @enderror" type="text"  value="{{Request::old('Country') ? Request::old('Country') : auth()->user()->country ?? "Enter Your Country"}}" name="country">
                             </div>
                         </div>
                         <div class="col-md-4">
