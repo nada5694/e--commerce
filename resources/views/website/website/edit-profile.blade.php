@@ -59,7 +59,7 @@
         color: #717171;
     }
 </style>
-<form action="{{route('update-profile', $model->id)}}" method="post" id="alert-form">
+<form action="{{route('update-profile', [$model->id, $model->username])}}" method="post" id="alert-form">
     @csrf
     {{ method_field('put') }}
     <div class="container py-4">
