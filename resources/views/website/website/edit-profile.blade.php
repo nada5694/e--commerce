@@ -45,9 +45,9 @@
                             <label class="example-text-input">Gender</label>
                             <select name="gender" class="form-control select @error('gender') is-invalid @enderror" value="{{Request::old('gender') ? Request::old('gender') : $model->gender}}">
                                 <option value="" disabled selected> ---------- Please select a gender ---------- </option>
-                                <option value="male" {{ isset($model) && $model->gender == 'male' ? 'selected'  : '' }}>male</option>
-                                <option value="female" {{ isset($model) && $model->gender == 'female' ? 'selected'  : '' }}>female</option>
-                                <option value="undetermined" {{ isset($model) && $model->gender == 'undetermined' ? 'selected'  : '' }}>undetermined</option>
+                                <option value="male" {{ isset($model) && $model->gender == 'male' ? 'selected'  : '' }}>Male</option>
+                                <option value="female" {{ isset($model) && $model->gender == 'female' ? 'selected'  : '' }}>Female</option>
+                                <option value="undetermined" {{ isset($model) && $model->gender == 'undetermined' ? 'selected'  : '' }}>Undetermined</option>
                             </select>
                         </div>
                     </div>

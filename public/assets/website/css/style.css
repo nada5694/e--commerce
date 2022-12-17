@@ -494,10 +494,11 @@ div .alert {
   color: #000000; }
 
 .logo {
-  font-size: 12px;
+  /* font-size: 12px; */
+  font-size: 100%;
   text-transform: uppercase;
   color: #000000;
-  font-weight: 700;
+  font-weight: 500;
   left: 0px;
   top: 50%;
   -webkit-transform: translateY(-50%);
