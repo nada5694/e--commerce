@@ -47,14 +47,14 @@
                                 </svg>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <label class="dropdown-item name" href="javascript:void(0);" style="color: #b84592;">{{auth()->user()->name}} ({{ ucfirst(auth()->user()->user_type) }})</label>
+                                    <hr>
+                                    <a class="dropdown-item" href="{{ route('profile') }}">Profile Management</a>
                                     @auth
                                         @if(auth()->user()->user_type == "admin" || auth()->user()->user_type == "moderator" || auth()->user()->user_type == "vendor")
                                             <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                                         @endif
                                     @endauth
-                                    <label class="dropdown-item name" href="javascript:void(0);" style="color: #b84592;">{{auth()->user()->name}} ({{ ucfirst(auth()->user()->user_type) }})</label>
-                                    <hr>
-                                    <a class="dropdown-item" href="{{ route('profile') }}">Profile Management</a>
                                     <a class="dropdown-item" href="javascript:void(0);">xxx</a>
                                     <a class="dropdown-item" href="javascript:void(0);">yyy</a>
                             </div>
