@@ -11,7 +11,9 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.0",
-        "laravelcollective/html": "^6.3"
+        "laravelcollective/html": "^6.3",
+        "symfony/http-client": "^6.0",
+        "symfony/mailgun-mailer": "^6.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -47,7 +49,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ]
+        ],
+        "dev": "vite",
+        "build": "vite build"
     },
     "extra": {
         "laravel": {

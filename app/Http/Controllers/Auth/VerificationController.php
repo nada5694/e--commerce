@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use lluminate\Contracts\Auth\MustVerifyEmail::hasVerifiedEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail::markEmailAsVerified;
+// use Illuminate\Contracts\Auth\MustVerifyEmail::sendEmailVerificationNotification;
 
 class VerificationController extends Controller
 {
@@ -39,8 +43,8 @@ class VerificationController extends Controller
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
-    public function index()
-    {
-        return view('auth.verify');
-    }
+    // public function index()
+    // {
+    //     return view('auth.verify');
+    // }
 }

@@ -24,7 +24,7 @@
                 <div class="widget">
                     <h3>Help</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#">Contact us</a></li>
+                        <li><a href="{{ route('contact-us') }}">Contact us</a></li>
                         <li><a href="#">Account</a></li>
                         <li><a href="#">Shipping</a></li>
                         <li><a href="#">Returns</a></li>
@@ -36,11 +36,11 @@
                 <div class="widget">
                     <h3>About</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="javascript:void(0)">About us</a></li>
+                        <li><a href="javascript:void(0)">Press</a></li>
+                        <li><a href="javascript:void(0)">Careers</a></li>
+                        <li><a href="javascript:void(0)">Team</a></li>
+                        <li><a href="javascript:void(0)">FAQ</a></li>
                     </ul>
                 </div>
             </div>
@@ -48,9 +48,9 @@
                 <div class="widget">
                     <h3>Shop</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#">Store</a></li>
-                        <li><a href="#">Gift Cards</a></li>
-                        <li><a href="#">Student Discount</a></li>
+                        <li><a href="{{ route('product') }}">Store</a></li>
+                        <li><a href="javascript:void(0)">Gift Cards</a></li>
+                        <li><a href="javascript:void(0)">Student Discount</a></li>
                     </ul>
                 </div>
             </div>
@@ -61,20 +61,20 @@
         <div class="row mt-5">
             <div class="col-12 text-center">
                 <ul class="list-unstyled social">
-                    <li><a href="#"><span class="icon-facebook"></span></a></li>
-                    <li><a href="#"><span class="icon-instagram"></span></a></li>
-                    <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                    <li><a href="javascript:void(0)"><span class="icon-facebook"></span></a></li>
+                    <li><a href="javascript:void(0)"><span class="icon-instagram"></span></a></li>
+                    <li><a href="javascript:void(0)"><span class="icon-linkedin"></span></a></li>
+                    <li><a href="javascript:void(0)"><span class="icon-twitter"></span></a></li>
                 </ul>
             </div>
             <div class="col-12 text-center copyright">
-                <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> <!-- License information: https://untree.co/license/ -->
+                <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="javascript:void(0)">Nada Ahmed..🖤</a>
                 </p>
 
             </div>
         </div>
-    </div> <!-- /.container -->
-</div> <!-- /.site-footer -->
+    </div>
+</div>
 
     <div id="overlayer"></div>
 	    <div class="loader">

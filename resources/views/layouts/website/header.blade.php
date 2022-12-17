@@ -9,13 +9,12 @@
 
 <nav class="site-nav mb-5">
     <div class="sticky-nav js-sticky-header">
-
         <div class="container position-relative">
             <div class="site-navigation text-center dark">
-                <a href="{{ route('home') }}" class="logo menu-absolute m-0">UntreeStore<span class="text-primary">.</span></a>
+                <a href="{{ route('home') }}" class="logo menu-absolute m-0">Fashion Gate<span class="text-primary">.</span></a>
 
                 <ul class="js-clone-nav pl-0 d-none d-lg-inline-block site-menu">
-                    <li class="active"><a href="{{ route('home') }}">Home</a></li>
+                    <li ><a href="{{ route('home') }}">Home</a></li>
                     <li class="has-children">
                         <a href="{{ route('product') }}">Shop <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown">
@@ -32,10 +31,8 @@
                             <li><a href="{{ route('about') }}">About</a></li>
                             <li><a href="{{ route('Cart') }}">Cart</a></li>
                             <li><a href="{{ route('checkout') }}">Checkout</a></li>
-
                         </ul>
                     </li>
-
                     <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
                 </ul>
                 <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
@@ -61,7 +58,7 @@
                             </div>
                         </li>
                     @else
-                        <li><span class="guest" >{{ 'guest_'.substr(uniqid(),8,13) }}</span></li>
+                        <li class="guest"><span class="guest" >{{ 'guest_'.substr(uniqid(),8,13) }}</span></li>
                     @endif
 
                     <li>
@@ -93,7 +90,7 @@
                     </li>
                     @endif
 
-                    <li>
+                    <li class="list-dots">
                         <a class="btn three-dots" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <svg  width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                                 <path d="M64 360c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zm0-160c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zM120 96c0 30.9-25.1 56-56 56S8 126.9 8 96S33.1 40 64 40s56 25.1 56 56z"/></svg>
@@ -101,6 +98,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             @if(!auth()->user())
+                                <a class="dropdown-item guest-2" style="color: #b84592;">{{ 'guest_'.substr(uniqid(),8,13) }}</a>
                                 <a class="dropdown-item" href="{{ route('login') }}">Login</a>
                                 <a class="dropdown-item" href="{{ route('register') }}">Register</a>
                             @elseif(auth()->user())

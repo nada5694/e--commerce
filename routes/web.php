@@ -1,5 +1,8 @@
 <?php
-
+/*----------------------------- Start Auth Controllers usage -----------------------------*/
+use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 /*----------------------------- Start Website Controllers usage -----------------------------*/
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -9,7 +12,6 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-
 /*----------------------------- Start Dashboard Controllers usage -----------------------------*/
 use App\Http\Controllers\Admin\DashboardHomeController;
 use App\Http\Controllers\Admin\DashboardProductController;
@@ -29,11 +31,7 @@ use App\Http\Controllers\Admin\DashboardProfileController;
 | contains the "web" middleware group. Now create something great!
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::group([], function () {    //group function for "home" route (same route name "home")
     Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -51,7 +49,9 @@ Route::get('/shop', [ProductController::class, 'index'])->name('product');
 /*------------------ Start Profile Route ------------------ */
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/edit-profile', [ProfileController::class, 'editProfile'])->name('editProfile');
-Route::put('/update-profile/{id}', [ProfileController::class, 'update'])->name('update-profile');
+Route::patch('/update-profile/{id}', [ProfileController::class, 'update'])->name('update-profile');
+Route::post('/update-img/{id}', [ProfileController::class, 'updateImg'])->name('update-img');
+Route::post('/edit-profile-post', [ProfileController::class, 'profileUpdatePassword'])->name('editProfile-post');
 /*------------------- End Profile Route ------------------- */
 
 /*------------------ Start Forgot Password Route ------------------ */
@@ -94,12 +94,11 @@ Route::group([
         });
         /********************** Start products route. **********************/
         Route::resource('/products', DashboardProductController::class);
+        Route::get('/product/show/{id}', [DashboardProductController::class, 'show'])->name('products.show');
         Route::get('/product/delete', [DashboardProductController::class, 'delete'])->name('products.delete');
         Route::get('/product/restore/{id}/', [DashboardProductController::class, 'restore'])->name('products.restore');
         Route::delete('/product/forceDelete/{id}/', [DashboardProductController::class, 'forceDelete'])->name('products.forceDelete');
         /********************** End products route. **********************/
-
-
         Route::group([
             'middleware' => ['only_admins_and_moderators'] // more than one middleware for the one or more route
         ], function () {
@@ -116,9 +115,7 @@ Route::group([
         Route::get('/user/restore/{id}/', [DashboardUserController::class, 'restore'])->name('users.restore');
         Route::delete('/user/forceDelete/{id}/', [DashboardUserController::class, 'forceDelete'])->name('users.forceDelete');
         /********************** End users route. **********************/
-    });
-
-
+        });
     });
 });
 

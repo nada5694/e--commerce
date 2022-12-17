@@ -32,8 +32,6 @@
                         <th scope="col" class="text-center text-xxs font-weight-bolder">Category</th>
                         <th scope="col" class="text-center text-xxs font-weight-bolder">Clothing type</th>
                         <th scope="col" class="text-center text-xxs font-weight-bolder">Date of Creation</th>
-                        <th scope="col" class="text-center text-xxs font-weight-bolder">Added By</th>
-                        <th scope="col" class="text-center text-xxs font-weight-bolder">Last Updated By</th>
                         @if(auth()->user()->user_type == "admin")
                             <th scope="col" class="text-center text-xxs font-weight-bolder">Action</th>
                         @endif
@@ -46,7 +44,7 @@
                                 <td class="text-center font-secondary text-xxs">{{$product->name}}</td>
                                 <td>
                                     <div class="d-flex px-2 py-1">
-                                        <img src="/{{ $product->image_name }}" alt="Image" class="img-fluid">
+                                        <img src="{{ $product->image_name }}" alt="Image" class="img-fluid">
                                     </div>
                                 </td>
                                 <td class="text-center text-xs">{{ $product->discount * 100 }}%</td>
@@ -68,10 +66,8 @@
                                     </span>
                                 </td>
                                 <td class="text-center text-xs">{{$product->created_at->translatedFormat('d/m/Y - h:m A')}}</td>
-                                <td class="text-center text-xs">{{$product->create_user->name ?? '??'}}</td>
-                                <td class="text-center text-xs">{{$product->update_user->name ?? '??'}}</td>
-                                @if(auth()->user()->user_type == "admin")
-                                    <td class="align-middle text-center text-sm">
+                                <td class="align-middle text-center text-sm">
+                                    @if(auth()->user()->user_type == "admin")
                                         {!! Form::open([
                                             'route' => ['products.destroy',$product->id],
                                             'method' => 'delete'
@@ -79,8 +75,12 @@
                                         <button class="delete-button badge badge-sm" onclick="return confirm('Are you sure that you want to delete - {{ $product->name }}?');" type="submit" title="{{'Delete'." ($product->name)"}}"><i class="fa-solid fa-trash"></i>  Delete </button>
                                         {!! Form::close() !!}
                                         <a href="{{route('products.edit',$product->id)}}" class="edit-button badge badge-sm" type="button" title="{{'Edit'." ($product->name)"}}"><i class="fa-solid fa-pencil"></i> Edit</a>
-                                    </td>
-                                @endif
+                                        <a href="{{route('products.show',$product->id)}}" class="show-button badge badge-sm d-block" type="button" title="{{'show'." ($product->name)"}}"><i class="fa-solid fa-pencil"></i> show</a>
+                                    @else
+                                        <a href="{{route('products.show',$product->id)}}" class="show-button badge badge-sm d-block" type="button" title="{{'show'." ($product->name)"}}"><i class="fa-solid fa-pencil"></i> show</a>
+                                    @endif
+                                </td>
+
                             </tr>
                         @empty
                             <div class="alert alert-secondary">

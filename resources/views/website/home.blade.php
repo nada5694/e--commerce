@@ -14,17 +14,14 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-
-                        <h1 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">Sell products the easy way with UntreeStore by <a href="https://untree.co">Untree.co</a></h1>
+                        <h1 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">Sell products the easy way with UntreeStore by <a href="https://untree.co">Fashion Gate.co</a></h1>
                         <div class="mb-5 text-white desc mx-auto" data-aos="fade-up" data-aos-delay="200">
                         </div>
-
                         <p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-outline-black">Explore now</a></p>
-
                     </div>
                 </div>
             </div>
-        </div> <!-- /.untree_co-hero -->
+        </div>
     </div>
 
 
@@ -34,7 +31,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
 
-                        <h1 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">The New Way To Sell Your Products by <a href="https://untree.co">Untree.co</a></h1>
+                        <h1 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">The New Way To Sell Your Products by <a href="javascript:void(0)">Fashion Gate.co</a></h1>
                         <div class="mb-5 text-white desc mx-auto" data-aos="fade-up" data-aos-delay="200">
                         </div>
 
@@ -43,7 +40,7 @@
                     </div>
                 </div>
             </div>
-        </div> <!-- /.untree_co-hero -->
+        </div>
     </div>
 
 </div>
@@ -56,11 +53,11 @@
     <div class="container">
 
 
-        <div class="deal-hero overlay" style="background-image: url('assets/website/images/hero-slider-4-min.jpg')">
+        <div class="deal-hero overlay">
             <div class="deal-contents">
                 <span class="subtitle">Limited Offers 20% OFF</span>
                 <h2 class="title mb-4"><a href="#">Summer Promo</a></h2>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.</p>
                 <a href="#" class="btn btn-black black-button">Shop Now</a>
             </div>
         </div> <!-- /.deal-hero -->
@@ -71,36 +68,39 @@
 <div class="untree_co-section">
     <div class="container">
         <div class="row">
-                @forelse($products as $product)
-                    <div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4">
-                        <div class="item">
-                            <div class="product-item">
-                                <a href="javascript:void(0);" class="product-img">
-                                    <div class="label new top-right">
-                                        <div class='content'>New</div>
-                                    </div>
-                                    @if($product->discount > 0)
-                                        <div class="label sale top-right second">
-                                            <div class='content'>Sale</div>
-                                        </div>
-                                    @endif
-                                    <img src="{{ $product->image_name }}" alt="Image" class="img-fluid">
-                                </a>
-                                <h3 class="title"><a href="javascript:void(0);">{{ $product->name }}</a></h3>
-                                <div class="price">
-                                    @if($product->discount > 0)
-                                        <span ><del >{{ $product->price }} EGP</del> &dash; {{ $product->price - ($product->price * $product->discount) }} EGP</span>
-                                    @elseif($product->discount <= 0 || $product->discount == null || $product->discount == "")
-                                        <span >{{ $product->price }} EGP</span>
-                                    @endif
+            @forelse($products as $product )
+            <div class="col-12 col-sm-12 col-md-6 mb-4 col-lg-4">
+                <div class="item">
+                    <div class="product-item">
+                        <a href="shop-single.html" class="product-img">
+                            @php $data = Carbon\Carbon::parse($product->created_at)->diffInDays(Carbon\Carbon::now()); @endphp
+                            @if($data <= 5) <!---------- in weeks ---------->
+                                <div class="label new top-right">
+                                    <div class='content'>New</div>
                                 </div>
-                                @include('layouts.website.add_to_cart_form')
-                            </div>
+                            @endif
+                            @if($product->discount > 0)
+                                <div class="label sale top-right second">
+                                    <div class='content'>Sale</div>
+                                </div>
+                            @endif
+                            <img src="{{ $product->image_name}}" alt="Image" class="img-fluid">
+                        </a>
+                        <h3 class="title"><a href="javascript:void(0);">{{ $product->name }}</a></h3>
+                        <div class="price">
+                            @if($product->discount > 0)
+                                <span ><del >{{ $product->price }} EGP</del> &dash; {{ $product->price - ($product->price * $product->discount) }} EGP</span>
+                            @elseif($product->discount <= 0 || $product->discount == null || $product->discount == "")
+                                <span >{{ $product->price }} EGP</span>
+                            @endif
                         </div>
+                        @include('layouts.website.add_to_cart_form')
                     </div>
-                @empty
-                    noooooooooooo data!!!!!!!!!!!!!!!!!!
-                @endforelse
+                </div>
+            </div> <!-- /.item -->
+        @empty
+                <div class="btn btn-danger"> No products found! </div>
+        @endforelse
             </div>
         </div>
     </div>
@@ -112,7 +112,7 @@
 <div class="container">
 
 
-    <div class="deal-hero overlay" style="background-image: url('assets/website/images/hero-slider-3-min.jpg')">
+    <div class="deal-hero overlay" >
         <div class="deal-contents">
             <span class="subtitle">Limited Offers 20% OFF</span>
             <h2 class="title mb-4"><a href="javascript:void(0);">Summer Promo</a></h2>
@@ -147,39 +147,37 @@
             </div>
         </div> <!-- /.heading -->
         <div class="owl-3-slider owl-carousel">
-
-            @forelse($products as $product)
-            <div class="item">
-                <div class="product-item">
-                    <a href="shop-single.html" class="product-img">
-                        @php $data = Carbon\Carbon::parse($product->created_at)->diffInDays(Carbon\Carbon::now()); @endphp
-                        @if($data <= 10) <!---------- in days ---------->
-                            <div class="label new top-right">
-                                <div class='content'>New</div>
-                            </div>
-                        @endif
-                        @if($product->discount > 0)
-                            <div class="label sale top-right second">
-                                <div class='content'>Sale</div>
-                            </div>
-                        @endif
-                        <img src="{{ $product->image_name}}" alt="Image" class="img-fluid">
-                    </a>
-                    <h3 class="title"><a href="javascript:void(0);">{{ $product->name }}</a></h3>
-                    <div class="price">
-                        @if($product->discount > 0)
-                            <span ><del >{{ $product->price }} EGP</del> &dash; {{ $product->price - ($product->price * $product->discount) }} EGP</span>
-                        @elseif($product->discount <= 0 || $product->discount == null || $product->discount == "")
-                            <span >{{ $product->price }} EGP</span>
-                        @endif
+            @forelse($products as $product )
+                <div class="item">
+                    <div class="product-item">
+                        <a href="shop-single.html" class="product-img">
+                            @php $data = Carbon\Carbon::parse($product->created_at)->diffInDays(Carbon\Carbon::now()); @endphp
+                            @if($data <= 5) <!---------- in weeks ---------->
+                                <div class="label new top-right">
+                                    <div class='content'>New</div>
+                                </div>
+                            @endif
+                            @if($product->discount > 0)
+                                <div class="label sale top-right second">
+                                    <div class='content'>Sale</div>
+                                </div>
+                            @endif
+                            <img src="{{ $product->image_name}}" alt="Image" class="img-fluid">
+                        </a>
+                        <h3 class="title"><a href="javascript:void(0);">{{ $product->name }}</a></h3>
+                        <div class="price">
+                            @if($product->discount > 0)
+                                <span ><del >{{ $product->price }} EGP</del> &dash; {{ $product->price - ($product->price * $product->discount) }} EGP</span>
+                            @elseif($product->discount <= 0 || $product->discount == null || $product->discount == "")
+                                <span >{{ $product->price }} EGP</span>
+                            @endif
+                        </div>
+                        @include('layouts.website.add_to_cart_form')
                     </div>
-                    @include('layouts.website.add_to_cart_form')
-                </div>
-            </div> <!-- /.item -->
+                </div> <!-- /.item -->
             @empty
                 <div class="btn btn-danger"> No products found! </div>
             @endforelse
-
         </div>
     </div> <!-- /.container -->
 </div> <!-- /.untree_co-section -->
