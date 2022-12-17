@@ -1,5 +1,10 @@
 <?php
 
+/*
+    |--------------------------------------------------------------------------
+    | Mailer Configurations
+    |--------------------------------------------------------------------------
+*/
 return array(
     "driver" => "smtp",
     "host" => "smtp.mailtrap.io",
@@ -48,7 +53,7 @@ return array(
 //     'mailers' => [
 //         'smtp' => [
 //             'transport' => 'smtp',
-//             'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+//             'host' => env('MAIL_HOST', 'smtp.mailtrap.io'),
 //             'port' => env('MAIL_PORT', 2525),
 //             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
 //             'username' => env('4ca82e7c51b5fc'),

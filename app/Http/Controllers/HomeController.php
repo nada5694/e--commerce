@@ -31,6 +31,6 @@ class HomeController extends Controller
         return view('website.home' , compact('products'));
     }
 
-    
+
 
 }

@@ -5,13 +5,14 @@
 * License: https://creativecommons.org/licenses/by/3.0/
 */
 body {
-  font-family: "Muli", sans-serif;
-  line-height: 1.6;
-  background-color: #ffffff;
-  overflow-x: hidden;
-  font-size: 16px;
-  color: #333; }
-  body:before {
+    font-family: "Muli", sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    font-size: 16px;
+    color: #333;
+}
+body:before {
     content: "";
     position: fixed;
     top: 0;
@@ -24,28 +25,30 @@ body {
     visibility: hidden;
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
-    transition: .3s all ease; }
-  body.offcanvas-menu:before {
+    transition: .3s all ease;
+}
+body.offcanvas-menu:before {
     opacity: 1;
-    visibility: visible; }
-
+    visibility: visible;
+}
 .text-black {
-  color: #000000 !important; }
-
+  color: #000000 !important;
+}
 .text-secondary {
-  color: #12947f !important; }
-
+    color: #12947f !important;
+}
 .bg-primary-light {
-  background-color: rgba(184, 69, 146, 0.05); }
-
+    background-color: rgba(184, 69, 146, 0.05);
+}
 .bg-secondary-light {
-  background-color: rgba(18, 148, 127, 0.05); }
-
+    background-color: rgba(18, 148, 127, 0.05);
+}
 a {
   color: #b84592;
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
-  transition: .3s all ease; }
+  transition: .3s all ease;
+}
   a:hover {
     color: #b84592;
     text-decoration: none; }

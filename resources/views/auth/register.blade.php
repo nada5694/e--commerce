@@ -95,9 +95,9 @@
                             <div class="col-md-6">
                                 <select name="gender" class="form-control" nullable>
                                     <option value="" selected disabled>Please choose your gender</option>
-                                    <option value="customer">male</option>
-                                    <option value="vendor">female</option>
-                                    <option value="vendor">undetermined</option>
+                                    <option value="male">male</option>
+                                    <option value="female">female</option>
+                                    <option value="undetermined">undetermined</option>
                                 </select>
                             </div>
                         </div>
