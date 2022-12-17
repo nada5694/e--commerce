@@ -24,13 +24,15 @@ contact us
             <div class="contact-info">
 
                 <div class="address mt-4">
-                <i class="icon-room"></i>
+                {{-- <i class="icon-room"></i> --}}
+                <i class="fa-solid fa-location-dot"></i>
                 <h4 class="mb-2">Location:</h4>
                 <p>43 Raymouth Rd. Baltemoer, London 3910</p>
                 </div>
 
                 <div class="open-hours mt-4">
-                <i class="icon-clock-o"></i>
+                {{-- <i class="icon-clock-o"></i> --}}
+                <i class="fa-regular fa-clock"></i>
                 <h4 class="mb-2">Open Hours:</h4>
                 <p>
                     Sunday-Friday:<br>
@@ -39,13 +41,15 @@ contact us
                 </div>
 
                 <div class="email mt-4">
-                <i class="icon-envelope"></i>
+                {{-- <i class="icon-envelope"></i> --}}
+                <i class="fa-solid fa-at"></i>
                 <h4 class="mb-2">Email:</h4>
                 <p>info@untree.co</p>
                 </div>
 
                 <div class="phone mt-4">
-                <i class="icon-phone"></i>
+                {{-- <i class="icon-phone"></i> --}}
+                <i class="fa-solid fa-phone"></i>
                 <h4 class="mb-2">Call:</h4>
                 <p>+1 1234 55488 55</p>
                 </div>
