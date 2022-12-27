@@ -31,7 +31,8 @@ use App\Http\Controllers\Admin\DashboardProfileController;
 | contains the "web" middleware group. Now create something great!
 */
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
+Auth::routes();
 
 Route::group([], function () {    //group function for "home" route (same route name "home")
     Route::get('/', [HomeController::class, 'index'])->name('home');
