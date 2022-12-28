@@ -33,7 +33,6 @@ use App\Http\Controllers\Admin\DashboardProfileController;
 */
 
 Auth::routes(['verify' => true]);
-// Auth::routes();
 
 Route::group([], function () {    //group function for "home" route (same route name "home")
     Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -83,7 +82,8 @@ Route::group([
     Route::get('/cart-guest', [CartController::class , 'cart_unregistered'])->name('cart-unregistered'); //will open a page that tells the guests to login for accessing the cart page (from the URL)
 });
 Route::post('/add_to_cart/{id}', [CartController::class, 'add_to_cart'])->name('add-to-cart');
-Route::patch('/update-cart-items-quantity/{id}', [CartController::class, 'update_cart_items_quantity']);
+Route::patch('/update-cart-items-quantity/{id}', [CartController::class, 'update_cart_items_quantity'])->name('update_cart_items_quantity');
+Route::patch('/update_all', [CartController::class, 'update_all_cart'])->name('update_all_cart');
 /*------------------ End Carts Route ------------------ */
 
 /*------------------- Search Route -------------------- */
@@ -128,3 +128,7 @@ Route::group([
     });
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

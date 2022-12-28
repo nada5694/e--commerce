@@ -75,9 +75,60 @@ class CartController extends Controller
     public function update_cart_items_quantity(Request $request , $id)
     {
         $cartItem = Cart::where('customer_id',auth()->user()->id)->find($id);
-        $cartItems->quantity = $request->quantity_value;
-        $cartItems->save();
+        {// those variables are just used in the json data in the return of the function (they are not used in the update functionality itself!)
+            $cartItems_count = Cart::where('customer_id',auth()->user()->id)->count();
+            if($cartItems_count > 0){ // if there is items in the cart (the correct condition!)
+                $cartItem_Old_Quantity = Cart::find($id)->quantity;
+            }
+            else{ // if there is no items in the cart (the wrong condition!)
+                return redirect()->route('cart-registered');
+            }
+        }
 
+        if($request->quantity_value > 0){ // the correct condition! if($request->quantity_value > 0), because that's the only correct condition!
+            $cartItem->quantity = $request->quantity_value; // all are the same thing => "$_GET['quantity_value']" = "$request->get('quantity_value');" = "$request->quantity_value;"
+        }
+        elseif($cartItem->quantity == $request->quantity_value){ // wrong condition (2)
+            return redirect()->back()->with(['quantity_same_old_new_message' => __('You did not change the quantity! The quantity that you entered for product "'.$cartItem->product_name.'" is the same!')]);
+        }
+        elseif($request->quantity_value == null || $request->quantity_value == ""){ // wrong condition (3)
+            return redirect()->back()->with(['quantity_is_null_message' => __('The quantity value is empty! Please enter a quantity for the "'.$cartItem->product_name.'" product!')]);
+        }
+        elseif($request->quantity_value == 0){ // the logic of zero quantity which is the "force delete" action (permanent delete from the front-end & back-end)
+            $cartItem->quantity = 0; // the new quantity (which will be zero already in this condition!)
+            $cartItem->forceDelete();
+            return redirect()->back()->with(['quantity_is_zero_delete_message' => __('The quantity that you entered for product "'.$cartItem->product_name.'" is ('.$cartItem->quantity.'). The product is successfully deleted from your cart!')]);
+        }
+
+        $cartItem->save();
+
+        return redirect()->back();
+    }
+
+    public function update_all_cart(Request $request)
+    {
+        $update_all = Cart::where('customer_id', auth()->user()->id)->get();
+
+        foreach ($update_all as $update) {
+            $product_id = $update->product_id;
+            // foreach ($product_id as $product_update) {
+
+            //     if ($request->update <= 0 || $request->update == " ") {
+            //         return redirect()->back();
+            //     } elseif ($request->update > $product_update->available) {
+            //         return redirect()->back();
+            //     } elseif ($request->update == 0) {
+            //         $update->forceDelete();
+            //         return redirect()->back();
+            //     } elseif ($request->update <= $product_update->available) {
+            //         $update->quantity                 = $request->update;
+            //         $product_update->available    = $product_update->available - $request->update;
+            //         $product_update->save();
+            //         $update->available       =  $product_update->available;
+            //     }
+            // }
+        }
+        $update_all->save();
         return redirect()->back();
     }
     /**

@@ -57,7 +57,7 @@
                                     <form action="{{ url('update-cart-items-quantity' , $cartItem->id) }}" method="POST" id="alert-form">
                                         @csrf
                                         {{ method_field('patch') }}
-                                            <input type="number" class="quantity_value" name="quantity_value" value="{{ $cartItem->quantity }}">
+                                            <input type="number" class="quantity_value" name="quantity_value" value="{{ $cartItem->quantity }}" min="0">
                                     </form>
                                 </td>
                                 @if($cartItem->discount > 0)
@@ -109,10 +109,14 @@
             <div class="col-md-6">
             <div class="row mb-5">
                 <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-black btn-sm btn-block">Update Cart</button>
+                    <form action="{{ route('update_all_cart') }}" method="post">
+                        @csrf
+                        {{ method_field('patch') }}
+                        <button type="submit" class="btn btn-black btn-sm btn-block">Update Cart</button>
+                    </form>
                 </div>
                 <div class="col-md-6">
-                <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
+                <a class="btn btn-outline-black btn-sm btn-block">Continue Shopping</a>
                 </div>
             </div>
             <div class="row">

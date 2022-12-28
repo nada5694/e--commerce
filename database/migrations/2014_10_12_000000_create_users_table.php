@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id(); //NOT NULL because it is the PK already!
             $table->string('name')->nullable();
             $table->string('lastname')->nullable();
-            $table->string('username'); //NOT NULL
+            $table->string('username')->unique(); //NOT NULL
             $table->string('avatar')->nullable();
             $table->string('phone')->nullable();
             $table->date('dob')->nullable();
@@ -31,6 +31,8 @@ return new class extends Migration
             $table->string('country')->nullable();
             // $table->integer('governorate_id')->nullable();
             $table->string('city')->nullable();
+            $table->string('provider')->nullable();
+            $table->string('provider_id')->nullable();
             // $table->string('instagram')->unique()->nullable();
             // $table->string('whatsapp')->unique()->nullable();
             // $table->string('facebook')->unique()->nullable();
