@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\LoginController;
 /*----------------------------- Start Website Controllers usage -----------------------------*/
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -31,13 +32,20 @@ use App\Http\Controllers\Admin\DashboardProfileController;
 | contains the "web" middleware group. Now create something great!
 */
 
-// Auth::routes(['verify' => true]);
-Auth::routes();
+Auth::routes(['verify' => true]);
+// Auth::routes();
 
 Route::group([], function () {    //group function for "home" route (same route name "home")
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
+
+/* ------------------ Start Socialite for GITHUB ------------------ */
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/sign-in/github', [LoginController::class, 'github'])->name('github-open-auth');
+    Route::get('/sign-in/github/redirect', [LoginController::class, 'githubRedirect']);
+});
+/* ------------------ End Socialite for GITHUB ------------------ */
 
 /*------------------ Website Routes ------------------ */
 Route::get('/elements', [ElementsController::class, 'index'])->name('elements');

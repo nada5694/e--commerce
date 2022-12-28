@@ -72,6 +72,10 @@
 
                         <div class="col-md-8 offset-md-4 Social" style="margin-top: 5%; ">
                             <label>or Login with Your Social Media Account:</label>
+                            <a href="{{ route('github-open-auth') }}" class="btn btn-github btn-user btn-block" style="background-color: black;">
+                                <i class="fa-brands fa-github"></i>&nbsp;&nbsp;Login with GitHub
+                            </a>
+
                             <a href="{{url('/redirect')}}" class="btn btn-facebook btn-user btn-block" >
                                 <i class="fab fa-facebook-f fa-fw"></i>&nbsp;&nbsp;Login with Facebook
                             </a>
