@@ -105,13 +105,11 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-    public function update_all_cart(Request $request)
+    public function update_all_cart(Request $request, $id)
     {
-        $update_all = Cart::where('customer_id', auth()->user()->id)->get();
+        $cart = Cart::findOrFail($id);
+        $cart->update($request->all());
 
-        foreach ($update_all as $update) {
-            $update->save();
-        }
         return redirect()->back();
     }
     /**

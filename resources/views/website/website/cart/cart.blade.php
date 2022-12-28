@@ -115,30 +115,6 @@
                         <button onclick="document.querySelector('.update-form').submit();" name="update" class="btn btn-black btn-sm btn-block">Update Cart</button>
 
                     </form> --}}
-                    <input type="button" class="vmicon vm2-add_quantity_cart" id="updateall"/>
-                    <?php
-                    $js = "
-                    
-                        jQuery(document).ready(function($) {
-                        //Update all quantities
-                        $('#updateall').click(function() {
-                        //Find order item lines forms
-                        $('form').has('input[name=task][value=update]').each(function() {
-                        var editForm = $(this);
-                        $.ajax(editForm.attr('action'),
-                        {
-                        //we need to submit these forms asynchronously
-                        async: false,
-                        data:editForm.serialize()
-                        });
-                        //Finaly relad the page to see the changes
-                        location.reload();
-                        });
-                        })
-                        });
-                        ";
-                        JFactory::getDocument()->addScriptDeclaration($js);
-                    ?>
                 </div>
                 <div class="col-md-6">
                 <a class="btn btn-outline-black btn-sm btn-block">Continue Shopping</a>
