@@ -88,10 +88,10 @@ class CartController extends Controller
         if($request->quantity_value > 0){ // the correct condition! if($request->quantity_value > 0), because that's the only correct condition!
             $cartItem->quantity = $request->quantity_value; // all are the same thing => "$_GET['quantity_value']" = "$request->get('quantity_value');" = "$request->quantity_value;"
         }
-        elseif($cartItem->quantity == $request->quantity_value){ // wrong condition (2)
+        elseif($cartItem->quantity == $request->quantity_value){ // wrong condition (1)
             return redirect()->back()->with(['quantity_same_old_new_message' => __('You did not change the quantity! The quantity that you entered for product "'.$cartItem->product_name.'" is the same!')]);
         }
-        elseif($request->quantity_value == null || $request->quantity_value == ""){ // wrong condition (3)
+        elseif($request->quantity_value == null || $request->quantity_value == ""){ // wrong condition (2)
             return redirect()->back()->with(['quantity_is_null_message' => __('The quantity value is empty! Please enter a quantity for the "'.$cartItem->product_name.'" product!')]);
         }
         elseif($request->quantity_value == 0){ // the logic of zero quantity which is the "force delete" action (permanent delete from the front-end & back-end)
@@ -110,25 +110,8 @@ class CartController extends Controller
         $update_all = Cart::where('customer_id', auth()->user()->id)->get();
 
         foreach ($update_all as $update) {
-            $product_id = $update->product_id;
-            // foreach ($product_id as $product_update) {
-
-            //     if ($request->update <= 0 || $request->update == " ") {
-            //         return redirect()->back();
-            //     } elseif ($request->update > $product_update->available) {
-            //         return redirect()->back();
-            //     } elseif ($request->update == 0) {
-            //         $update->forceDelete();
-            //         return redirect()->back();
-            //     } elseif ($request->update <= $product_update->available) {
-            //         $update->quantity                 = $request->update;
-            //         $product_update->available    = $product_update->available - $request->update;
-            //         $product_update->save();
-            //         $update->available       =  $product_update->available;
-            //     }
-            // }
+            $update->save();
         }
-        $update_all->save();
         return redirect()->back();
     }
     /**

@@ -54,7 +54,7 @@
                                         <img src="{{$cartItem->product_image}}" alt="{{$cartItem->product_name}}" class="img-fluid"></td>
                                 <td class="product-name">{{ $cartItem->product_name ?? 'Not Found' }}</td>
                                 <td class="quantity">
-                                    <form action="{{ url('update-cart-items-quantity' , $cartItem->id) }}" method="POST" id="alert-form">
+                                    <form action="{{ url('update-cart-items-quantity' , $cartItem->id) }}" method="POST" id="alert-form" class="update-form">
                                         @csrf
                                         {{ method_field('patch') }}
                                             <input type="number" class="quantity_value" name="quantity_value" value="{{ $cartItem->quantity }}" min="0">
@@ -109,11 +109,36 @@
             <div class="col-md-6">
             <div class="row mb-5">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <form action="{{ route('update_all_cart') }}" method="post">
+                    {{-- <form action="{{ route('update_all_cart') }}" method="post">
                         @csrf
                         {{ method_field('patch') }}
-                        <button type="submit" class="btn btn-black btn-sm btn-block">Update Cart</button>
-                    </form>
+                        <button onclick="document.querySelector('.update-form').submit();" name="update" class="btn btn-black btn-sm btn-block">Update Cart</button>
+
+                    </form> --}}
+                    <input type="button" class="vmicon vm2-add_quantity_cart" id="updateall"/>
+                    <?php
+                    $js = "
+                    
+                        jQuery(document).ready(function($) {
+                        //Update all quantities
+                        $('#updateall').click(function() {
+                        //Find order item lines forms
+                        $('form').has('input[name=task][value=update]').each(function() {
+                        var editForm = $(this);
+                        $.ajax(editForm.attr('action'),
+                        {
+                        //we need to submit these forms asynchronously
+                        async: false,
+                        data:editForm.serialize()
+                        });
+                        //Finaly relad the page to see the changes
+                        location.reload();
+                        });
+                        })
+                        });
+                        ";
+                        JFactory::getDocument()->addScriptDeclaration($js);
+                    ?>
                 </div>
                 <div class="col-md-6">
                 <a class="btn btn-outline-black btn-sm btn-block">Continue Shopping</a>
