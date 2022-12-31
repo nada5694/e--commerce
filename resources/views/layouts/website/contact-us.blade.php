@@ -16,7 +16,7 @@ contact us
         </div>
     </div>
 
-    <div class="untree_co-section">
+    <div class="fashion_gate-section">
         <div class="container">
 
         <div class="row mb-5">
@@ -82,9 +82,9 @@ contact us
 
 
         </div>
-    </div> <!-- /.untree_co-section -->
+    </div> <!-- /FASHION GATE -->
 
-    <div class="untree_co-section bg-light">
+    <div class="fashion_gate-section bg-light">
         <div class="container">
         <div class="row align-items-stretch">
             <div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-0">
@@ -127,6 +127,6 @@ contact us
             </div>
         </div>
         </div>
-    </div> <!-- /.untree_co-section -->
+    </div> <!-- /FASHION GATE -->
 
 @endsection

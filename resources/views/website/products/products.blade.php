@@ -7,7 +7,7 @@ Products
 @section('content')
 
 @include('layouts.website.Errors')
-    <div class="untree_co-section pt-10">
+    <div class="fashion_gate-section pt-10">
         <div class="container">
 
         <div class="row align-items-center mb-5">
@@ -15,19 +15,6 @@ Products
             <h2 class="mb-3 mb-lg-0">Products</h2>
             </div>
             <div class="col-lg-4">
-
-            <div class="d-flex sort align-items-center justify-content-lg-end">
-                <strong class="mr-3">Sort by:</strong>
-                <form action="#">
-                <select class="" required>
-                    <option value="">Newest Items</option>
-                    <option value="1">Best Selling</option>
-                    <option value="2">Price: Ascending</option>
-                    <option value="2">Price: Descending</option>
-                    <option value="3">Rating(High to Low)</option>
-                </select>
-                </form>
-            </div>
             </div>
         </div>
 
@@ -116,7 +103,7 @@ Products
         </div>
         </div>
 
-        <div class="untree_co-section">
+        <div class="fashion_gate-section">
             <div class="container">
                 <div class="row mb-5 align-items-center">
                     <div class="col-md-6">
@@ -174,10 +161,10 @@ Products
                     @endforelse
                 </div>
             </div> <!-- /.container -->
-        </div> <!-- /.untree_co-section -->
+        </div> <!-- /FASHION GATE -->
 
 
-        <div class="untree_co-section bg-light">
+        <div class="fashion_gate-section bg-light">
         <div class="container">
             <div class="row align-items-stretch">
             <div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-0">

@@ -117,11 +117,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
       color: #ffffff; }
   .btn.btn-outline-white {
     border-color: #ffffff;
-    color: #ffffff; }
-    .btn.btn-outline-white:hover {
-      background: #ffffff;
-      color: #000000; }
-
+    color: #ffffff;
+}
+.btn.btn-outline-white:hover {
+    background: #ffffff;
+    color: #000000;
+}
 .form-control, .custom-select {
   border: none;
   font-size: 16px;
@@ -129,7 +130,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   background: transparent;
   border: 1px solid #43434d;
   border-radius: 0;
-  color: #000000; }
+  color: #000000;
+}
   .form-control:active, .form-control:focus, .custom-select:active, .custom-select:focus {
     color: #000000;
     border-color: #b84592;
@@ -151,6 +153,16 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 .login-container {
     margin-top: 100px;
 }
+/* -------------- verify.blade --------------  */
+.verify-col {
+    margin-top: 150px;
+}
+.verify-card-header {
+    background-color: black;
+    color: snow;
+    font-weight:bold;
+}
+/* ------------- End verify.blade -------------  */
 .gutter-v1 {
   margin-right: -20px;
   margin-left: -20px; }
@@ -1015,15 +1027,15 @@ div .alert {
 .burger:focus {
   outline: none; }
 
-.untree_co-hero, .bg-img {
+.fashion-gate-hero, .bg-img {
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
   position: relative;
 }
-  .untree_co-hero.overlay, .bg-img.overlay {
+  .fashion-gate-hero.overlay, .bg-img.overlay {
     position: relative; }
-    .untree_co-hero.overlay:before, .bg-img.overlay:before {
+    .fashion-gate-hero.overlay:before, .bg-img.overlay:before {
       position: absolute;
       content: "";
       top: 0;
@@ -1032,65 +1044,65 @@ div .alert {
       bottom: 0;
       background: rgba(0, 0, 0, 0.4);
       z-index: 1; }
-  .untree_co-hero > .container, .bg-img > .container {
+  .fashion-gate-hero > .container, .bg-img > .container {
     position: relative;
     z-index: 2; }
-  .untree_co-hero, .untree_co-hero > .container > .row, .bg-img, .bg-img > .container > .row {
+  .fashion-gate-hero, .fashion-gate-hero > .container > .row, .bg-img, .bg-img > .container > .row {
     height: 100vh;
     min-height: 650px; }
     @media (max-width: 767.98px) {
-      .untree_co-hero, .untree_co-hero > .container > .row, .bg-img, .bg-img > .container > .row {
+      .fashion-gate-hero, .fashion-gate-hero > .container > .row, .bg-img, .bg-img > .container > .row {
         min-height: 750px; } }
-  .untree_co-hero .caption, .bg-img .caption {
+  .fashion-gate-hero .caption, .bg-img .caption {
     text-transform: uppercase;
     color: #ffffff;
     font-size: 12px;
     font-weight: 900;
     letter-spacing: .1rem; }
-  .untree_co-hero .heading, .bg-img .heading {
+  .fashion-gate-hero .heading, .bg-img .heading {
     font-size: 45px;
     font-weight: 700;
     line-height: 1.4; }
     @media (max-width: 991.98px) {
-      .untree_co-hero .heading, .bg-img .heading {
+      .fashion-gate-hero .heading, .bg-img .heading {
         font-size: 30px; } }
-  .untree_co-hero .link-highlight, .bg-img .link-highlight {
+  .fashion-gate-hero .link-highlight, .bg-img .link-highlight {
     color: #ffffff;
     position: relative;
     display: inline;
     -webkit-box-shadow: 0 5px 0 0 #b84592;
     box-shadow: 0 5px 0 0 #b84592; }
-  .untree_co-hero .desc, .bg-img .desc {
+  .fashion-gate-hero .desc, .bg-img .desc {
     font-size: 18px;
     max-width: 450px; }
     @media (max-width: 991.98px) {
-      .untree_co-hero .desc, .bg-img .desc {
+      .fashion-gate-hero .desc, .bg-img .desc {
         margin: 0 auto; } }
-  .untree_co-hero .cta-section, .untree_co-hero .cta-section > .container > .row, .bg-img .cta-section, .bg-img .cta-section > .container > .row {
+  .fashion-gate-hero .cta-section, .fashion-gate-hero .cta-section > .container > .row, .bg-img .cta-section, .bg-img .cta-section > .container > .row {
     height: 70vh;
     min-height: 450px; }
 
-.untree_co-section {
+.fashion_gate-section {
     padding: 100px 0;
     position: relative;
     margin-top: 5%;
 }
 @media (max-width: 991.98px) {
-    .untree_co-section {
+    .fashion_gate-section {
         padding: 50px 0;
         margin-top: 10%;
     }
 }
-.untree_co-section .heading h3 {
+.fashion_gate-section .heading h3 {
     font-size: 35px;
     color: #000000;
 }
 @media (max-width: 991.98px) {
-    .untree_co-section .heading {
+    .fashion_gate-section .heading {
         font-size: 20px;
     }
 }
-.untree_co-section .heading strong {
+.fashion_gate-section .heading strong {
     font-weight: 700;
 }
 .position-relative {
@@ -1546,7 +1558,7 @@ position: relative;
     .custom-pagination ul li > span:hover {
       border-color: #ccc; }
 
-.untree_co-section .h3 {
+.fashion_gate-section .h3 {
   font-size: 20px; }
 
 .page-heading, .page-heading > .container > .row {

@@ -25,7 +25,7 @@
     </div>
 @endif
 
-<div class="untree_co-section">
+<div class="fashion_gate-section">
     <div class="container">
         <div class="row mb-5 cart_page" >
             {{-- <form class="col-md-12" method="post"> --}}
@@ -109,15 +109,7 @@
             <div class="col-md-6">
             <div class="row mb-5">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    {{-- <form action="{{ route('update_all_cart') }}" method="post">
-                        @csrf
-                        {{ method_field('patch') }}
-                        <button onclick="document.querySelector('.update-form').submit();" name="update" class="btn btn-black btn-sm btn-block">Update Cart</button>
-
-                    </form> --}}
-                </div>
-                <div class="col-md-6">
-                <a class="btn btn-outline-black btn-sm btn-block">Continue Shopping</a>
+                    <a href="{{ route('product') }}" class="btn btn-outline-black btn-sm btn-block">Continue Shopping</a>
                 </div>
             </div>
             <div class="row">
@@ -168,7 +160,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                    <a href="{{ route('checkout') }}" <button class="btn btn-black btn-lg py-3 btn-block"> Proceed To Checkout </button> </a>
+                    <a href="javascript:void(0);"> <button class="btn btn-black btn-lg py-3 btn-block"> Proceed To Checkout </button> </a>
                     </div>
                 </div>
                 </div>
@@ -179,7 +171,7 @@
     </div>
 
 
-    <div class="untree_co-section bg-light">
+    <div class="fashion_gate-section bg-light">
         <div class="container">
         <div class="row align-items-stretch">
             <div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-0">
@@ -222,7 +214,7 @@
             </div>
         </div>
         </div>
-    </div> <!-- /.untree_co-section -->
+    </div> <!-- /FASHION GATE -->
 @endsection
 
 @section('scripts')

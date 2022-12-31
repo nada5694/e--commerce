@@ -67,7 +67,7 @@ Route::get('/Forget-Password', [ForgotPasswordController::class, 'index'])->name
 /*------------------ End Forgot Password Route ------------------ */
 
 /*------------------ Start Verification Route ------------------ */
-Route::get('/Verification', [VerificationController::class, 'index'])->name('verification');
+Route::get('/email-verification', [VerificationController::class, 'index'])->name('verification');
 /*------------------ End Verification Route ------------------ */
 
 /*------------------ Start Carts Route ------------------ */

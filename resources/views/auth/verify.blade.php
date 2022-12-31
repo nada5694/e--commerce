@@ -1,11 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.website.master')
+
+@section('title')
+    Email Verification
+@endsection
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 verify-col">
             <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+                <div class="card-header text-center verify-card-header" style="">{{ __('Verify Your Email Address') }}</div>
 
                 <div class="card-body">
                     @if (session('resent'))
