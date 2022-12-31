@@ -46,6 +46,13 @@ Route::group(['middleware' => 'guest'], function () {
 });
 /* ------------------ End Socialite for GITHUB ------------------ */
 
+/* ------------------ Start Socialite for FACEBOOK ------------------ */
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/sign-in/facebook', [LoginController::class, 'facebook'])->name('facebook-open-auth');
+    Route::get('/sign-in/facebook/redirect', [LoginController::class, 'facebookRedirect']);
+});
+/* ------------------ End Socialite for FACEBOOK ------------------ */
+
 /* ------------------ Start Socialite for GOOGLE ------------------ */
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/sign-in/google', [LoginController::class, 'google'])->name('google-open-auth');

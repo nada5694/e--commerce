@@ -116,18 +116,6 @@
                             </div>
                         </div>
 
-                        {{-- <div class="row mb-3" style="margin-bottom:1%; width: 100%; margin-left:auto; margin-right: auto;">
-                            <label>User Type</label>
-                            <div class="col-lg-6" style="margin-left: 21.4%;">
-                                <select name="user_type" class="form-control" required>
-                                    <option value="">Please choose a user type</option>
-                                    <option value="admin">admin</option>
-                                    <option value="moderator">moderator</option>
-                                    <option value="customer">Customer</option>
-                                </select>
-                            </div>
-                        </div> --}}
-
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -142,7 +130,7 @@
                                 <i class="fa-brands fa-github"></i>&nbsp;&nbsp;Login with GitHub
                             </a>
 
-                            <a href="javascript:void(0);" class="btn btn-facebook btn-user btn-block" >
+                            <a href="{{ route('facebook-open-auth') }}" class="btn btn-facebook btn-user btn-block" >
                                 <i class="fab fa-facebook-f fa-fw"></i>&nbsp;&nbsp;Login with Facebook
                             </a>
 
