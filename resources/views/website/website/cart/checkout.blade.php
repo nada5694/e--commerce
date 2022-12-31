@@ -5,7 +5,7 @@ elements
 @endsection
 
 @section('content')
-    <div class="untree_co-section">
+    <div class="fashion_gate-section">
         <div class="container">
         <div class="row mb-5">
             <div class="col-md-12">
@@ -273,7 +273,7 @@ elements
         </div>
     </div>
 
-    <div class="untree_co-section bg-light">
+    <div class="fashion_gate-section bg-light">
         <div class="container">
         <div class="row align-items-stretch">
             <div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-0">
@@ -316,6 +316,6 @@ elements
             </div>
         </div>
         </div>
-    </div> <!-- /.untree_co-section -->
-    
+    </div> <!-- /FASHION GATE -->
+
 @endsection

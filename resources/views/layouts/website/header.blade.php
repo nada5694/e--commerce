@@ -16,13 +16,7 @@
                 <ul class="js-clone-nav pl-0 d-none d-lg-inline-block site-menu">
                     <li ><a href="{{ route('home') }}">Home</a></li>
                     <li class="has-children">
-                        <a href="{{ route('product') }}">Shop <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="dropdown">
-                            <li><a href="#">T-Shirt</a></li>
-                            <li><a href="#">Clothing</a></li>
-                            <li><a href="#">Watches</a></li>
-                            <li><a href="#">Shoes</a></li>
-                        </ul>
+                        <a href="{{ route('product') }}">Shop</a>
                     </li>
                     <li class="has-children">
                         <a href="javascript:void(0);">Pages <i class="fa-solid fa-chevron-down"></i></a>
@@ -55,8 +49,6 @@
                                             <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                                         @endif
                                     @endauth
-                                    <a class="dropdown-item" href="javascript:void(0);">xxx</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">yyy</a>
                             </div>
                         </li>
                     @else
@@ -68,7 +60,6 @@
                     </li>
 
                     @auth
-
                         @if (auth()->user()->user_type == "customer")
                             <li>
                                 <a href="{{ route('Cart') }}" class="cart">
@@ -112,6 +103,6 @@
                         </div>
                     </li>
                 </ul>
-        </div>
+            </div>
     </div>
 </nav>
